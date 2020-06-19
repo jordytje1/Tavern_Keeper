@@ -1,0 +1,63 @@
+require("dotenv").config()
+const Discord = require("discord.js")
+const client = new Discord.Client()
+
+const {prefix,bot_info} = require("./config.json")
+
+client.on("ready", () => {
+  console.log(`Logged in as ${client.user.tag}!`)
+})
+
+client.on("ready", () => {
+  console.log(prefix);
+  console.log(bot_info.name);
+});
+
+
+client.on("message", msg => {
+  if (msg.content === `${prefix}ping`) {
+    msg.reply("Pong!")
+  }
+  else if(msg.content === "Hi") {
+    msg.reply("Hello!")
+  }
+})
+
+client.on("message", message => {
+  if (message.content.startsWith(`${prefix}kick`)) {
+    const member = message.mentions.members.first()
+    if (!member) {
+      return message.reply(
+        `Who are you trying to kick? You must mention a user.`
+      )
+    }
+    if (!member.kickable) {
+      return message.reply(`I can't kick this user. Sorry!`)
+    }
+    return member
+      .kick()
+      .then(() => message.reply(`${member.user.tag} was kicked.`))
+      .catch(error => message.reply(`Sorry, an error occured.`))
+  }
+})
+
+client.on("message", message => {
+  if (msg.content.startsWith(`${prefix}ban`)) {
+    const member = message.mentions.members.first()
+
+    if (!member) {
+      msg.reply(`Who are you trying to ban? You must mention a user.`)
+    }
+
+    if (!member.bannable) {
+      msg.reply(`I can't ban this user. Sorry!`)
+    }
+
+    return member
+      .ban()
+      .then(() => msg.reply(`${member.user.tag} was banned.`))
+      .catch(error => msg.reply(`Sorry, an error occured.`))
+  }
+})
+
+client.login(process.env.BOT_TOKEN)
