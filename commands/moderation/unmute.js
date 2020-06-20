@@ -46,20 +46,19 @@ module.exports = {
             .setAuthor(`Member Unmuted` , `${member.user.displayAvatarURL()}`)
             .setColor(`GREEN`)
             .setThumbnail(`${member.user.displayAvatarURL()}`)
-            .setDescription(`**${member.user.tag} was unmuted by ${message.author.tag}.\nReason:** ${Reason}`)
+            .addFields(
+                {name: 'Unmuted User', value: `${member.user} ID: ${member.id}`},
+                {name: 'Unmuted By', value: `${message.author} ID: ${message.author.id}`},
+                {name: 'Unmuted In', value: message.channel},
+                {name: 'Reason', value: Reason},)
             .setTimestamp()
-            .setFooter(`User ID: ${member.user.id}`)
+            .setFooter('Unmuted at')
         channel.send(tEmbed);
 
             const Embed = new MessageEmbed()
             .setDescription(`**${member.user.tag} was unmuted. |** ${Reason}`)
             .setColor('GREEN')
         message.channel.send(Embed).then (message.delete());
-
-        const sEmbed = new MessageEmbed()
-            .setDescription(`**You were unmuted in ${message.guild.name}. |** ${Reason}`)
-            .setColor(`GREEN`)
-        member.send(sEmbed)
         }
     },
   };

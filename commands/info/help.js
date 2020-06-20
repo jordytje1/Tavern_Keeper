@@ -20,7 +20,7 @@ module.exports = {
     .setTimestamp()
     .setFooter(`${client.user.username}'s Help'`, `${client.user.avatarURL()}`)
     .addFields(
-      {name:'Fun', value:'`8ball` `dog` `giveaway` `meme` `roll` `say`'},
+      {name:'Fun', value:' `8ball` `dog` `giveaway` `meme` `roll` `say` `cat`'},
       {name:'Info', value:'`avatar` `help` `ping` `stats` `uptime`'},
       {name:'Moderation', value:'`ban` `clear` `kick` `mute` `report` `tempmute` `unmute`'},
       {name:'Utility', value:'`slowmode`'},

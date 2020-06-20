@@ -64,9 +64,14 @@ module.exports = {
                 .setAuthor(`Member Tempmuted` , `${member.user.displayAvatarURL()}`)
                 .setColor(`RED`)
                 .setThumbnail(`${member.user.displayAvatarURL()}`)
-                .setDescription(`**${member.user.tag} was tempmuted by ${message.author.tag} for ${ms(ms(time))}.\nReason:** ${Reason}`)
+                .addFields(
+                    {name: 'Tempmuted User', value: `${member.user} ID: ${member.id}`},
+                    {name: 'Tempmuted By', value: `${message.author} ID: ${message.author.id}`},
+                    {name: 'Tempmuted In', value: message.channel},
+                    {name: 'Duration', value: `${ms(ms(time))}`},
+                    {name: 'Reason', value: Reason},)
                 .setTimestamp()
-                .setFooter(`User ID: ${member.user.id}`)
+                .setFooter(`Tempmuted at`)
             channel.send(tEmbed);
 
                 const Embed = new MessageEmbed()
@@ -88,20 +93,20 @@ module.exports = {
                 .setAuthor(`Member Unmuted` , `${member.user.displayAvatarURL()}`)
                 .setColor(`GREEN`)
                 .setThumbnail(`${member.user.displayAvatarURL()}`)
-                .setDescription(`**${member.user.tag} was unmuted by ${message.author.tag}.\nReason:** Temporary mute completed`)
+                .addFields(
+                    {name: 'Unmuted User', value: `${member.user} ID: ${member.id}`},
+                    {name: 'Unmuted By', value: `${client.user} ID: ${client.user.id}`},
+                    {name: 'Unmuted In', value: message.channel},
+                    {name: 'Duration', value: `${ms(ms(time))}`},
+                    {name: 'Reason', value: 'Temporary mute completed'},)
                 .setTimestamp()
-                .setFooter(`User ID: ${member.user.id}`)
+                .setFooter('Unmuted at')
             channel.send(tEmbed);
 
                 const Embed = new MessageEmbed()
                 .setDescription(`**${member.user.tag} was unmuted. |** Temporary mute completed`)
                 .setColor('GREEN')
                 message.channel.send(Embed);
-
-                const sEmbed = new MessageEmbed()
-                .setDescription(`**You were unmuted in ${message.guild.name}. |** Temporary mute completed`)
-                .setColor(`GREEN`)
-                member.send(sEmbed)
             }, ms(time));
     },
   };

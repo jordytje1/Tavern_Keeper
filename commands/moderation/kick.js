@@ -51,19 +51,18 @@ module.exports = {
             .setAuthor(`Member Kicked` , `${member.user.displayAvatarURL()}`)
             .setColor(`RED`)
             .setThumbnail(`${member.user.displayAvatarURL()}`)
-            .setDescription(`**${member.user.tag} was kicked by ${message.author.tag}.\nReason:** ${Reason}`)
+            .addFields(
+                {name: 'Kicked User', value: `${member.user} ID: ${member.id}`},
+                {name: 'Kicked By', value: `${message.author} ID: ${message.author.id}`},
+                {name: 'Kicked In', value: message.channel},
+                {name: 'Reason', value: Reason},)
             .setTimestamp()
-            .setFooter(`User ID: ${member.user.id}`)
+            .setFooter(`Kicked at`)
         channel.send(Embed);
 
         const kEmbed = new MessageEmbed()
             .setDescription(`**${member.user.tag} was kicked. |** ${Reason}`)
             .setColor(`GREEN`)
         message.channel.send(kEmbed).then (message.delete());
-
-        const sEmbed = new MessageEmbed()
-            .setDescription(`**You were kicked from ${message.guild.name}. |** ${Reason}`)
-            .setColor(`RED`)
-        member.send(sEmbed)
     }
 }

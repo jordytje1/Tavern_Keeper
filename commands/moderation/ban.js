@@ -51,19 +51,18 @@ module.exports = {
             .setAuthor(`Member Banned` , `${member.user.displayAvatarURL()}`)
             .setColor(`RED`)
             .setThumbnail(`${member.user.displayAvatarURL()}`)
-            .setDescription(`**${member.user.tag} was banned by ${message.author.tag}.\nReason:** ${Reason}`)
+            .addFields(
+                {name: 'Banned User', value: `${member.user} ID: ${member.id}`},
+                {name: 'Banned By', value: `${message.author} ID: ${message.author.id}`},
+                {name: 'Banned In', value: message.channel},
+                {name: 'Reason', value: Reason},)
             .setTimestamp()
-            .setFooter(`User ID: ${member.user.id}`)
+            .setFooter(`Banned at`)
         channel.send(Embed);
         
         const bEmbed = new MessageEmbed()
             .setDescription(`**${member.user.tag} was banned. |** ${Reason}`)
             .setColor(`GREEN`)
         message.channel.send(bEmbed).then (message.delete())
-        
-        const sEmbed = new MessageEmbed()
-            .setDescription(`**You were banned from ${message.guild.name}. |** ${Reason}`)
-            .setColor(`RED`)
-        member.send(sEmbed)
     }
 }

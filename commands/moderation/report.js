@@ -40,10 +40,10 @@ module.exports = {
         .setAuthor(`New User Reported`)
         .setColor(`RED`)
         .addFields(
-            { name: "Reported User", value: `${member.user} ID: ${member.id}`},
-            { name: "Reported by", value: `${message.author} ID: ${message.author.id}`},
-            { name: "Reason", value: `${Reason}` },
-          )
+            {name: 'Reported User', value: `${member.user} ID: ${member.id}`},
+            {name: 'Reported By', value: `${message.author} ID: ${message.author.id}`},
+            {name: 'Reported In', value: message.channel},
+            {name: 'Reason', value: Reason},)
         .setThumbnail(member.user.displayAvatarURL())
         .setTimestamp()
         .setFooter(`Reported at`)

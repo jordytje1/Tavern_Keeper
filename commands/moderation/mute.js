@@ -57,20 +57,19 @@ module.exports = {
             .setAuthor(`Member Muted` , `${member.user.displayAvatarURL()}`)
             .setColor(`RED`)
             .setThumbnail(`${member.user.displayAvatarURL()}`)
-            .setDescription(`**${member.user.tag} was muted by ${message.author.tag}.\nReason:** ${Reason}`)
+            .addFields(
+                {name: 'Muted User', value: `${member.user} ID: ${member.id}`},
+                {name: 'Muted By', value: `${message.author} ID: ${message.author.id}`},
+                {name: 'Muted In', value: message.channel},
+                {name: 'Reason', value: Reason},)
             .setTimestamp()
-            .setFooter(`User ID: ${member.user.id}`)
+            .setFooter(`Muted at`)
         channel.send(Embed);
 
         const mEmbed = new MessageEmbed()
             .setDescription(`**${member.user.tag} was muted. |** ${Reason}`)
             .setColor(`GREEN`)
         message.channel.send(mEmbed).then (message.delete())
-
-        const sEmbed = new MessageEmbed()
-            .setDescription(`**You were muted in ${message.guild.name}. |** ${Reason}`)
-            .setColor(`RED`)
-        member.send(sEmbed)
         }
     },
   };

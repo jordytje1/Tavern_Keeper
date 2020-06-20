@@ -66,7 +66,7 @@ client.on('message', message => {
   }
 });
 
-client.login(token);
+client.login(process.env.token);
 client.on("ready", () => {
     client.user.setActivity(`${prefix}help`, { type: 'PLAYING' })
     console.log(`Logged in as ${client.user.tag}`);

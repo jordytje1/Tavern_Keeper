@@ -26,7 +26,7 @@ module.exports = {
         }
 
         let Reason =  message.content.split(" ").slice(2).join(" ");
-        if (!Reason) 
+        if (!Reason)
         return message.reply(
             'You are not allowed to clear messages without a reason.'
             );
@@ -34,11 +34,12 @@ module.exports = {
         message.channel.bulkDelete(amount, true);
             const channel = client.channels.cache.get('720997712602071098');
             const Embed = new MessageEmbed()
-            .setAuthor(`${message.author.tag}` , `${message.author.displayAvatarURL()}`)
+            .setAuthor(`Bulk Deleted` , `${message.author.displayAvatarURL()}`)
             .setColor(`RED`)
-            .setDescription(
-                `**Bulk message deleted in <#${message.channel.id}>, ${args[0]} messages deleted**`
-            )
+            .addFields(
+                {name: 'Bulk Delete by', value: `${message.author} ID: ${message.author.id}`},
+                {name: 'Bulk Delete In', value: message.channel},
+                {name: 'Reason', value: Reason},)
             .setTimestamp()
             .setFooter(`User ID: ${message.author.id}`)
         channel.send(Embed);
