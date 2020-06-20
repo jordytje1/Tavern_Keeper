@@ -5,7 +5,7 @@ module.exports = {
 	category: 'moderation',
 	description: 'Clear up to 99 messages in a specified channel',
 	aliases: ['purge', ' prune'],
-	usage: '>clear',
+	usage: '>clear <amount>',
 	guildOnly: true,
 	run: async (client, message, args) => {
 		if(!message.member.hasPermission('MANAGE_MESSAGES')) {
