@@ -1,6 +1,7 @@
 require("dotenv").config()
 const { Client, Collection } = require("discord.js");
 const {prefix, token, version } = process.env
+const fs = require("fs");
 
 const client = new Client({
     disableEveryone: true
@@ -8,6 +9,7 @@ const client = new Client({
 
 client.commands = new Collection();
 client.aliases = new Collection();
+client.categories = fs.readdirSync("./commands/");
 
 ["command"].forEach(handler => {
     require(`./handlers/${handler}`)(client);
