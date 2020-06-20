@@ -2,7 +2,7 @@ const { MessageEmbed } = require('discord.js');
 
 module.exports = {
 	name: 'clear',
-	category: 'Moderation',
+	category: 'moderation',
 	description: 'Clear up to 99 messages in a specified channel',
 	aliases: ['purge', ' prune'],
 	usage: '>clear',

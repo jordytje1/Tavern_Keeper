@@ -1,57 +1,77 @@
 const { MessageEmbed } = require('discord.js');
 const { stripIndents } = require('common-tags');
+const prefix = process.env.prefix;
 
 module.exports = {
 	name: 'help',
-	category: 'Info',
-	description: 'List all of my commands or info about a specific command.',
-	aliases: ['commands'],
+	aliases: ['h', 'commands'],
+	category: 'info',
+	description: 'Returns all commands, or one specific command info',
 	usage: '>help | >help [command]',
 	run: async (client, message, args) => {
-		if (!args[0]) {
-			const embed = new MessageEmbed().setColor('BLUE');
-
-			const commands = (category) => {
-				return client.commands
-					.filter((cmd) => cmd.category === category)
-					.map((cmd) => `- \`${cmd.name}\``)
-					.join(' ');
-			};
-
-			const info = client.categories
-				.map(
-					(cat) =>
-						stripIndents`**${cat[0].toUpperCase() + cat.slice(1)}** \n${commands(
-							cat,
-						)}`,
-				)
-				.reduce((string, category) => string + '\n' + category);
-
-			return message.channel.send(embed.setDescription(info));
+		if (args[0]) {
+			return getCMD(client, message, args[0]);
 		}
 		else {
-			const cmd = args[0];
-
-			if (client.commands.has(cmd) || client.commands.get(client.aliases.get(cmd))) {
-				const command = client.commands.get(cmd) || client.commands.get(client.aliases.get(cmd));
-				const embed = new MessageEmbed()
-					.setTitle('Command Info')
-					.setColor('BLUE')
-					.setTimestamp()
-					.setFooter('Syntax: <> = required, [] = optional', `${client.user.avatarURL()}`)
-					.addFields(
-						{ name: 'Name:', value: `${command.name}` },
-						{ name: 'Catergory:', value: `${command.category}` },
-						{ name: 'Description:', value: `${command.description}` },
-						{ name: 'Usage:', value: `${command.usage}` },
-						{ name: 'Aliases:', value: `${command.aliases.join(', ')}` || 'None' },
-					);
-
-				return message.channel.send(embed);
-			}
-			else {
-				return message.channel.send({ embed: { color: 'RED', description: 'Unknown command.' } });
-			}
+			return getAll(client, message);
 		}
 	},
 };
+
+function getAll(client, message) {
+	const embed = new MessageEmbed()
+		.setTitle(`${client.user.username}'s Commands`)
+		.setFooter(`${client.user.username}'s Help`, `${client.user.avatarURL()}`)
+		.setTimestamp()
+		.setColor('BLUE');
+
+
+	const commands = (category) => {
+		return client.commands
+			.filter((cmd) => cmd.category === category)
+			.map((cmd) => `- \`${cmd.name}\``)
+			.join(' ');
+	};
+
+	const info = client.categories
+		.map(
+			(cat) =>
+				stripIndents`${cat[0].toUpperCase() + cat.slice(1)} \n${commands(
+					cat,
+				)}`,
+		)
+		.reduce((string, category) => string + '\n' + category);
+
+	return message.channel.send(
+		embed.setDescription(`This server's prefix is \`${prefix}\`.\nFor more info on a specific command, type \`${prefix}help <command name>\`.\n\n${info}`),
+	);
+}
+
+function getCMD(client, message, input) {
+	const embed = new MessageEmbed();
+
+	const cmd =
+    client.commands.get(input.toLowerCase()) ||
+    client.commands.get(client.aliases.get(input.toLowerCase()));
+
+	const info = `No information found for command ${input.toLowerCase()}`;
+
+	if (!cmd) {
+		return message.channel.send(embed.setColor('BLUE').setDescription(info));
+	}
+	else{
+		const hembed = new MessageEmbed()
+			.setTitle('Command Info')
+			.setColor('BLUE')
+			.setTimestamp()
+			.setFooter('Syntax: <> = required, [] = optional', `${client.user.avatarURL()}`)
+			.addFields(
+				{ name: 'Name:', value: `${cmd.name}` },
+				{ name: 'Catergory:', value: `${cmd.category}` },
+				{ name: 'Description:', value: `${cmd.description}` },
+				{ name: 'Usage:', value: `${cmd.usage}` },
+				{ name: 'Aliases:', value: `${cmd.aliases.map((a) => `\`${a}\``).join(', ')}` || 'None' },
+			);
+		message.channel.send(hembed);
+	}
+}

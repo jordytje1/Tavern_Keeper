@@ -3,7 +3,7 @@ const prefix = process.env.prefix;
 
 module.exports = {
 	name: 'verify',
-	category: 'Misc',
+	category: 'misc',
 	description: 'Give the user the Verified role.',
 	aliases: [],
 	usage: '[command name]',

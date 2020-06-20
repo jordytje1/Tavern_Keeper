@@ -1,6 +1,6 @@
 module.exports = {
 	name: '8ball',
-	category: 'Fun',
+	category: 'fun',
 	description: 'There is a big chance I insult you!',
 	aliases: ['ask'],
 	usage: '>8ball <question>',

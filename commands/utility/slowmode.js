@@ -1,7 +1,7 @@
 module.exports = {
 	name: 'slowmode',
 	aliases: ['slow'],
-	category: 'Utility',
+	category: 'utility',
 	description: 'Set the slowmode for a specific channel.',
 	usage: '>slowmode <seconds> ',
 	run: async (bot, message, args) => {

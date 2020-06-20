@@ -2,7 +2,7 @@ const { MessageEmbed } = require('discord.js');
 
 module.exports = {
 	name: 'mute',
-	category: 'Moderation',
+	category: 'moderation',
 	description: 'Mute a specified user.',
 	aliases: ['silent'],
 	usage: '>mute <@user> <reason>',

@@ -5,7 +5,7 @@ const PREFIX = process.env.PREFIX;
 
 module.exports = {
 	name: 'stats',
-	category: 'Info',
+	category: 'info',
 	description: 'Display info about this server or a tagged user.',
 	aliases: [ 'info' ],
 	usage: '>stats | >stats [@user] | >stats [user_id]',

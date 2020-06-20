@@ -2,7 +2,7 @@ const { MessageEmbed } = require('discord.js');
 
 module.exports = {
 	name: 'kick',
-	category: 'Moderation',
+	category: 'moderation',
 	description: 'Kick a specified user from the server.',
 	aliases: [],
 	usage: '>kick <@user> <reason>',

@@ -4,7 +4,7 @@ const randomPuppy = require('random-puppy');
 
 module.exports = {
 	name: 'dog',
-	category: 'Fun',
+	category: 'fun',
 	description: 'Get a random picture of a dog from reddit.',
 	aliases: ['dogs', 'doggo', 'puppy', 'puppies'],
 	usage: '>dog',

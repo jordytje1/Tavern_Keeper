@@ -2,7 +2,7 @@ const { MessageEmbed } = require('discord.js');
 
 module.exports = {
 	name: 'report',
-	category: 'Moderation',
+	category: 'moderation',
 	description: 'Report a user who is breaking the rules.',
 	aliases: [],
 	usage: '>report <@user> <reason>',

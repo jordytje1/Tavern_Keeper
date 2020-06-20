@@ -1,6 +1,6 @@
 module.exports = {
 	name: 'say',
-	category: 'Fun',
+	category: 'fun',
 	description: 'Get the bot to say what ever you want.',
 	aliases: [],
 	usage: '>say <message>',

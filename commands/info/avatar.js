@@ -3,7 +3,7 @@ const { MessageEmbed } = require('discord.js');
 
 module.exports = {
 	name: 'avatar',
-	category: 'Info',
+	category: 'info',
 	description: 'Get the avatar of the tagged user, or your own avatar.',
 	aliases: ['pfp', 'icon'],
 	usage: '>avatar | >avatar [@user]',

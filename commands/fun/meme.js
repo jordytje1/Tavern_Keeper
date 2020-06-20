@@ -4,7 +4,7 @@ const randomPuppy = require('random-puppy');
 
 module.exports = {
 	name: 'meme',
-	category: 'Fun',
+	category: 'fun',
 	description: 'Get a random meme from reddit.',
 	aliases: ['memes'],
 	usage: '>meme',

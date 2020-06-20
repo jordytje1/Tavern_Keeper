@@ -3,7 +3,7 @@ const ms = require('ms');
 
 module.exports = {
 	name: 'tempmute',
-	category: 'Moderation',
+	category: 'moderation',
 	description: 'Temporarily mute a specific user.',
 	aliases: ['tmute'],
 	usage: '>tempmute <@user> <time> <reason>',
