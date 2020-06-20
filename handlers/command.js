@@ -1,32 +1,33 @@
-const { readdirSync } = require("fs");
+const { readdirSync } = require('fs');
 
-const ascii = require("ascii-table");
+const ascii = require('ascii-table');
 
 // New Ascii table
-let table = new ascii("Commands");
-table.setHeading("Command", "Load status");
+const table = new ascii('Commands');
+table.setHeading('Command', 'Load status');
 
 module.exports = (client) => {
-    readdirSync("./commands/").forEach(dir => {
-        // Filter so we only have .js command files
-        const commands = readdirSync(`./commands/${dir}/`).filter(file => file.endsWith(".js"));
-    
-        for (let file of commands) {
-            let pull = require(`../commands/${dir}/${file}`);
-    
-            if (pull.name) {
-                client.commands.set(pull.name, pull);
-                table.addRow(file, '✅');
-            } else {
-                table.addRow(file, `❌  -> missing a help.name, or help.name is not a string.`);
-                continue;
-            }
+	readdirSync('./commands/').forEach(dir => {
+		// Filter so we only have .js command files
+		const commands = readdirSync(`./commands/${dir}/`).filter(file => file.endsWith('.js'));
 
-            if (pull.aliases && Array.isArray(pull.aliases)) pull.aliases.forEach(alias => client.aliases.set(alias, pull.name));
-        }
-    });
-    console.log(table.toString());
-}
+		for (const file of commands) {
+			const pull = require(`../commands/${dir}/${file}`);
+
+			if (pull.name) {
+				client.commands.set(pull.name, pull);
+				table.addRow(file, '✅');
+			}
+			else {
+				table.addRow(file, '❌  -> missing a help.name, or help.name is not a string.');
+				continue;
+			}
+
+			if (pull.aliases && Array.isArray(pull.aliases)) pull.aliases.forEach(alias => client.aliases.set(alias, pull.name));
+		}
+	});
+	console.log(table.toString());
+};
 
 /**
  Basic command layout
