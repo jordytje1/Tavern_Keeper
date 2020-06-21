@@ -11,6 +11,7 @@
   "dependencies": {
     "ascii-table": "0.0.9",
     "common-tags": "^1.8.0",
+    "custom-discord-jokes": "^1.0.3",
     "discord.js": "^12.2.0",
     "dotenv": "^8.2.0",
     "eslint": "^7.3.0",
@@ -18,7 +19,9 @@
     "moment": "^2.27.0",
     "moment-duration-format": "^2.3.2",
     "ms": "^2.1.2",
+    "node-gyp": "^7.0.0",
     "nodemon": "^2.0.4",
+    "quick-db": "^1.0.5",
     "random-puppy": "^1.1.0"
   }
 }
