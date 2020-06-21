@@ -1,14 +1,14 @@
 /* eslint-disable no-inner-declarations */
 /* eslint-disable no-mixed-spaces-and-tabs */
 const { MessageEmbed } = require('discord.js');
-const PREFIX = process.env.PREFIX;
+const PREFIX = process.env.prefix;
 
 module.exports = {
 	name: 'stats',
 	category: 'info',
 	description: 'Display info about this server or a tagged user.',
 	aliases: [ 'info' ],
-	usage: '>stats | >stats [@user] | >stats [user_id]',
+	usage: `${PREFIX}stats | ${PREFIX}stats [@user] | ${PREFIX}stats [user_id]`,
 	guildOnly: true,
 	  run: async (client, message) => {
 		const args = message.content.split(' ');

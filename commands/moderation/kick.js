@@ -1,11 +1,12 @@
 const { MessageEmbed } = require('discord.js');
+const prefix = process.env.prefix;
 
 module.exports = {
 	name: 'kick',
 	category: 'moderation',
 	description: 'Kick a specified user from the server.',
 	aliases: [],
-	usage: '>kick <@user> <reason>',
+	usage: `${prefix}kick <@user> <reason>`,
 	guildOnly: true,
 	run: async (client, message, args) => {
 		if(!message.member.hasPermission('KICK_MEMBERS')) {

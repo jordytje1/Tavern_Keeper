@@ -1,11 +1,12 @@
 const { MessageEmbed } = require('discord.js');
+const prefix = process.env.prefix;
 
 module.exports = {
 	name: 'ban',
 	category: 'moderation',
 	description: 'Ban a specified user from the server.',
 	aliases: [],
-	usage: '>ban <@user> <reason>',
+	usage: `${prefix}ban <@user> <reason>`,
 	guildOnly: true,
 	run: async (client, message, args) => {
 		if(!message.member.hasPermission('BAN_MEMBERS')) {

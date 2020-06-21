@@ -1,12 +1,13 @@
 /* eslint-disable no-unused-vars */
 const { MessageEmbed } = require('discord.js');
+const prefix = process.env.prefix;
 
 module.exports = {
 	name: 'avatar',
 	category: 'info',
 	description: 'Get the avatar of the tagged user, or your own avatar.',
 	aliases: ['pfp', 'icon'],
-	usage: '>avatar | >avatar [@user]',
+	usage: `${prefix}avatar | ${prefix}avatar [@user]`,
 	guildOnly: true,
 	run: async (client, message, args) => {
 		const user = message.mentions.users.first() || message.author;

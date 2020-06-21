@@ -6,7 +6,7 @@ module.exports = {
 	category: 'misc',
 	description: 'Give the user the Verified role.',
 	aliases: [],
-	usage: '[command name]',
+	usage: `${prefix}verify`,
 	guildOnly: true,
 	run: async (client, message, args) => {
 		if(message.author.bot) return;

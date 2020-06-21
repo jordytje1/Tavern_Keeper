@@ -1,9 +1,11 @@
+const prefix = process.env.prefix;
+
 module.exports = {
 	name: '8ball',
 	category: 'fun',
 	description: 'There is a big chance I insult you!',
 	aliases: ['ask'],
-	usage: '>8ball <question>',
+	usage: `${prefix}8ball <question>`,
 	guildOnly: true,
 	run: async (client, message, args) => {
 		const question = args.join(' ');

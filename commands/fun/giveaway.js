@@ -1,9 +1,11 @@
 const { MessageEmbed } = require('discord.js');
 const ms = require('ms');
+const prefix = process.env.prefix;
+
 module.exports = {
 	name: 'giveaway',
 	description: 'Create a simple giveaway',
-	usage: '<time> <channel> <prize>',
+	usage: `${prefix}giveaway <time> <channel> <prize>`,
 	category: 'fun',
 	run: async (bot, message, args) => {
 		if (!args[0]) return message.channel.send('You did not specify your time!');

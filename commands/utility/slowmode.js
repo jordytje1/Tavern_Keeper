@@ -1,9 +1,11 @@
+const prefix = process.env.prefix;
+
 module.exports = {
 	name: 'slowmode',
 	aliases: ['slow'],
 	category: 'utility',
 	description: 'Set the slowmode for a specific channel.',
-	usage: '>slowmode <seconds> ',
+	usage: `${prefix}slowmode <seconds>`,
 	run: async (bot, message, args) => {
 		if(!message.member.hasPermission('BAN_MEMBERS')) {
 			return message.reply(

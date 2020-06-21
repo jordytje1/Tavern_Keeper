@@ -1,11 +1,12 @@
 const { MessageEmbed } = require('discord.js');
+const prefix = process.env.prefix;
 
 module.exports = {
 	name: 'report',
 	category: 'moderation',
 	description: 'Report a user who is breaking the rules.',
 	aliases: [],
-	usage: '>report <@user> <reason>',
+	usage: `${prefix}report <@user> <reason>`,
 	guildOnly: true,
 	run: async (client, message, args) => {
 		const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username === args.slice(0).join(' ') || x.user.username === args[0]);

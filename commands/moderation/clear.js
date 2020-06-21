@@ -1,11 +1,12 @@
 const { MessageEmbed } = require('discord.js');
+const prefix = process.env.prefix;
 
 module.exports = {
 	name: 'clear',
 	category: 'moderation',
 	description: 'Clear up to 99 messages in a specified channel',
 	aliases: ['purge', ' prune'],
-	usage: '>clear <amount>',
+	usage: `${prefix}clear <amount>`,
 	guildOnly: true,
 	run: async (client, message, args) => {
 		if(!message.member.hasPermission('MANAGE_MESSAGES')) {

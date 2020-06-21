@@ -1,12 +1,13 @@
 /* eslint-disable no-unused-vars */
 const { MessageEmbed } = require('discord.js');
+const prefix = process.env.prefix;
 
 module.exports = {
 	name: 'ping',
 	category: 'info',
 	description: 'Returns the bot\'s latency and API ping',
 	aliases: ['latency'],
-	usage: '>ping',
+	usage: `${prefix}ping`,
 	run: async (client, message, args) => {
 		message.channel.send('🏓 Pinging....').then((msg) => {
 			const pEmbed = new MessageEmbed()

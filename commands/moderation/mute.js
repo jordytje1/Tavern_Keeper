@@ -1,11 +1,12 @@
 const { MessageEmbed } = require('discord.js');
+const prefix = process.env.prefix;
 
 module.exports = {
 	name: 'mute',
 	category: 'moderation',
 	description: 'Mute a specified user.',
 	aliases: ['silent'],
-	usage: '>mute <@user> <reason>',
+	usage: `${prefix}mute <@user> <reason>`,
 	guildOnly: true,
 	run: async (client, message, args) => {
 		if(!message.member.hasPermission('KICK_MEMBERS')) {
