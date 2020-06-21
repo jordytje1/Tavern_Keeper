@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow */
 const { MessageEmbed } = require('discord.js');
 const prefix = process.env.prefix;
 
@@ -47,6 +48,6 @@ module.exports = {
 		const cEmbed = new MessageEmbed()
 			.setDescription(`**Successfully cleared ${args[0]} messages.**`)
 			.setColor('GREEN');
-		message.channel.send(cEmbed);
+		message.channel.send(cEmbed).then(embed => {embed.delete({ timeout: 5000 });});
 	},
 };
