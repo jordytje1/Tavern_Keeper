@@ -10,33 +10,33 @@ module.exports = {
 	guildOnly: true,
 	run: async (client, message, args) => {
 		if(!message.member.hasPermission('KICK_MEMBERS')) {
-			return message.reply(
+			return message.channel.send(
 				'You do not have the permission to use this commnad.',
 			);
 		}
 
 		if(!message.guild.me.hasPermission('KICK_MEMBERS')) {
-			return message.reply(
+			return message.channel.send(
 				'I do not have the permission to use this commnad.',
 			);
 		}
 
 		const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username === args.slice(0).join(' ') || x.user.username === args[0]);
 		if(!member) {
-			return message.reply(
+			return message.channel.send(
 				'Please specify a user to unmute.',
 			);
 		}
 
 		if(member.id === message.author.id) {
-			return message.reply(
+			return message.channel.send(
 				'You are not allowed to unmute yourself',
 			);
 		}
 
 		const Reason = args.slice(1).join(' ');
 		if (!Reason) {
-			return message.reply(
+			return message.channel.send(
 				'You are not allowed to unmute someone without a reason.',
 			);
 		}

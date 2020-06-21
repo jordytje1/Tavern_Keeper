@@ -10,28 +10,28 @@ module.exports = {
 	guildOnly: true,
 	run: async (client, message, args) => {
 		if(!message.member.hasPermission('MANAGE_MESSAGES')) {
-			return message.reply(
+			return message.channel.send(
 				'You do not have the permission to use this commnad.',
 			);
 		}
 
 		if(!message.guild.me.hasPermission('MANAGE_MESSAGES')) {
-			return message.reply(
+			return message.channel.send(
 				'I do not have the permission to use this commnad.',
 			);
 		}
 		const amount = parseInt(args[0]) + 1;
 
 		if (isNaN(amount)) {
-			return message.reply('That doesn\'t seem to be a valid number.');
+			return message.channel.send('That is not a valid number.');
 		}
 		else if (amount <= 1 || amount > 100) {
-			return message.reply('you need to input a number between 1 and 99.');
+			return message.channel.send('Please input a number between 1 and 99.');
 		}
 
 		const Reason = message.content.split(' ').slice(2).join(' ');
 		if (!Reason) {
-			return message.reply(
+			return message.channel.send(
 				'You are not allowed to clear messages without a reason.',
 			);
 		}

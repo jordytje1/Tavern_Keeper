@@ -1,3 +1,4 @@
+/* eslint-disable no-mixed-spaces-and-tabs */
 const { MessageEmbed } = require('discord.js');
 const ms = require('ms');
 const prefix = process.env.prefix;
@@ -11,8 +12,8 @@ module.exports = {
 		if (!args[0]) return message.channel.send('You did not specify your time!');
 		if (
 			!args[0].endsWith('d') &&
-      !args[0].endsWith('h') &&
-      !args[0].endsWith('m')
+      		!args[0].endsWith('h') &&
+      		!args[0].endsWith('m')
 		) {
 			return message.channel.send(
 				'Please use the correct time format.',

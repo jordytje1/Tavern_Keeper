@@ -8,13 +8,13 @@ module.exports = {
 	usage: `${prefix}slowmode <seconds>`,
 	run: async (bot, message, args) => {
 		if(!message.member.hasPermission('BAN_MEMBERS')) {
-			return message.reply(
+			return message.channel.send(
 				'You do not have the permission to use this commnad.',
 			);
 		}
 
 		if (!args[0]) {
-			return message.reply(
+			return message.channel.send(
 				'Please specify the amount in second.',
 			);
 		}
