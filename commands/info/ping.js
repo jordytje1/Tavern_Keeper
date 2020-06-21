@@ -11,10 +11,10 @@ module.exports = {
 	run: async (client, message, args) => {
 		message.channel.send('🏓 Pinging....').then((msg) => {
 			const pEmbed = new MessageEmbed()
-				.setTitle('Pong!')
+				.setTitle('🏓 Pong!')
 				.setColor('BLUE')
 				.setDescription(
-					`🏓 Pong!\nLatency: ${Math.floor(
+					`Latency: ${Math.floor(
 						msg.createdTimestamp - message.createdTimestamp,
 					)}ms\nAPI Latency: ${client.ws.ping}ms`,
 				);

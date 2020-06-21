@@ -14,10 +14,10 @@ module.exports = {
 		const duration = moment.duration(client.uptime).format(' D [days], H [hrs], m [mins], s [secs]');
 		message.channel.send('⌛ Loading...').then((msg) => {
 			const pEmbed = new MessageEmbed()
-				.setTitle('I am online!')
+				.setTitle(':inbox_tray: I am online!')
 				.setColor('BLUE')
 				.setDescription(
-					`🟢 I am online!\nOnline for:\n${duration}`,
+					`Online for: ${duration}`,
 				);
 			msg.edit(pEmbed);
 		});
