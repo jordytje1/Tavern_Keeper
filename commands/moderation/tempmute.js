@@ -68,22 +68,22 @@ module.exports = {
 			member.roles.remove(verifiedRole);
 			member.roles.add(mutedRole);
 			const embed = new MessageEmbed()
-			.setDescription(`**You have been tempmuted for${ms(ms(time))} in ${message.guild.name}. | ${Reason}**`)
-			.setColor('RED');
-		member.send(embed);
-		const sembed = new MessageEmbed();
-		await message.channel.send(sembed.setDescription(`**${member.user.tag} was muted for ${ms(ms(time))}. | ${Reason}**`).setColor('GREEN'));
+				.setDescription(`**You have been tempmuted for${ms(ms(time))} in ${message.guild.name}. | ${Reason}**`)
+				.setColor('RED');
+			member.send(embed);
+			const sembed = new MessageEmbed();
+			await message.channel.send(sembed.setDescription(`**${member.user.tag} was muted for ${ms(ms(time))}. | ${Reason}**`).setColor('GREEN'));
 		}
 
 		setTimeout(function() {
 			member.roles.add(verifiedRole);
 			member.roles.remove(mutedRole);
 			const embed = new MessageEmbed()
-			.setDescription(`**You have been unmuted in ${message.guild.name}. | Temporary mute completed**`)
-			.setColor('GREEN');
-		member.send(embed);
-		const sembed = new MessageEmbed();
-		await message.channel.send(sembed.setDescription(`**${member.user.tag} was unmuted. | Temporary mute complete**`).setColor('GREEN'));
+				.setDescription(`**You have been unmuted in ${message.guild.name}. | Temporary mute completed**`)
+				.setColor('GREEN');
+			member.send(embed);
+			const sembed = new MessageEmbed();
+			message.channel.send(sembed.setDescription(`**${member.user.tag} was unmuted. | Temporary mute complete**`).setColor('GREEN'));
 		}, ms(time));
 	},
 };
