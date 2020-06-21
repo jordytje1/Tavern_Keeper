@@ -19,9 +19,7 @@
     "moment": "^2.27.0",
     "moment-duration-format": "^2.3.2",
     "ms": "^2.1.2",
-    "node-gyp": "^7.0.0",
     "nodemon": "^2.0.4",
-    "quick-db": "^1.0.5",
     "random-puppy": "^1.1.0"
   }
 }
