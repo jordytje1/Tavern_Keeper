@@ -1,3 +1,4 @@
+/* eslint-disable no-inner-declarations */
 const { MessageEmbed } = require('discord.js');
 const { stripIndents } = require('common-tags');
 const prefix = process.env.prefix;
@@ -60,6 +61,9 @@ function getCMD(client, message, input) {
 		return message.channel.send(embed.setColor('BLUE').setDescription(info));
 	}
 	else{
+		function capitalizeFirstLetter(string) {
+			return string.charAt(0).toUpperCase() + string.slice(1);
+		}
 		const hembed = new MessageEmbed()
 			.setTitle('Command Info')
 			.setColor('BLUE')
@@ -67,7 +71,7 @@ function getCMD(client, message, input) {
 			.setFooter('Syntax: <> = required, [] = optional', `${client.user.avatarURL()}`)
 			.addFields(
 				{ name: 'Name:', value: `${cmd.name}` },
-				{ name: 'Catergory:', value: `${cmd.category}` },
+				{ name: 'Catergory:', value: `${capitalizeFirstLetter(cmd.category.toString().toLowerCase())}` },
 				{ name: 'Description:', value: `${cmd.description}` },
 				{ name: 'Usage:', value: `${cmd.usage}` },
 				{ name: 'Aliases:', value: `${cmd.aliases.map((a) => `\`${a}\``).join(', ')}` || 'None' },
