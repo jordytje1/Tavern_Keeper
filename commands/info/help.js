@@ -74,7 +74,7 @@ function getCMD(client, message, input) {
 				{ name: 'Catergory:', value: `${capitalizeFirstLetter(cmd.category.toString().toLowerCase())}` },
 				{ name: 'Description:', value: `${cmd.description}` },
 				{ name: 'Usage:', value: `${cmd.usage}` },
-				{ name: 'Aliases:', value: `${cmd.aliases.map((a) => `\`${a}\``).join(', ')}` || 'None' },
+				{ name: 'Aliases:', value: `${cmd.aliases.map((a) => `\`${a}\``).join(', ')}` || '`None`' },
 			);
 		message.channel.send(hembed);
 	}
