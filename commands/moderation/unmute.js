@@ -11,13 +11,13 @@ module.exports = {
 	run: async (client, message, args) => {
 		if(!message.member.hasPermission('KICK_MEMBERS')) {
 			return message.channel.send(
-				'You do not have the permission to use this commnad.',
+				'You do not have the permission to use this command.',
 			);
 		}
 
 		if(!message.guild.me.hasPermission('KICK_MEMBERS')) {
 			return message.channel.send(
-				'I do not have the permission to use this commnad.',
+				'I do not have the permission to use this command.',
 			);
 		}
 
@@ -30,14 +30,14 @@ module.exports = {
 
 		if(member.id === message.author.id) {
 			return message.channel.send(
-				'You are not allowed to unmute yourself',
+				'You are not allowed to unmute yourself.',
 			);
 		}
 
 		const Reason = args.slice(1).join(' ');
 		if (!Reason) {
 			return message.channel.send(
-				'You are not allowed to unmute someone without a reason.',
+				'Please provide a reason.',
 			);
 		}
 
@@ -47,24 +47,12 @@ module.exports = {
 		if(mutedRole) {
 			member.roles.remove(mutedRole);
 			member.roles.add(verifiedRole);
-			const channel = client.channels.cache.get('720997712602071098');
-			const tEmbed = new MessageEmbed()
-				.setAuthor('Member Unmuted', `${member.user.displayAvatarURL()}`)
-				.setColor('GREEN')
-				.setThumbnail(`${member.user.displayAvatarURL()}`)
-				.addFields(
-					{ name: 'Unmuted User', value: `${member.user} ID: ${member.id}` },
-					{ name: 'Unmuted By', value: `${message.author} ID: ${message.author.id}` },
-					{ name: 'Unmuted In', value: message.channel },
-					{ name: 'Reason', value: Reason })
-				.setTimestamp()
-				.setFooter('Unmuted at');
-			channel.send(tEmbed);
-
-			const Embed = new MessageEmbed()
-				.setDescription(`**${member.user.tag} was unmuted. |** ${Reason}`)
+			const embed = new MessageEmbed()
+				.setDescription(`**You have been unmuted in ${message.guild.name} | ${Reason}**`)
 				.setColor('GREEN');
-			message.channel.send(Embed).then (message.delete());
+			member.send(embed);
+			const sembed = new MessageEmbed();
+			await message.channel.send(sembed.setDescription(`**${member.user.tag} was unmuted. | ${Reason}**`).setColor('GREEN'));
 		}
 	},
 };

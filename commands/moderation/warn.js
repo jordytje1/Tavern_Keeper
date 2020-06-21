@@ -34,9 +34,9 @@ module.exports = {
 			return message.channel.send('Are you trying to get yourself into trouble?');
 		}
 
-		const reason = args.slice(1).join(' ');
+		const Reason = args.slice(1).join(' ');
 
-		if(!reason) {
+		if(!Reason) {
 			return message.channel.send('You are not allowed to warn someone without a reason.');
 		}
 
@@ -49,20 +49,20 @@ module.exports = {
 		if(warnings === null) {
 			db.set(`warnings_${message.guild.id}_${user.id}`, 1);
 			const embed = new MessageEmbed()
-				.setDescription(`**You have been warned in ${message.guild.name} |** ${reason}`)
+				.setDescription(`**You have been warned in ${message.guild.name} |${Reason}** `)
 				.setColor('RED');
 			user.send(embed);
 			const sembed = new MessageEmbed();
-			await message.channel.send(sembed.setDescription(`${user.user.tag} was warned`).setColor('GREEN'));
+			await message.channel.send(sembed.setDescription(`**${user.user.tag} was warned. | ${Reason}**`).setColor('GREEN'));
 		}
 		else if(warnings !== null) {
 			db.add(`warnings_${message.guild.id}_${user.id}`, 1);
 			const embed = new MessageEmbed()
-				.setDescription(`**You have been warned in ${message.guild.name} |** ${reason}`)
+				.setDescription(`**You have been warned in ${message.guild.name} | ${Reason}** `)
 				.setColor('RED');
 			user.send(embed);
 			const sembed = new MessageEmbed();
-			await message.channel.send(sembed.setDescription(`${user.user.tag} was warned`).setColor('GREEN'));
+			await message.channel.send(sembed.setDescription(`**${user.user.tag} was warned. | ${Reason}**`).setColor('GREEN'));
 		}
 
 

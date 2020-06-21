@@ -29,9 +29,9 @@ module.exports = {
 			return message.channel.send('You are not allowed to reset your warnings');
 		}
 
-		const reason = args.slice(1).join(' ');
+		const Reason = args.slice(1).join(' ');
 
-		if(!reason) {
+		if(!Reason) {
 			return message.channel.send('You are not allowed to reset someone\'s warnings without a reason.');
 		}
 
@@ -43,11 +43,11 @@ module.exports = {
 
 		db.delete(`warnings_${message.guild.id}_${user.id}`);
 		const embed = new MessageEmbed()
-			.setDescription(`**Your warnings have been reset in ${message.guild.name} |** ${reason}`)
+			.setDescription(`**Your warnings have been reset in ${message.guild.name} | ${Reason}**`)
 			.setColor('GREEN');
 		user.send(embed);
 		const sembed = new MessageEmbed();
-		await message.channel.send(sembed.setDescription(`${user.user.tag}'s warnings was reset`).setColor('GREEN'));
+		await message.channel.send(sembed.setDescription(`**${user.user.tag}'s warnings was reset. | ${Reason} **`).setColor('GREEN'));
 
 
 	},

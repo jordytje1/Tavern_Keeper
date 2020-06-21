@@ -11,26 +11,26 @@ module.exports = {
 	run: async (client, message, args) => {
 		if(!message.member.hasPermission('KICK_MEMBERS')) {
 			return message.channel.send(
-				'You do not have the permission to use this commnad.',
+				'You do not have the permission to use this command.',
 			);
 		}
 
 		if(!message.guild.me.hasPermission('KICK_MEMBERS')) {
 			return message.channel.send(
-				'I do not have the permission to use this commnad.',
+				'I do not have the permission to use this command.',
 			);
 		}
 
 		const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username === args.slice(0).join(' ') || x.user.username === args[0]);
 		if (!member) {
 			return message.channel.send(
-				' Please specify a user to kick!',
+				'Please specify a user to kick.',
 			);
 		}
 
 		if(member.id === message.author.id) {
 			return message.channel.send(
-				'You cannot kick yourself',
+				'You cannot kick yourself.',
 			);
 		}
 
@@ -43,34 +43,22 @@ module.exports = {
 		const Reason = args.slice(1).join(' ');
 		if (!Reason) {
 			return message.channel.send(
-				'You are not allowed to kick someone without a reason.',
+				'Please provide a reason.',
 			);
 		}
 
 		if (!member.kickable) {
 			return message.channel.send(
-				'You cannot kick this user, they may have a role higher then me or the same role as me.',
+				'You are not allowed kick this user, they may have a role higher then me or the same role as me.',
 			);
 		}
 
 		member.kick();
-		const channel = client.channels.cache.get('720997712602071098');
-		const Embed = new MessageEmbed()
-			.setAuthor('Member Kicked', `${member.user.displayAvatarURL()}`)
-			.setColor('RED')
-			.setThumbnail(`${member.user.displayAvatarURL()}`)
-			.addFields(
-				{ name: 'Kicked User', value: `${member.user} ID: ${member.id}` },
-				{ name: 'Kicked By', value: `${message.author} ID: ${message.author.id}` },
-				{ name: 'Kicked In', value: message.channel },
-				{ name: 'Reason', value: Reason })
-			.setTimestamp()
-			.setFooter('Kicked at');
-		channel.send(Embed);
-
-		const kEmbed = new MessageEmbed()
-			.setDescription(`**${member.user.tag} was kicked. |** ${Reason}`)
-			.setColor('GREEN');
-		message.channel.send(kEmbed).then (message.delete());
+		const embed = new MessageEmbed()
+			.setDescription(`**You have been kicked from ${message.guild.name} | ${Reason}**`)
+			.setColor('RED');
+		member.send(embed);
+		const sembed = new MessageEmbed();
+		await message.channel.send(sembed.setDescription(`**${member.user.tag} was kicked. | ${Reason}**`).setColor('GREEN'));
 	},
 };

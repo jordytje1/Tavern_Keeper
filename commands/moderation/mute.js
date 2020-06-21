@@ -11,32 +11,32 @@ module.exports = {
 	run: async (client, message, args) => {
 		if(!message.member.hasPermission('KICK_MEMBERS')) {
 			return message.channel.send(
-				'You do not have the permission to use this commnad.',
+				'You do not have the permission to use this command.',
 			);
 		}
 
 		if(!message.guild.me.hasPermission('KICK_MEMBERS')) {
 			return message.channel.send(
-				'I do not have the permission to use this commnad.',
+				'I do not have the permission to use this command.',
 			);
 		}
 
 		const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username === args.slice(0).join(' ') || x.user.username === args[0]);
 		if(!member) {
 			return message.channel.send(
-				'Please specify a user to mute',
+				'Please specify a user to mute.',
 			);
 		}
 
 		if(member.id === message.author.id) {
 			return message.channel.send(
-				'You cannot mute yourself',
+				'You cannot mute yourself.',
 			);
 		}
 
 		if(member.user.bot) {
 			return message.channel.send(
-				'You are not allowed to mute bots',
+				'You are not allowed to mute bots.',
 			);
 		}
 
@@ -49,7 +49,7 @@ module.exports = {
 		const Reason = args.slice(1).join(' ');
 		if (!Reason) {
 			return message.channel.send(
-				'You are not allowed to mute someone without a reason.',
+				'Please provide a reason.',
 			);
 		}
 
@@ -59,24 +59,12 @@ module.exports = {
 		if(mutedRole) {
 			member.roles.add(mutedRole);
 			member.roles.remove(verifiedRole);
-			const channel = client.channels.cache.get('720997712602071098');
-			const Embed = new MessageEmbed()
-				.setAuthor('Member Muted', `${member.user.displayAvatarURL()}`)
-				.setColor('RED')
-				.setThumbnail(`${member.user.displayAvatarURL()}`)
-				.addFields(
-					{ name: 'Muted User', value: `${member.user} ID: ${member.id}` },
-					{ name: 'Muted By', value: `${message.author} ID: ${message.author.id}` },
-					{ name: 'Muted In', value: message.channel },
-					{ name: 'Reason', value: Reason })
-				.setTimestamp()
-				.setFooter('Muted at');
-			channel.send(Embed);
-
-			const mEmbed = new MessageEmbed()
-				.setDescription(`**${member.user.tag} was muted. |** ${Reason}`)
-				.setColor('GREEN');
-			message.channel.send(mEmbed).then (message.delete());
+			const embed = new MessageEmbed()
+				.setDescription(`**You have been muted in ${message.guild.name}. | ${Reason}**`)
+				.setColor('RED');
+			member.send(embed);
+			const sembed = new MessageEmbed();
+			await message.channel.send(sembed.setDescription(`**${member.user.tag} was muted. | ${Reason}**`).setColor('GREEN'));
 		}
 	},
 };
