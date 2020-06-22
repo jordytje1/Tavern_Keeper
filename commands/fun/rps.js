@@ -7,12 +7,12 @@ const chooseArr = ['🗻', '📰', '✂'];
 module.exports = {
 	name: 'rps',
 	category: 'fun',
-	description: 'Rock Paper Scissors game. React to one of the emojis to play the game.',
+	description: 'Play a game of Rock Paper Scissors with me.',
 	usage: 'rps',
 	run: async (client, message, args) => {
 		const embed = new MessageEmbed()
 			.setColor('BLUE')
-			.setDescription('Add a reaction to one of these emojis to play the game!');
+			.setDescription('React to one of the emojis to start.');
 
 		const m = await message.channel.send(embed);
 		const reacted = await promptMessage(m, message.author, 30, chooseArr);
