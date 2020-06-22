@@ -2,20 +2,23 @@
 const { MessageEmbed } = require('discord.js');
 
 module.exports = async (message) => {
-	try {
+	if (message.author.bot) {return;}
+	else {
 		const embed = new MessageEmbed()
-			.setAuthor(`${message.author.tag}`, `${message.author.displayAvatarURL()}`)
+			.setAuthor('Message Deleted')
+			.setThumbnail(message.author.displayAvatarURL())
 			.setColor('RED')
-			.setDescription(
-				`**Message deleted in <#${message.channel.id}>**\n${message.content}`,
+			.addFields(
+				{ name: 'Deleted by:', value:`${message.author} ID: ${message.author.id}` },
+				{ name: 'Deleted in:', value:`${message.channel}` },
+				{ name: 'Content:', value:`${message.content}` },
 			)
 			.setTimestamp()
-			.setFooter(`User ID: ${message.author.id}`);
+			.setFooter('Deleted at');
 		const channel = message.guild.channels.cache.find(
 			(ch) => ch.id === '720997712602071098',
 		);
 		if (!channel) return;
 		channel.send(embed);
 	}
-	catch (e) {}
 };

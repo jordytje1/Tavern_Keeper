@@ -9,7 +9,11 @@ module.exports = {
 	guildOnly: true,
 	run: async (client, message, args) => {
 		const question = args.join(' ');
-		if (!question) {return message.channel.send('You did not specify your question!');}
+		if (!question) {
+			return message.channel.send(
+				'You did not specify your question!',
+			).then(message.delete({ timeout: 5000 })).then(msg => {msg.delete();});
+		}
 		else {
 			const responses = [
 				'Yes',

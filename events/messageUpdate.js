@@ -1,16 +1,16 @@
 /* eslint-disable no-empty */
 const { MessageEmbed } = require('discord.js');
 
-module.exports = async (message, oldMessage, newMessage) => {
-	if(message.author.bot) return;
-	try {
+module.exports = async (oldMessage, newMessage) => {
+	if(oldMessage.author.bot) {return;}
+	else {
 		const embed = new MessageEmbed()
-			.setAuthor(`${oldMessage.author.tag}`, `${oldMessage.author.displayAvatarURL()}`)
+			.setAuthor('Message Edited')
+			.setThumbnail(oldMessage.author.displayAvatarURL())
 			.setColor('YELLOW')
-			.setDescription(
-				`**Message edited in <#${oldMessage.channel.id}>**`,
-			)
 			.addFields(
+				{ name: 'Edited by:', value:`${oldMessage.author} ID: ${oldMessage.author.id}` },
+				{ name: 'Edited in:', value:`${oldMessage.channel}` },
 				{ name: 'Before', value: oldMessage.content },
 				{ name: 'After', value: newMessage.content },
 			)
@@ -22,5 +22,4 @@ module.exports = async (message, oldMessage, newMessage) => {
 		if (!channel) return;
 		channel.send(embed);
 	}
-	catch (e) {}
 };

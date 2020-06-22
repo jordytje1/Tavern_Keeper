@@ -11,6 +11,7 @@
   "dependencies": {
     "ascii-table": "0.0.9",
     "common-tags": "^1.8.0",
+    "cpu-stat": "^2.0.1",
     "custom-discord-jokes": "^1.0.3",
     "discord.js": "^12.2.0",
     "dotenv": "^8.2.0",
@@ -20,6 +21,7 @@
     "moment-duration-format": "^2.3.2",
     "ms": "^2.1.2",
     "nodemon": "^2.0.4",
+    "os": "^0.1.1",
     "quick.db": "^7.1.1",
     "random-puppy": "^1.1.0"
   }

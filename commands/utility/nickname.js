@@ -12,21 +12,21 @@ module.exports = {
 		if(!message.member.hasPermission('MANAGE_NICKNAMES')) {
 			return message.channel.send(
 				'You do not have the permission to use this command.',
-			);
+			).then(message.delete({ timeout: 5000 })).then(embed => {embed.delete();});
 		}
 
 		const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username === args.slice(0).join(' ') || x.user.username === args[0]);
 		if (!member) {
 			return message.channel.send(
 				'Please specify a user to nickname.',
-			);
+			).then(message.delete({ timeout: 5000 })).then(embed => {embed.delete();});
 		}
 
 		const nickname = args.slice(1).join(' ');
 		if (!nickname) {
 			return message.channel.send(
 				'Please provide a nickname.',
-			);
+			).then(message.delete({ timeout: 5000 })).then(embed => {embed.delete();});
 		}
 
 		member.setNickname(nickname);

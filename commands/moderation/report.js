@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow */
 const { MessageEmbed } = require('discord.js');
 const prefix = process.env.prefix;
 
@@ -13,35 +14,35 @@ module.exports = {
 		if(!member) {
 			return message.channel.send(
 				'Please specify a user to report',
-			);
+			).then(message.delete({ timeout: 5000 })).then(embed => {embed.delete();});
 		}
 
 		if(member.id === message.author.id) {
 			return message.channel.send(
 				'You are not allowed report yourself',
-			);
+			).then(message.delete({ timeout: 5000 })).then(embed => {embed.delete();});
 		}
 
 		if(member.user.bot) {
 			return message.channel.send(
 				'You are not allowed to report bots',
-			);
+			).then(message.delete({ timeout: 5000 })).then(embed => {embed.delete();});
 		}
 
 		if(member.id === message.guild.owner.id) {
 			return message.channel.send(
 				'Are you trying to get yourself into trouble?',
-			);
+			).then(message.delete({ timeout: 5000 })).then(embed => {embed.delete();});
 		}
 
 		const Reason = args.slice(1).join(' ');
 		if (!Reason) {
 			return message.channel.send(
 				'You are not allowed to report someone without a reason.',
-			).then (message.delete());
+			).then (message.delete({ timeout: 5000 })).then(message.delete()).then(embed => {embed.delete();});
 		}
 
-		const channel = member.guild.channels.cache.get('720997712602071098');
+		const channel = member.guild.channels.cache.get('724508956981985351');
 		const embed = new MessageEmbed()
 			.setAuthor('New User Reported')
 			.setColor('RED')
@@ -58,6 +59,6 @@ module.exports = {
 		const mEmbed = new MessageEmbed()
 			.setDescription('**The user was reported.**')
 			.setColor('GREEN');
-		message.channel.send(mEmbed).then (message.delete());
+		message.channel.send(mEmbed).then(message.delete({ timeout: 5000 })).then(embed => {embed.delete();});
 	},
 };

@@ -7,7 +7,7 @@ module.exports = async (member) => {
 		`Hey ${member} welcome to ${member.guild.name}! Be sure to read <#720997711708684308> and <#720997711708684308> and assign yourself some roles in <#720997711708684308>! We are a friendly community so don't be discouraged to chat us!`,
 	);
 
-	const logchannel = member.guild.channels.cache.get('720997712602071098');
+	const logchannel = member.guild.channels.cache.get('723134799551922236');
 	const embed = new MessageEmbed()
 		.setAuthor('Member Joined', `${member.user.displayAvatarURL()}`)
 		.setThumbnail(member.user.displayAvatarURL())

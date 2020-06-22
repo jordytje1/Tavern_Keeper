@@ -36,8 +36,8 @@ client.on('message', async message => {
 });
 
 // Edited Messages
-client.on('messageUpdate', async (message, oldMessage, newMessage) => {
-	require('./events/messageUpdate')(message, oldMessage, newMessage);
+client.on('messageUpdate', async (oldMessage, newMessage) => {
+	require('./events/messageUpdate')(oldMessage, newMessage);
 });
 
 // Deleted Messages

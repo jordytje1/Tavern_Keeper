@@ -12,6 +12,12 @@ module.exports = {
 	guildOnly: true,
 	run: (client, message, args) => {
 		const user = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username === args.slice(0).join(' ') || x.user.username === args[0]) || message.member;
+		if (!user) {
+			return message.channel.send(
+				'Please specify a user to check',
+			).then(message.delete({ timeout: 5000 })).then(embed => {embed.delete();});
+		}
+
 		let warnings = db.get(`warnings_${message.guild.id}_${user.id}`);
 
 		if(warnings === null) warnings = 0;

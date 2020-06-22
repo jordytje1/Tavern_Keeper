@@ -7,7 +7,7 @@ module.exports = async (member) => {
 		`${member} just left ${member.guild.name}. Goodbye ${member}! ${member.guild.name} has ${member.guild.memberCount} members now.`,
 	);
 
-	const logchannel = member.guild.channels.cache.get('720997712602071098');
+	const logchannel = member.guild.channels.cache.get('723134799551922236');
 	const embed = new MessageEmbed()
 		.setAuthor('Member Left', `${member.user.displayAvatarURL()}`)
 		.setColor('RED')
