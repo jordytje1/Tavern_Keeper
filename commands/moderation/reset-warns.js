@@ -6,7 +6,7 @@ const prefix = process.env.prefix;
 module.exports = {
 	name: 'resetwarns',
 	aliases: ['delwarns', 'clearwarns', 'rwarns'],
-	usage: `${prefix}clearwarns <@user>`,
+	usage: `${prefix}clearwarns < @user | userid >`,
 	description: 'Reset warnings of a specified person',
 	run: async (client, message, args) => {
 

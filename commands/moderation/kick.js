@@ -6,7 +6,7 @@ module.exports = {
 	category: 'moderation',
 	description: 'Kick a specified user from the server.',
 	aliases: [],
-	usage: `${prefix}kick <@user> <reason>`,
+	usage: `${prefix}kick < @user | userid > <reason>`,
 	guildOnly: true,
 	run: async (client, message, args) => {
 		if(!message.member.hasPermission('KICK_MEMBERS')) {

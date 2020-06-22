@@ -7,7 +7,7 @@ module.exports = {
 	category: 'moderation',
 	description: 'Temporarily mute a specific user.',
 	aliases: ['tmute'],
-	usage: `${prefix}tempmute <@user> <time> <reason>`,
+	usage: `${prefix}tempmute < @user | userid > <time> <reason>`,
 	guildOnly: true,
 	run: async (client, message, args) => {
 		if(!message.member.hasPermission('KICK_MEMBERS')) {

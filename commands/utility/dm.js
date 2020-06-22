@@ -5,7 +5,7 @@ module.exports = {
 	category: 'utility',
 	description: 'Send a DM to a specified user',
 	aliases: ['message'],
-	usage: `${prefix}dm <user> <message>`,
+	usage: `${prefix}dm < @user | userid > <message>`,
 	run: async (bot, message, args) => {
 		if (!message.member.permissions.has('BAN_MEMBERS')) {return message.channel.send('You do not have enough permissions!');}
 		const user =

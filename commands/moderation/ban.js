@@ -6,7 +6,7 @@ module.exports = {
 	category: 'moderation',
 	description: 'Ban a specified user from the server.',
 	aliases: [],
-	usage: `${prefix}ban <@user> <reason>`,
+	usage: `${prefix}ban < @user | userid > <reason>`,
 	guildOnly: true,
 	run: async (client, message, args) => {
 		if(!message.member.hasPermission('BAN_MEMBERS')) {

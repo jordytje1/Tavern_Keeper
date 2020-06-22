@@ -7,7 +7,7 @@ module.exports = {
 	category: 'utility',
 	description: 'Set a specified user\'s nickname.',
 	aliases: ['nick'],
-	usage: `${prefix}nickname <@user> <nickname>`,
+	usage: `${prefix}nickname < @user | userid > <nickname>`,
 	run: async (client, message, args) => {
 		if(!message.member.hasPermission('MANAGE_NICKNAMES')) {
 			return message.channel.send(

@@ -8,7 +8,7 @@ module.exports = {
 	category: 'moderation',
 	description: 'Warn a specified user for breaking the rules.',
 	aliases: ['strike'],
-	usage: `${prefix}warn <@user> <reason>`,
+	usage: `${prefix}warn < @user | userid > <reason>`,
 	guildOnly: true,
 	run: async (client, message, args) => {
 

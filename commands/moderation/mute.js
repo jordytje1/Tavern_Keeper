@@ -6,7 +6,7 @@ module.exports = {
 	category: 'moderation',
 	description: 'Mute a specified user.',
 	aliases: ['silent'],
-	usage: `${prefix}mute <@user> <reason>`,
+	usage: `${prefix}mute < @user | userid > <reason>`,
 	guildOnly: true,
 	run: async (client, message, args) => {
 		if(!message.member.hasPermission('KICK_MEMBERS')) {

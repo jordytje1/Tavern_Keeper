@@ -36,9 +36,9 @@ module.exports = {
 	category: 'info',
 	description: 'Displays information about a provided user or the message author.',
 	aliases: ['user', 'guild', 'guildinfo'],
-	usage: `${prefix}userinfo [@user]`,
+	usage: `${prefix}userinfo [ @user | userid ]`,
 	run: async (client, message, args) => {
-		const member = message.mentions.members.last() || message.member;
+		const member = message.mentions.members.last() || message.guild.members.cache.get(args[0]) || message.member;
 		const roles = member.roles.cache
 			.sort((a, b) => b.position - a.position)
 			.map(role => role.toString())

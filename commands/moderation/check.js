@@ -8,7 +8,7 @@ module.exports = {
 	category: 'moderation',
 	description: 'Get the warnings of you or specfied person.',
 	aliases: ['warnings'],
-	usage: `${prefix}check [@user]`,
+	usage: `${prefix}check [ @user | userid ]`,
 	guildOnly: true,
 	run: (client, message, args) => {
 		const user = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username === args.slice(0).join(' ') || x.user.username === args[0]) || message.member;
