@@ -3,7 +3,7 @@ const prefix = process.env.prefix;
 module.exports = {
 	name: '8ball',
 	category: 'fun',
-	description: 'There is a big chance I insult you!',
+	description: 'Ask the magic 8-ball for an answer.',
 	aliases: ['ask'],
 	usage: `${prefix}8ball <question>`,
 	guildOnly: true,
