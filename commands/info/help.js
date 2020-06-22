@@ -1,6 +1,5 @@
 /* eslint-disable no-inner-declarations */
 const { MessageEmbed } = require('discord.js');
-const { stripIndents } = require('common-tags');
 const prefix = process.env.prefix;
 
 module.exports = {
@@ -24,28 +23,16 @@ function getAll(client, message) {
 		.setTitle(`${client.user.username}'s Commands`)
 		.setFooter(`${client.user.username}'s Help`, `${client.user.avatarURL()}`)
 		.setTimestamp()
-		.setColor('BLUE');
+		.setColor('BLUE')
+		.setDescription(`This server's prefix is \`${prefix}\`.\nFor more info on a specific command, type \`${prefix}help <command name>\`.`);
 
+	const categories = [...new Set(client.commands.map(cmd => cmd.category))];
 
-	const commands = (category) => {
-		return client.commands
-			.filter((cmd) => cmd.category === category)
-			.map((cmd) => ` \`${cmd.name}\` `)
-			.join(' ');
-	};
-
-	const info = client.categories
-		.map(
-			(cat) =>
-				stripIndents`${cat[0].toUpperCase() + cat.slice(1)} \n${commands(
-					cat,
-				)}`,
-		)
-		.reduce((string, category) => string + '\n' + category);
-
-	return message.channel.send(
-		embed.setDescription(`This server's prefix is \`${prefix}\`.\nFor more info on a specific command, type \`${prefix}help <command name>\`.\n\n${info}`),
-	);
+	for (const category of categories) {
+		embed.addField(`${(category)}`, client.commands.filter(cmd =>
+			cmd.category === category).map(cmd => `\`${cmd.name}\``).join(' '));
+	}
+	return message.channel.send(embed);
 }
 
 function getCMD(client, message, input) {
