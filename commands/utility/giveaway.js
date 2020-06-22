@@ -7,7 +7,7 @@ module.exports = {
 	name: 'giveaway',
 	description: 'Create a simple giveaway',
 	usage: `${prefix}giveaway <time> <channel> <prize>`,
-	category: 'fun',
+	category: 'Utility',
 	run: async (bot, message, args) => {
 		if (!args[0]) return message.channel.send('You did not specify your time.').then(message.delete({ timeout: 5000 })).then(msg => {msg.delete();});
 		if (

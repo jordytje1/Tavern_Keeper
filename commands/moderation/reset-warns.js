@@ -5,6 +5,7 @@ const prefix = process.env.prefix;
 
 module.exports = {
 	name: 'resetwarns',
+	category: 'Moderation',
 	aliases: ['delwarns', 'clearwarns', 'rwarns'],
 	usage: `${prefix}clearwarns < @user | userid >`,
 	description: 'Reset warnings of a specified person',

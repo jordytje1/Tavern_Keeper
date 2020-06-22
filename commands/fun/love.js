@@ -6,7 +6,7 @@ const prefix = process.env.prefix;
 
 module.exports = {
 	name: 'love',
-	category: 'fun',
+	category: 'Fun',
 	description: 'Calculates the love affinity you have for another person.',
 	aliases: ['ship'],
 	usage: `${prefix}love [@user]`,

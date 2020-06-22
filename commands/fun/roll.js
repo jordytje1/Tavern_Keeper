@@ -5,7 +5,7 @@ const prefix = process.env.prefix;
 
 module.exports = {
 	name: 'roll',
-	category: 'fun',
+	category: 'Fun',
 	description: 'Roll a dice and get a random number from 1 - 6.',
 	aliases: ['rolldice', ' diceroll'],
 	usage: `${prefix}roll`,

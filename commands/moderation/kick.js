@@ -3,7 +3,7 @@ const prefix = process.env.prefix;
 
 module.exports = {
 	name: 'kick',
-	category: 'moderation',
+	category: 'Moderation',
 	description: 'Kick a specified user from the server.',
 	aliases: [],
 	usage: `${prefix}kick < @user | userid > <reason>`,

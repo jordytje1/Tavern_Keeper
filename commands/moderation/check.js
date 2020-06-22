@@ -5,7 +5,7 @@ const prefix = process.env.prefix;
 
 module.exports = {
 	name: 'check',
-	category: 'moderation',
+	category: 'Moderation',
 	description: 'Get the warnings of you or specfied person.',
 	aliases: ['warnings'],
 	usage: `${prefix}check [ @user | userid ]`,

@@ -2,7 +2,7 @@ const prefix = process.env.prefix;
 
 module.exports = {
 	name: 'dm',
-	category: 'utility',
+	category: 'Utility',
 	description: 'Send a DM to a specified user',
 	aliases: ['message'],
 	usage: `${prefix}dm < @user | userid > <message>`,

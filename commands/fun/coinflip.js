@@ -6,7 +6,7 @@ const prefix = process.env.prefix;
 
 module.exports = {
 	name: 'coinflip',
-	category: 'fun',
+	category: 'Fun',
 	description: 'Flip a coin and see what you get. Heads or Tails?',
 	aliases: ['cf', 'coinf'],
 	usage: `${prefix}coinflip`,

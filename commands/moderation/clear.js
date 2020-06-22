@@ -4,7 +4,7 @@ const prefix = process.env.prefix;
 
 module.exports = {
 	name: 'clear',
-	category: 'moderation',
+	category: 'Moderation',
 	description: 'Clear up to 99 messages in a specified channel',
 	aliases: ['purge', ' prune'],
 	usage: `${prefix}clear <amount> [reason]`,

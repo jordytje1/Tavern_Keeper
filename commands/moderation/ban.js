@@ -3,7 +3,7 @@ const prefix = process.env.prefix;
 
 module.exports = {
 	name: 'ban',
-	category: 'moderation',
+	category: 'Moderation',
 	description: 'Ban a specified user from the server.',
 	aliases: [],
 	usage: `${prefix}ban < @user | userid > <reason>`,

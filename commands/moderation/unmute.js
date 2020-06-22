@@ -3,7 +3,7 @@ const prefix = process.env.prefix;
 
 module.exports = {
 	name: 'unmute',
-	category: 'moderation',
+	category: 'Moderation',
 	description: 'Unmute a specified user.',
 	aliases: ['unsilent'],
 	usage: `${prefix}unmute < @user | userid > <reason>`,

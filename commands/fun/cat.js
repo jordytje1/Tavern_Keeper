@@ -5,7 +5,7 @@ const prefix = process.env.prefix;
 
 module.exports = {
 	name: 'cat',
-	category: 'fun',
+	category: 'Fun',
 	description: 'Get a random picture of a cat.',
 	aliases: ['cats', 'kitty', 'pussy', 'meow'],
 	usage: `${prefix}cat`,

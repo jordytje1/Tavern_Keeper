@@ -5,7 +5,7 @@ const prefix = process.env.prefix;
 module.exports = {
 	name: 'help',
 	aliases: ['h', 'commands'],
-	category: 'info',
+	category: 'Info',
 	description: 'Returns all commands, or one specific command info',
 	usage: `${prefix}help [command]`,
 	run: async (client, message, args) => {

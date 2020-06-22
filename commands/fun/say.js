@@ -2,7 +2,7 @@ const prefix = process.env.prefix;
 
 module.exports = {
 	name: 'say',
-	category: 'fun',
+	category: 'Fun',
 	description: 'Get the bot to say what ever you want.',
 	aliases: [],
 	usage: `${prefix}say <message>`,

@@ -3,7 +3,7 @@ const prefix = process.env.prefix;
 module.exports = {
 	name: 'slowmode',
 	aliases: ['slow'],
-	category: 'utility',
+	category: 'Utility',
 	description: 'Set the slowmode for a specific channel.',
 	usage: `${prefix}slowmode <seconds>`,
 	run: async (bot, message, args) => {

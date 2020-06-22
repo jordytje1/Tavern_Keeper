@@ -4,7 +4,7 @@ const prefix = process.env.prefix;
 
 module.exports = {
 	name: 'avatar',
-	category: 'info',
+	category: 'Info',
 	description: 'Get the avatar of a specified user, or your own avatar.',
 	aliases: ['pfp', 'icon'],
 	usage: `${prefix}avatar [ @user | userid ]`,

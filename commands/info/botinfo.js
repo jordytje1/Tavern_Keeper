@@ -10,7 +10,7 @@ const cpuStat = require('cpu-stat');
 
 module.exports = {
 	name: 'botinfo',
-	category: 'info',
+	category: 'Info',
 	description: 'Displays information about the bot.',
 	aliases: ['bot'],
 	usage: `${prefix}botinfo`,

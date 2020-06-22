@@ -7,7 +7,7 @@ const chooseArr = ['🗻', '📰', '✂'];
 
 module.exports = {
 	name: 'rps',
-	category: 'fun',
+	category: 'Fun',
 	description: 'Play a game of Rock Paper Scissors with me.',
 	aliases: [],
 	usage: `${prefix}rps`,

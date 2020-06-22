@@ -4,7 +4,7 @@ const prefix = process.env.prefix;
 
 module.exports = {
 	name: 'tempmute',
-	category: 'moderation',
+	category: 'Moderation',
 	description: 'Temporarily mute a specific user.',
 	aliases: ['tmute'],
 	usage: `${prefix}tempmute < @user | userid > <time> <reason>`,

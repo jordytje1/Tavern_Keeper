@@ -33,7 +33,7 @@ const Kickable = {
 
 module.exports = {
 	name: 'userinfo',
-	category: 'info',
+	category: 'Info',
 	description: 'Displays information about a provided user or the message author.',
 	aliases: ['user'],
 	usage: `${prefix}userinfo [ @user | userid ]`,

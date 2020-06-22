@@ -7,7 +7,7 @@ const prefix = process.env.prefix;
 module.exports = {
 	name: 'uptime',
 	description: 'Check the bot\'s uptime.',
-	category: 'info',
+	category: 'Info',
 	aliases: [ 'ontime' ],
 	usage: `${prefix}uptime`,
 	run: async (client, message, args) => {

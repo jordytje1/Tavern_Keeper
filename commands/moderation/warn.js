@@ -5,7 +5,7 @@ const prefix = process.env.prefix;
 
 module.exports = {
 	name: 'warn',
-	category: 'moderation',
+	category: 'Moderation',
 	description: 'Warn a specified user for breaking the rules.',
 	aliases: ['strike'],
 	usage: `${prefix}warn < @user | userid > <reason>`,

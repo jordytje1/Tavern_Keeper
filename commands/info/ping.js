@@ -4,7 +4,7 @@ const prefix = process.env.prefix;
 
 module.exports = {
 	name: 'ping',
-	category: 'info',
+	category: 'Info',
 	description: 'Returns the bot\'s latency and API ping',
 	aliases: ['latency'],
 	usage: `${prefix}ping`,

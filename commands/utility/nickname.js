@@ -4,7 +4,7 @@ const prefix = process.env.prefix;
 
 module.exports = {
 	name: 'nickname',
-	category: 'utility',
+	category: 'Utility',
 	description: 'Set a specified user\'s nickname.',
 	aliases: ['nick'],
 	usage: `${prefix}nickname < @user | userid > <nickname>`,
