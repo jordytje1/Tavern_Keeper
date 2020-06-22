@@ -1,4 +1,5 @@
 /* eslint-disable no-unused-vars */
+const { MessageEmbed } = require('discord.js');
 const rollDice = () => Math.floor(Math.random() * 6) + 1;
 const prefix = process.env.prefix;
 
@@ -9,6 +10,14 @@ module.exports = {
 	aliases: ['rolldice', ' diceroll'],
 	usage: `${prefix}roll`,
 	run: async (client, message, args) => {
-		message.channel.send(`${message.author}, You rolled a ` + rollDice());
+		message.channel.send('🎲 Rolling...').then((msg) => {
+			const Embed = new MessageEmbed()
+				.setTitle('You rolled a . .')
+				.setColor('BLUE')
+				.setDescription(
+					`${rollDice()}!`,
+				);
+			msg.edit(Embed);
+		});
 	},
 };
