@@ -1,6 +1,7 @@
 /* eslint-disable no-const-assign */
 /* eslint-disable no-unused-vars */
 const { MessageEmbed } = require('discord.js');
+const { getMember } = require('../../functions.js');
 const prefix = process.env.prefix;
 
 module.exports = {
@@ -10,10 +11,12 @@ module.exports = {
 	aliases: ['ship'],
 	usage: `${prefix}love [@user]`,
 	run: async (client, message, args) => {
-		const person = message.mentions.users.first() || message.member;
+		let person = getMember(message, args[0]);
 
 		if (!person || message.author.id === person.id) {
-			return message.channel.send('Please specify a user.');
+			person = message.guild.members.cache
+				.filter(m => m.id !== message.author.id)
+				.random();
 		}
 
 		const love = Math.random() * 100;
@@ -22,7 +25,7 @@ module.exports = {
 
 		const embed = new MessageEmbed()
 			.setColor('#ffb6c1')
-			.addField(`☁ **${person.username}** loves **${message.member.displayName}** this much:`,
+			.addField(`☁ **${person.user.username}** loves **${message.member.displayName}** this much:`,
 				`💟 ${Math.floor(love)}%\n\n${loveLevel}`);
 
 		message.channel.send(embed);
