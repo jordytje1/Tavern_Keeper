@@ -10,10 +10,10 @@ module.exports = {
 	usage: `${prefix}avatar [@user]`,
 	guildOnly: true,
 	run: async (client, message, args) => {
-		const user = message.mentions.users.first() || message.author;
+		const user = message.mentions.users.first() || message.guild.members.cache.get(args[0]) || message.member;
 		const aEmbed = new MessageEmbed()
-			.setTitle(`${user.username}'s avatar`)
-			.setImage(user.avatarURL({ dynamic: true }))
+			.setTitle(`${user.user.tag}'s avatar`)
+			.setImage(user.user.displayAvatarURL({ dynamic: true }))
 			.setColor('BLUE')
 			.setTimestamp();
 		message.channel.send(aEmbed);
