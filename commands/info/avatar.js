@@ -10,13 +10,12 @@ module.exports = {
 	usage: `${prefix}avatar [ @user | userid ]`,
 	guildOnly: true,
 	run: async (client, message, args) => {
-		const user = message.mentions.users.first() || message.guild.members.cache.get(args[0]) || message.member;
-		const aEmbed = new MessageEmbed()
-			.setTitle(`${user.user.username}'s avatar`)
-			.setURL(`${user.user.displayAvatarURL({ dynamic: true })}`)
-			.setImage(user.user.displayAvatarURL({ dynamic: true, size: 512 }))
-			.setColor('BLUE')
-			.setTimestamp();
-		message.channel.send(aEmbed);
+		const member = message.mentions.members.last() || message.guild.members.cache.get(args[0]) || message.member;
+		const embed = new MessageEmbed()
+			.setTitle(`${member.user.username}'s avatar`)
+			.setURL(member.user.displayAvatarURL({ dynamic: true }))
+			.setImage(member.user.displayAvatarURL({ dynamic: true, size: 256 }))
+			.setColor('BLUE');
+		message.channel.send(embed);
 	},
 };
