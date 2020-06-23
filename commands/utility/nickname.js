@@ -7,26 +7,26 @@ module.exports = {
 	category: 'Utility',
 	description: 'Set a specified user\'s nickname.',
 	aliases: ['nick'],
-	usage: `${prefix}nickname < @user | userid > <nickname>`,
+	usage: `${prefix}nickname <@user | userid> <nickname>`,
 	run: async (client, message, args) => {
 		if(!message.member.hasPermission('MANAGE_NICKNAMES')) {
 			return message.channel.send(
 				'You do not have the permission to use this command.',
-			).then(message.delete({ timeout: 5000 })).then(embed => {embed.delete();});
+			).then(message.delete({ timeout: 5000 })).then(msg => {msg.delete({ timeout: 5000 });});
 		}
 
 		const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username === args.slice(0).join(' ') || x.user.username === args[0]);
 		if (!member) {
 			return message.channel.send(
 				'Please specify a user to nickname.',
-			).then(message.delete({ timeout: 5000 })).then(embed => {embed.delete();});
+			).then(message.delete({ timeout: 5000 })).then(msg => {msg.delete({ timeout: 5000 });});
 		}
 
 		const nickname = args.slice(1).join(' ');
 		if (!nickname) {
 			return message.channel.send(
 				'Please provide a nickname.',
-			).then(message.delete({ timeout: 5000 })).then(embed => {embed.delete();});
+			).then(message.delete({ timeout: 5000 })).then(msg => {msg.delete({ timeout: 5000 });});
 		}
 
 		member.setNickname(nickname);

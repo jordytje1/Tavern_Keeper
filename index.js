@@ -1,8 +1,6 @@
-/* eslint-disable no-unused-vars */
 require('dotenv').config();
 const { Client, Collection } = require('discord.js');
-const { prefix, token, version } = process.env;
-const fs = require('fs');
+const { prefix, version } = process.env;
 
 const client = new Client({
 	disableEveryone: true,

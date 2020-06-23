@@ -7,7 +7,7 @@ module.exports = {
 	category: 'Info',
 	description: 'Get the avatar of a specified user, or your own avatar.',
 	aliases: ['pfp', 'icon'],
-	usage: `${prefix}avatar [ @user | userid ]`,
+	usage: `${prefix}avatar [@user | userid]`,
 	guildOnly: true,
 	run: async (client, message, args) => {
 		const member = message.mentions.members.last() || message.guild.members.cache.get(args[0]) || message.member;

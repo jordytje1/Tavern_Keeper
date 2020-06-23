@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-mixed-spaces-and-tabs */
-const { MessageEmbed } = require('discord.js');
+const { MessageEmbed, version: djsversion } = require('discord.js');
 const { formatBytes } = require('../../functions.js');
 const { parseDur } = require('../../functions.js');
 const moment = require('moment');
@@ -37,6 +37,7 @@ module.exports = {
 				])
 				.addField('System Statistics:', [
 					`**❯ Node.js Version:** ${process.version}`,
+					`**❯ Discord.js Version:** ${djsversion}`,
 					`**❯ Platform:** ${os.platform}`,
 					'**❯ CPU:** ',
 					`\u3000 - Model: ${core.model}`,

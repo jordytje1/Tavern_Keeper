@@ -9,7 +9,7 @@ module.exports = {
 	guildOnly: true,
 	run: async (client, message, args) => {
 		const text = args.join(' ');
-		if (!text)return message.channel.send('You did not specify a message to say!').then(message.delete({ timeout: 5000 })).then(msg => {msg.delete();});
+		if (!text)return message.channel.send('You did not specify a message to say!').then(message.delete({ timeout: 5000 })).then(msg => {msg.delete({ timeout: 5000 });});
 		message.delete();
 		message.channel.send(text);
 	},

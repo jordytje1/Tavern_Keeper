@@ -36,7 +36,7 @@ module.exports = {
 	category: 'Info',
 	description: 'Displays information about a provided user or the message author.',
 	aliases: ['user'],
-	usage: `${prefix}userinfo [ @user | userid ]`,
+	usage: `${prefix}userinfo [@user | userid]`,
 	run: async (client, message, args) => {
 		const member = message.mentions.members.last() || message.guild.members.cache.get(args[0]) || message.member;
 		const roles = member.roles.cache
@@ -53,14 +53,14 @@ module.exports = {
 				`**❯ ID:** ${member.id}`,
 				`**❯ Flags:** ${userFlags.length ? userFlags.map(flag => flags[flag]).join(', ') : 'None'}`,
 				`**❯ Avatar:** [Link to avatar](${member.user.displayAvatarURL({ dynamic: true })})`,
-				`**❯ Time Created:** ${moment(member.user.createdTimestamp).format('LT')} ${moment(member.user.createdTimestamp).format('LL')} ${moment(member.user.createdTimestamp).fromNow()}`,
+				`**❯ Time Created:** ${moment(member.user.createdTimestamp).format('Do MMMM YYYY HH:mm')}`,
 				`**❯ Status:** ${Presence[member.user.presence.status]}`,
 				`**❯ Voice Channel:** ${member.voice.channel ? member.voice.channel.name + `(${member.voice.channel.id})` : 'None' }`,
 				'\u200b',
 			])
 			.addField('Server', [
 				`**❯ Highest Role:** ${member.roles.highest.id === message.guild.id ? 'None' : member.roles.highest.name}`,
-				`**❯ Server Join Date:** ${moment(member.joinedAt).format('LL LTS')}`,
+				`**❯ Server Join Date:** ${moment(member.joinedAt).format('Do MMMM YYYY HH:mm')}`,
 				`**❯ Hoist Role:** ${member.roles.hoist ? member.roles.hoist.name : 'None'}`,
 				`**❯ Kickable:** ${Kickable[member.kickable]}`,
 				`**❯ Roles [${roles.length}]:** ${roles.join(', ') || 'None'}`,

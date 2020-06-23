@@ -12,7 +12,7 @@ module.exports = {
 		if (!question) {
 			return message.channel.send(
 				'You did not specify your question!',
-			).then(message.delete({ timeout: 5000 })).then(msg => {msg.delete();});
+			).then(message.delete({ timeout: 5000 })).then(msg => {msg.delete({ timeout: 5000 });});
 		}
 		else {
 			const responses = [

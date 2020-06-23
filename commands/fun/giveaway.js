@@ -9,7 +9,13 @@ module.exports = {
 	usage: `${prefix}giveaway <time> <channel> <prize>`,
 	category: 'Utility',
 	run: async (bot, message, args) => {
-		if (!args[0]) return message.channel.send('You did not specify your time.').then(message.delete({ timeout: 5000 })).then(msg => {msg.delete();});
+		if(!message.member.hasPermission('MANAGE_MESSAGES')) {
+			return message.channel.send(
+				'You do not have the permission to use this commnad.',
+			).then(message.delete({ timeout: 5000 })).then(msg => {msg.delete({ timeout: 5000 });});
+		}
+
+		if (!args[0]) return message.channel.send('You did not specify your time.').then(message.delete({ timeout: 5000 })).then(msg => {msg.delete({ timeout: 5000 });});
 		if (
 			!args[0].endsWith('d') &&
       		!args[0].endsWith('h') &&
@@ -17,17 +23,17 @@ module.exports = {
 		) {
 			return message.channel.send(
 				'Please use the correct time format.',
-			).then(message.delete({ timeout: 5000 })).then(msg => {msg.delete();});
+			).then(message.delete({ timeout: 5000 })).then(msg => {msg.delete({ timeout: 5000 });});
 		}
-		if (isNaN(args[0][0])) return message.channel.send('That is not a number.').then(message.delete({ timeout: 5000 })).then(msg => {msg.delete();});
+		if (isNaN(args[0][0])) return message.channel.send('That is not a number.').then(message.delete({ timeout: 5000 })).then(msg => {msg.delete({ timeout: 5000 });});
 		const channel = message.mentions.channels.first();
 		if (!channel) {
 			return message.channel.send(
 				'Please specify the giveaway channel.',
-			).then(message.delete({ timeout: 5000 })).then(msg => {msg.delete();});
+			).then(message.delete({ timeout: 5000 })).then(msg => {msg.delete({ timeout: 5000 });});
 		}
 		const prize = args.slice(2).join(' ');
-		if (!prize) return message.channel.send('No prize specified.').then(message.delete({ timeout: 5000 })).then(msg => {msg.delete();});
+		if (!prize) return message.channel.send('No prize specified.').then(message.delete({ timeout: 5000 })).then(msg => {msg.delete({ timeout: 5000 });});
 		message.channel.send(`Giveaway created in ${channel}`);
 		const Embed = new MessageEmbed()
 			.setTitle(`${prize}`)

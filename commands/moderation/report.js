@@ -7,39 +7,39 @@ module.exports = {
 	category: 'Moderation',
 	description: 'Report a user who is breaking the rules.',
 	aliases: [],
-	usage: `${prefix}report < @user | userid > <reason>`,
+	usage: `${prefix}report <@user | userid> <reason>`,
 	guildOnly: true,
 	run: async (client, message, args) => {
 		const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username === args.slice(0).join(' ') || x.user.username === args[0]);
 		if(!member) {
 			return message.channel.send(
 				'Please specify a user to report',
-			).then(message.delete({ timeout: 5000 })).then(embed => {embed.delete();});
+			).then(message.delete({ timeout: 5000 })).then(msg => {msg.delete({ timeout: 5000 });});
 		}
 
 		if(member.id === message.author.id) {
 			return message.channel.send(
 				'You are not allowed report yourself',
-			).then(message.delete({ timeout: 5000 })).then(embed => {embed.delete();});
+			).then(message.delete({ timeout: 5000 })).then(msg => {msg.delete({ timeout: 5000 });});
 		}
 
 		if(member.user.bot) {
 			return message.channel.send(
 				'You are not allowed to report bots',
-			).then(message.delete({ timeout: 5000 })).then(embed => {embed.delete();});
+			).then(message.delete({ timeout: 5000 })).then(msg => {msg.delete({ timeout: 5000 });});
 		}
 
 		if(member.id === message.guild.owner.id) {
 			return message.channel.send(
 				'Are you trying to get yourself into trouble?',
-			).then(message.delete({ timeout: 5000 })).then(embed => {embed.delete();});
+			).then(message.delete({ timeout: 5000 })).then(msg => {msg.delete({ timeout: 5000 });});
 		}
 
 		const Reason = args.slice(1).join(' ');
 		if (!Reason) {
 			return message.channel.send(
 				'You are not allowed to report someone without a reason.',
-			).then (message.delete({ timeout: 5000 })).then(message.delete()).then(embed => {embed.delete();});
+			).then(message.delete({ timeout: 5000 })).then(msg => {msg.delete({ timeout: 5000 });});
 		}
 
 		const channel = member.guild.channels.cache.get('724508956981985351');
@@ -59,6 +59,6 @@ module.exports = {
 		const mEmbed = new MessageEmbed()
 			.setDescription('**The user was reported.**')
 			.setColor('GREEN');
-		message.channel.send(mEmbed).then(message.delete({ timeout: 5000 })).then(embed => {embed.delete();});
+		message.channel.send(mEmbed).then(message.delete({ timeout: 5000 })).then(msg => {msg.delete({ timeout: 5000 });});
 	},
 };

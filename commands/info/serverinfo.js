@@ -58,7 +58,7 @@ module.exports = {
 				`**❯ Boost Tier:** ${message.guild.premiumTier ? `Tier ${message.guild.premiumTier}` : 'None'}`,
 				`**❯ Explicit Filter:** ${filterLevels[message.guild.explicitContentFilter]}`,
 				`**❯ Verification Level:** ${verificationLevels[message.guild.verificationLevel]}`,
-				`**❯ Time Created:** ${moment(message.guild.createdTimestamp).format('LT')} ${moment(message.guild.createdTimestamp).format('LL')} ${moment(message.guild.createdTimestamp).fromNow()}`,
+				`**❯ Time Created:** ${moment(message.guild.createdTimestamp).format('Do MMMM YYYY HH:mm')}`,
 				'\u200b',
 			])
 			.addField('Statistics', [

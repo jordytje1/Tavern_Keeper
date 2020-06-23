@@ -1,6 +1,6 @@
 /* eslint-disable no-inner-declarations */
 const { MessageEmbed } = require('discord.js');
-const prefix = process.env.prefix;
+const { prefix, ownerid } = process.env;
 
 module.exports = {
 	name: 'help',
@@ -26,11 +26,18 @@ function getAll(client, message) {
 		.setColor('BLUE')
 		.setDescription(`This server's prefix is \`${prefix}\`.\nFor more info on a specific command, type \`${prefix}help <command name>\`.`);
 
-	const categories = [...new Set(client.commands.map(cmd => cmd.category))];
+	let categories;
+	if(message.author.id !== ownerid) {
+		categories = [...new Set(client.commands.filter(cmd => cmd.category !== 'Owner').map(cmd =>cmd.category))];
+	}
+	else {
+		categories = [...new Set(client.commands.map(cmd => cmd.category))];
+	}
 
-	for (const category of categories) {
-		embed.addField(`${(category)}`, client.commands.filter(cmd =>
-			cmd.category === category).map(cmd => `\`${cmd.name}\``).join(' '));
+	for (const id of categories) {
+		const category = client.commands.filter(cmd => cmd.category === id);
+
+		embed.addField(`${id} (${category.size})`, category.map(cmd => `\`${cmd.name}\``).join(' '));
 	}
 	return message.channel.send(embed);
 }
@@ -45,24 +52,24 @@ function getCMD(client, message, input) {
 	const info = `No information found for command ${input.toLowerCase()}`;
 
 	if (!cmd) {
-		return message.channel.send(embed.setColor('BLUE').setDescription(info)).then(message.delete({ timeout: 5000 })).then(msg => {msg.delete();});
+		return message.channel.send(embed.setColor('BLUE').setDescription(info)).then(message.delete({ timeout: 5000 })).then(msg => {msg.delete({ timeout: 5000 });});
 	}
 	else{
 		function capitalizeFirstLetter(string) {
 			return string.charAt(0).toUpperCase() + string.slice(1);
 		}
 		const hembed = new MessageEmbed()
-			.setTitle('Command Info')
+			.setTitle(`Information for ${capitalizeFirstLetter(cmd.name.toString().toLowerCase())} command`)
 			.setColor('BLUE')
 			.setTimestamp()
 			.setFooter('Syntax: <> = required, [] = optional', `${client.user.avatarURL()}`)
-			.addFields(
-				{ name: 'Name:', value: `${cmd.name}` },
-				{ name: 'Catergory:', value: `${capitalizeFirstLetter(cmd.category.toString().toLowerCase())}` },
-				{ name: 'Description:', value: `${cmd.description}` },
-				{ name: 'Usage:', value: `${cmd.usage}` },
-				{ name: 'Aliases:', value: `${cmd.aliases.map((a) => `\`${a}\``).join(', ')}` || '`None`' },
-			);
+			.setDescription([
+				`**❯ Name:** ${cmd.name}`,
+				`**❯ Category:** ${capitalizeFirstLetter(cmd.category.toString().toLowerCase())}`,
+				`**❯ Description:** ${cmd.description}`,
+				`**❯ Usage:** ${cmd.usage}`,
+				`**❯ Aliases:** ${cmd.aliases.lenght ? cmd.aliases.map((a) => `\`${a}\``).join(', ') : '`None`'}`,
+			]);
 		message.channel.send(hembed);
 	}
 }
