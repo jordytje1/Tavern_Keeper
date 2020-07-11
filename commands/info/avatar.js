@@ -13,8 +13,8 @@ module.exports = {
 		const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username === args.slice(0).join(' ') || x.user.username === args[0]) || message.author;
 		const embed = new MessageEmbed()
 			.setTitle(`${member.username}'s avatar`)
-			.setURL(member.user.displayAvatarURL({ dynamic: true }))
-			.setImage(member.user.displayAvatarURL({ dynamic: true }))
+			.setURL(member.displayAvatarURL({ dynamic: true }))
+			.setImage(member.displayAvatarURL({ dynamic: true }))
 			.setColor('BLUE');
 		message.channel.send(embed);
 	},
