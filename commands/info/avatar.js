@@ -10,7 +10,7 @@ module.exports = {
 	usage: `${prefix}avatar [@user | userid]`,
 	guildOnly: true,
 	run: async (client, message, args) => {
-		const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username === args.slice(0).join(' ') || x.user.username === args[0]);
+		const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username === args.slice(0).join(' ') || x.user.username === args[0]) || message.author;
 		const embed = new MessageEmbed()
 			.setTitle(`${member.user.username}'s avatar`)
 			.setURL(member.user.displayAvatarURL({ dynamic: true }))
