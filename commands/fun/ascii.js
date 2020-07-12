@@ -5,7 +5,7 @@ const prefix = process.env.prefix;
 module.exports = {
 	name: 'ascii',
 	category: 'Fun',
-	description: 'Roll a dice and get a random number from 1 - 6.',
+	description: 'Get a nice ascii art.',
 	aliases: ['art'],
 	usage: `${prefix}rascii <message>`,
 	run: async (client, message, args) => {

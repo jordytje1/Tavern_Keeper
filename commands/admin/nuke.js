@@ -4,12 +4,12 @@ const { prefix, ownerid } = process.env;
 
 module.exports = {
 	name: 'nuke',
-	category: 'Owner',
+	category: 'Admin',
 	description: 'Clones the current channel and deletes the old one.',
 	aliases: [],
 	usage: `${prefix}nuke`,
 	run: async (client, message, args) => {
-		if (message.author.id !== ownerid) {
+		if (message.member.hasPermission('ADMINISTRATOR')) {
 			return message.channel.send(
 				'You do not have permission to use this command.',
 			).then(message.delete({ timeout: 5000 })).then(msg => {msg.delete({ timeout: 5000 });});

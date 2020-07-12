@@ -48,6 +48,8 @@ module.exports = {
 			.setDescription(`**User information for ${member.user.username}#${member.user.discriminator}**`)
 			.setThumbnail(member.user.displayAvatarURL({ dynamic: true, size: 512 }))
 			.setColor(member.displayHexColor || 'BLUE')
+      .setFooter(`Requested by ${message.author.tag} `)
+			.setTimestamp()
 			.addField('General', [
 				`**❯ Username:** ${member.user.username}#${member.user.discriminator}`,
 				`**❯ ID:** ${member.id}`,
@@ -59,8 +61,8 @@ module.exports = {
 				'\u200b',
 			])
 			.addField('Server', [
+        `**❯ Server Join Date:** ${moment(member.joinedAt).format('Do MMMM YYYY HH:mm')}`,
 				`**❯ Highest Role:** ${member.roles.highest.id === message.guild.id ? 'None' : member.roles.highest.name}`,
-				`**❯ Server Join Date:** ${moment(member.joinedAt).format('Do MMMM YYYY HH:mm')}`,
 				`**❯ Hoist Role:** ${member.roles.hoist ? member.roles.hoist.name : 'None'}`,
 				`**❯ Kickable:** ${Kickable[member.kickable]}`,
 				`**❯ Roles [${roles.length}]:** ${roles.join(', ') || 'None'}`,

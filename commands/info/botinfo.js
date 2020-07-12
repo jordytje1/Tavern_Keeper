@@ -26,10 +26,12 @@ module.exports = {
 				.setDescription(`**Bot information for ${client.user.username}**`)
 				.setThumbnail(client.user.displayAvatarURL({ dynamic: true, size: 512 }))
 				.setColor(client.displayHexColor || 'BLUE')
+        .setFooter(`Requested by ${message.author.tag} `)
+        .setTimestamp()
 				.addField('General Statistics:', [
-					`**❯ Server:** ${client.guilds.cache.size.toLocaleString()}`,
+					`**❯ Servers:** ${client.guilds.cache.size.toLocaleString()}`,
 					`**❯ Users:** ${client.users.cache.size.toLocaleString()}`,
-					`**❯ Channel:** ${client.channels.cache.size.toLocaleString()}`,
+					`**❯ Channels:** ${client.channels.cache.size.toLocaleString()}`,
 					`**❯ Commands:** ${client.commands.size}`,
 					`**❯ Creation Date:** ${moment(client.user.createdTimestamp).format('Do MMMM YYYY HH:mm')}`,
 					`**❯ Uptime:** ${parseDur(client.uptime)}`,

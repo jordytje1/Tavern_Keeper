@@ -25,6 +25,8 @@ module.exports = {
 		const embed = new MessageEmbed()
 			.setDescription(`**Role information for ${role.name}**`)
 			.setColor(role.hexColor)
+      .setFooter(`Requested by ${message.author.tag} `)
+			.setTimestamp()
 			.addField('General', [
 				`**❯ Name:** ${role.name}`,
 				`**❯ ID:** ${role.id}`,

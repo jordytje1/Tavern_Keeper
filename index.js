@@ -1,6 +1,7 @@
 require('dotenv').config();
 const { Client, Collection } = require('discord.js');
-const { prefix, version } = process.env;
+const { prefix, version, token } = process.env;
+const keepAlive = require('./server');
 
 const client = new Client({
 	disableEveryone: true,
@@ -32,27 +33,6 @@ client.on('message', async message => {
 	if (command) {command.run(client, message, args);}
 });
 
-// Edited Messages
-client.on('messageUpdate', async (oldMessage, newMessage) => {
-	require('./events/messageUpdate')(oldMessage, newMessage);
-});
-
-// Deleted Messages
-client.on('messageDelete', async (message) => {
-	require('./events/messageDelete')(message);
-});
-
-// Welcome Message
-client.on('guildMemberAdd', async (member) => {
-	require('./events/welcome')(member);
-});
-
-// Leave Message
-client.on('guildMemberRemove', async (member) => {
-	require('./events/goodbye')(member);
-});
-
-
 // Auto Responder
 client.on('message', message => {
 	if (message.author.bot) return;
@@ -65,7 +45,8 @@ client.on('message', message => {
 	}
 });
 
-client.login(process.env.token);
+keepAlive()
+client.login(token);
 client.on('ready', () => {
 	client.user.setActivity(`${prefix}help`, { type: 'PLAYING' });
 	console.log(`Logged in as ${client.user.tag}`);

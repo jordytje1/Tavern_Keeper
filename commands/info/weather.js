@@ -1,7 +1,7 @@
 /* eslint-disable max-statements-per-line */
 const weather = require('weather-js');
 const { MessageEmbed } = require('discord.js');
-const { prefix } = process.env.prefix;
+const { prefix } = process.env;
 
 
 module.exports = {
