@@ -11,7 +11,7 @@ module.exports = {
 	category: 'Info',
 	aliases: ['temp'],
 	run: async (client, message, args) => {
-		if (!args[0]) {return message.channe.send('Please provide a location.').then(message.delete({ timeout: 5000 })).then(msg => {msg.delete({ timeout: 5000 });});}
+		if (!args[0]) {return message.channel.send('Please provide a location.').then(message.delete({ timeout: 5000 })).then(msg => {msg.delete({ timeout: 5000 });});}
 
 		weather.find({
 			search: args.join(' '),
