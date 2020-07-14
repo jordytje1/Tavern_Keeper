@@ -21,11 +21,11 @@ module.exports = {
 				'Please specify a role',
 			).then(message.delete({ timeout: 5000 })).then(msg => {msg.delete({ timeout: 5000 });});
 		}
-    
+
 		const embed = new MessageEmbed()
 			.setDescription(`**Role information for ${role.name}**`)
 			.setColor(role.hexColor)
-      .setFooter(`Requested by ${message.author.tag} `)
+			.setFooter(`Requested by ${message.author.tag} `)
 			.setTimestamp()
 			.addField('General', [
 				`**❯ Name:** ${role.name}`,

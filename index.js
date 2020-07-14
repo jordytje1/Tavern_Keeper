@@ -45,7 +45,7 @@ client.on('message', message => {
 	}
 });
 
-keepAlive()
+keepAlive();
 client.login(token);
 client.on('ready', () => {
 	client.user.setActivity(`${prefix}help`, { type: 'PLAYING' });

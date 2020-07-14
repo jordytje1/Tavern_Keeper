@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 const { MessageEmbed } = require('discord.js');
 const moment = require('moment');
-const prefix = process.env.prefix;
 
 const flags = {
 	DISCORD_EMPLOYEE: 'Discord Employee',
@@ -36,7 +35,7 @@ module.exports = {
 	category: 'Info',
 	description: 'Displays information about a provided user or the message author.',
 	aliases: ['user'],
-	usage: `${prefix}userinfo [@user | userid]`,
+	usage: 'userinfo [user]',
 	run: async (client, message, args) => {
 		const member = message.mentions.members.last() || message.guild.members.cache.get(args[0]) || message.member;
 		const roles = member.roles.cache
@@ -48,7 +47,7 @@ module.exports = {
 			.setDescription(`**User information for ${member.user.username}#${member.user.discriminator}**`)
 			.setThumbnail(member.user.displayAvatarURL({ dynamic: true, size: 512 }))
 			.setColor(member.displayHexColor || 'BLUE')
-      .setFooter(`Requested by ${message.author.tag} `)
+			.setFooter(`Requested by ${message.author.tag} `)
 			.setTimestamp()
 			.addField('General', [
 				`**❯ Username:** ${member.user.username}#${member.user.discriminator}`,
@@ -61,7 +60,7 @@ module.exports = {
 				'\u200b',
 			])
 			.addField('Server', [
-        `**❯ Server Join Date:** ${moment(member.joinedAt).format('Do MMMM YYYY HH:mm')}`,
+				`**❯ Server Join Date:** ${moment(member.joinedAt).format('Do MMMM YYYY HH:mm')}`,
 				`**❯ Highest Role:** ${member.roles.highest.id === message.guild.id ? 'None' : member.roles.highest.name}`,
 				`**❯ Hoist Role:** ${member.roles.hoist ? member.roles.hoist.name : 'None'}`,
 				`**❯ Kickable:** ${Kickable[member.kickable]}`,
@@ -70,5 +69,4 @@ module.exports = {
 			]);
 		return message.channel.send(embed);
 	},
-
 };

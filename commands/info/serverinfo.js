@@ -76,7 +76,7 @@ module.exports = {
 				`**❯ Offline:** ${members.filter(member => member.presence.status === 'offline').size}`,
 				'\u200b',
 			])
-      .setFooter(`Requested by ${message.author.tag} `)
+			.setFooter(`Requested by ${message.author.tag} `)
 			.setTimestamp();
 		message.channel.send(embed);
 	},
