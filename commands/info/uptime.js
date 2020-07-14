@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 const { MessageEmbed } = require('discord.js');
-const moment = require('moment');
-require('moment-duration-format');
+const { parseDur } = require('../../functions.js');
 const prefix = process.env.prefix;
 
 module.exports = {
@@ -11,7 +10,7 @@ module.exports = {
 	aliases: [ 'ontime' ],
 	usage: `${prefix}uptime`,
 	run: async (client, message, args) => {
-		const duration = moment.duration(client.uptime).format(' D [days], H [hrs], m [mins], s [secs]');
+		const duration = parseDur(client.uptime);
 		message.channel.send('⌛ Loading...').then((msg) => {
 			const pEmbed = new MessageEmbed()
 				.setTitle(':inbox_tray: I am online!')
