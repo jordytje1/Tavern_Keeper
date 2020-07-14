@@ -1,6 +1,5 @@
 /* eslint-disable prefer-const */
 module.exports = {
-  //love.js
 	getMember: function(message, toFind = '') {
 		toFind = toFind.toLowerCase();
 
@@ -20,7 +19,10 @@ module.exports = {
 		return target;
 	},
 
-//rps.js
+	formatDate: function(date) {
+		return new Intl.DateTimeFormat('en-US').format(date);
+	},
+
 	promptMessage: async function(message, author, time, validReactions) {
 		time *= 1000;
 
@@ -33,7 +35,6 @@ module.exports = {
 			.then(collected => collected.first() && collected.first().emoji.name);
 	},
 
-//botinfo.js
 	formatBytes: function(a, b) {
 		if (a == 0) return '0 Bytes';
 		const c = 1024,
@@ -42,5 +43,28 @@ module.exports = {
 			f = Math.floor(Math.log(a) / Math.log(c));
 
 		return parseFloat((a / Math.pow(c, f)).toFixed(d)) + ' ' + e[f];
+	},
+
+	parseDur: function(ms) {
+		let seconds = ms / 1000,
+			days = parseInt(seconds / 86400);
+		seconds = seconds % 86400;
+
+		const hours = parseInt(seconds / 3600);
+		seconds = seconds % 3600;
+
+		const minutes = parseInt(seconds / 60);
+		seconds = parseInt(seconds % 60);
+
+		if (days) {
+			return `${days} day, ${hours} hours, ${minutes} minutes`;
+		}
+		else if (hours) {
+			return `${hours} hours, ${minutes} minutes, ${seconds} seconds`;
+		}
+		else if (minutes) {
+			return `${minutes} minutes, ${seconds} seconds`;
+		}
+		return `${seconds} second(s)`;
 	},
 };

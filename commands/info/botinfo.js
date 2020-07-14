@@ -2,7 +2,7 @@
 /* eslint-disable no-mixed-spaces-and-tabs */
 const { MessageEmbed, version: djsversion } = require('discord.js');
 const { formatBytes } = require('../../functions.js');
-const ms= require('ms');
+const { parseDur } = require('../../functions.js');
 const moment = require('moment');
 const prefix = process.env.prefix;
 const os = require('os');
@@ -34,7 +34,7 @@ module.exports = {
 					`**❯ Channels:** ${client.channels.cache.size.toLocaleString()}`,
 					`**❯ Commands:** ${client.commands.size}`,
 					`**❯ Creation Date:** ${moment(client.user.createdTimestamp).format('Do MMMM YYYY HH:mm')}`,
-					`**❯ Uptime:** ${ms(client.uptime, { long: true })}`,
+					`**❯ Uptime:** ${parseDur(client.uptime)}`,
 					'\u200b',
 				])
 				.addField('System Statistics:', [

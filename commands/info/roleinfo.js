@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const { MessageEmbed } = require('discord.js');
 const moment = require('moment');
 const prefix = process.env.prefix;
@@ -20,18 +21,11 @@ module.exports = {
 				'Please specify a role',
 			).then(message.delete({ timeout: 5000 })).then(msg => {msg.delete({ timeout: 5000 });});
 		}
-
-		let permissions;
-		if(role.permissions.toArray().length !== 0) {
-			permissions = role.permissions.toArray().map(x => x.split('_').map(y => y[0] + y.slice(1).toLowerCase()).join(' ')).join(', ');
-		}
-		else {
-			permissions = 'None';
-		}
+    
 		const embed = new MessageEmbed()
 			.setDescription(`**Role information for ${role.name}**`)
 			.setColor(role.hexColor)
-			.setFooter(`Requested by ${message.author.tag} `)
+      .setFooter(`Requested by ${message.author.tag} `)
 			.setTimestamp()
 			.addField('General', [
 				`**❯ Name:** ${role.name}`,
@@ -48,8 +42,9 @@ module.exports = {
 				'\u200b',
 			])
 			.addField('Permissions', [
-				`${permissions}`,
+				`${role.permissions.toArray().map(x => x.split('_').map(y => y[0] + y.slice(1).toLowerCase()).join(' ')).join(', ')}`,
 			]);
+
 
 		return message.channel.send(embed);
 	},
