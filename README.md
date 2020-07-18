@@ -17,6 +17,10 @@
 
 ---
 
+<p align="center"> 🤖 A multi-purpose Discord bot for everything and anything
+    <br> 
+</p>
+
 ## 📝 Table of Contents 
 
 + [About](https://github.com/zhon12345/Tavern_Keeper#-about)
