@@ -6,4 +6,10 @@
 [![library](https://img.shields.io/badge/owner-zhon12345%238585-blue)](https://discord.gg/WS3GthM)
 
 ## What is Tavern Keeper?
-Tavern Keeper is a powerful multi-purpose discord bot written in javascript using the discord.js library.
+Tavern Keeper is a powerful multi-purpose discord bot written in javascript using the discord.js library. Tavern Keeper has many category of commands such as Fun, Image, Info, Moderation and more.
+
+## License
+This project is licensed under the Apache License 2.0 - see the [LICENSE](https://github.com/zhon12345/Tavern_Keeper/blob/master/LICENSE) file for details.
+
+## Self Hosting
+Self hosting Tavern Keeper is not supported and no help will be provided. I am not responsible or liable for any self hosted clones of Tavern Keeper.
