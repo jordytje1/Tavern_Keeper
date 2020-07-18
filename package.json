@@ -15,7 +15,7 @@
     "custom-discord-jokes": "^1.0.3",
     "discord.js": "^12.2.0",
     "dotenv": "^8.2.0",
-    "eslint": "^7.3.0",
+    "eslint": "^7.4.0",
     "express": "^4.17.1",
     "figlet": "^1.4.0",
     "mathjs": "^7.0.1",
