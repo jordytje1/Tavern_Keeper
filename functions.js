@@ -72,4 +72,34 @@ module.exports = {
 	capitalizeFirstLetter: function(string) {
 		return string.charAt(0).toUpperCase() + string.slice(1);
 	},
+
+  // memercount.js
+	checkBots: function(guild) {
+		let botCount = 0;
+		guild.members.cache.forEach(member => {
+			if (member.user.bot) botCount++;
+		});
+		return botCount;
+	},
+
+	// membercount.js
+	checkMembers: function(guild) {
+		let memberCount = 0;
+		guild.members.cache.forEach(member => {
+			if (!member.user.bot) memberCount++;
+		});
+		return memberCount;
+	},
+
+  
+	// eval,js
+	clean: function(string) {
+		if (typeof text === 'string') {
+			return string.replace(/`/g, '`' + String.fromCharCode(8203))
+				.replace(/@/g, '@' + String.fromCharCode(8203));
+		}
+		else {
+			return string;
+		}
+	},
 };

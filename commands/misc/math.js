@@ -5,7 +5,7 @@ const prefix = process.env.prefix;
 
 module.exports = {
 	name: 'math',
-	category: 'Utility',
+	category: 'Misc',
 	description: 'Helps you solve a math calculation.',
 	aliases: ['calculate'],
 	usage: `${prefix}math <value> <operator> <value>`,
