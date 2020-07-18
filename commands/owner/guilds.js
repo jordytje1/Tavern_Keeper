@@ -1,15 +1,15 @@
 /* eslint-disable no-unused-vars */
 const { MessageEmbed } = require('discord.js');
-const prefix = process.env.prefix;
+const { prefix, ownerid } = process.env;
 
 module.exports = {
 	name: 'guilds',
-	category: 'Info',
+	category: 'Owner',
 	description: 'Shows a list of servers that the bot is in.',
 	aliases: ['servers'],
 	usage: `${prefix}guilds`,
 	run: async (client, message, args) => {
-		if (message.author.id !== '450846017890549761') return;
+		if (message.author.id !== ownerid) return;
 
 		const list = client.guilds.cache.map(guild => `${guild.name} (${guild.id})`).join('\n');
 

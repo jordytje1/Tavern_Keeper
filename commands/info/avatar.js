@@ -1,20 +1,30 @@
-/* eslint-disable no-unused-vars */
 const { MessageEmbed } = require('discord.js');
-const prefix = process.env.prefix;
 
 module.exports = {
 	name: 'avatar',
 	category: 'Info',
 	description: 'Get the avatar of a specified user, or your own avatar.',
 	aliases: ['pfp', 'icon'],
-	usage: `${prefix}avatar [@user | userid]`,
+	usage: 'avatar [user]',
 	guildOnly: true,
 	run: async (client, message, args) => {
-		const member = message.mentions.members.last() || message.guild.members.cache.get(args[0]) || message.member;
+		let user;
+
+		if (message.mentions.users.first()) {
+			user = message.mentions.users.first();
+		}
+		else if (args[0]) {
+			user = message.guild.members.cache.get(args[0]).user;
+		}
+		else {
+			user = message.author;
+		}
+		const avatar = user.displayAvatarURL({ size: 256, dynamic: true });
+
 		const embed = new MessageEmbed()
-			.setTitle(`${member.user.username}'s avatar`)
-			.setURL(member.user.displayAvatarURL({ dynamic: true }))
-			.setImage(member.user.displayAvatarURL({ dynamic: true, size: 256 }))
+			.setTitle(`${user.tag}'s avatar`)
+			.setURL(avatar)
+			.setImage(avatar)
 			.setColor('BLUE');
 		message.channel.send(embed);
 	},

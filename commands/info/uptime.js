@@ -1,27 +1,23 @@
 /* eslint-disable no-unused-vars */
 const { MessageEmbed } = require('discord.js');
-const moment = require('moment');
-require('moment-duration-format');
-const prefix = process.env.prefix;
+const { parseDurs } = require('../../functions');
 
 module.exports = {
 	name: 'uptime',
 	description: 'Check the bot\'s uptime.',
 	category: 'Info',
 	aliases: [ 'ontime' ],
-	usage: `${prefix}uptime`,
+	usage: 'uptime',
 	run: async (client, message, args) => {
-		const duration = moment.duration(client.uptime).format(' D [days], H [hrs], m [mins], s [secs]');
+		const duration = parseDurs(client.uptime);
 		message.channel.send('⌛ Loading...').then((msg) => {
 			const pEmbed = new MessageEmbed()
-				.setTitle(':inbox_tray: I am online!')
+				.setTitle(':inbox_tray: Online for')
 				.setColor('BLUE')
 				.setDescription(
-					`Online for: ${duration}`,
+					`${duration}`,
 				);
 			msg.edit(pEmbed);
 		});
-
-
 	},
 };
