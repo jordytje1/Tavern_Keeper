@@ -9,10 +9,10 @@
 
 ## 📝 Table of Contents 
 
-• [About](https://github.com/zhon12345/Tavern_Keeper#about)\
-• [Self Hosing](https://github.com/zhon12345/Tavern_Keeper#self-hosting)\
-• [Support](https://github.com/zhon12345/Tavern_Keeper#support)\
-• [License](https://github.com/zhon12345/Tavern_Keeper#license)
+• [About](https://github.com/zhon12345/Tavern_Keeper#-about)\
+• [Self Hosing](https://github.com/zhon12345/Tavern_Keeper#-self-hosting)\
+• [Support](https://github.com/zhon12345/Tavern_Keeper#-support)\
+• [License](https://github.com/zhon12345/Tavern_Keeper#-license)
 
 ## ❔ About
 Tavern Keeper is a powerful multi-purpose discord bot written in javascript using the discord.js library. Tavern Keeper provides the basic features of any good bot such as Server Moderation, Server Information, Image Manipulation and much more. Tavern Keeper also has a customisable prifix, but the default prefix is `>`
@@ -20,8 +20,8 @@ Tavern Keeper is a powerful multi-purpose discord bot written in javascript usin
 ## ⚙ Self Hosting
 Self hosting Tavern Keeper is not supported and no help will be provided. I am not responsible or liable for any self hosted clones of Tavern Keeper.
 
-## Support
+## 🙋‍♂️ Support
 For support, questions, and comments, you can join the [Discord server](https://discord.gg/WS3GthM) or contact me directly on discord at `zhon12345#8585`. You can also [submit an issue](https://github.com/zhon12345/Tavern_Keeper/issues/new) for bugs and support.
 
-## License
+## 📄 License
 This project is licensed under the Apache License 2.0 - see the [LICENSE](https://github.com/zhon12345/Tavern_Keeper/blob/master/LICENSE) file for details.
