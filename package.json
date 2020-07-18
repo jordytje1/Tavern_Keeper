@@ -25,6 +25,7 @@
     "os": "^0.1.1",
     "quick.db": "^7.1.1",
     "random-puppy": "^1.1.0",
+    "vultrex.haste": "^1.0.1",
     "weather-js": "^2.0.0"
   }
 }

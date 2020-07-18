@@ -4,7 +4,7 @@ const { prefix, ownerid } = process.env;
 
 module.exports = {
 	name: 'nuke',
-	category: 'Admin',
+	category: 'Moderation',
 	description: 'Clones the current channel and deletes the old one.',
 	aliases: [],
 	usage: `${prefix}nuke`,
