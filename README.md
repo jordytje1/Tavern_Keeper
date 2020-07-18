@@ -11,7 +11,7 @@
 
 • [About](https://github.com/zhon12345/Tavern_Keeper#-about)\
 • [Self Hosing](https://github.com/zhon12345/Tavern_Keeper#-self-hosting)\
-• [Support](https://github.com/zhon12345/Tavern_Keeper#-support)\
+• [Support](https://github.com/zhon12345/Tavern_Keeper#%EF%B8%8F-support)\
 • [License](https://github.com/zhon12345/Tavern_Keeper#-license)
 
 ## ❔ About
