@@ -9,7 +9,6 @@
   [![Run on Repl.it](https://repl.it/badge/github/zhon12345/Tavern_Keeper)](https://repl.it/github/zhon12345/Tavern_Keeper)
   [![Discord](https://img.shields.io/discord/450846546867519503.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://discord.gg/WS3GthM)
   [![library](https://img.shields.io/badge/library-discord.js-blue)](https://discord.js.org/#/)
-  [![Owner](https://img.shields.io/badge/owner-zhon12345%238585-blue)](https://discord.gg/WS3GthM)
   [![Dependancies](https://img.shields.io/depfu/zhon12345/Tavern_Keeper)](https://github.com/zhon12345/Tavern_Keeper)
   [![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org)
 
@@ -29,7 +28,7 @@
 + [License](https://github.com/zhon12345/Tavern_Keeper#-license)
 
 ## ❔ About
-Tavern Keeper is a powerful multi-purpose discord bot written in javascript using the discord.js library. Tavern Keeper provides the basic features of any good bot such as Server Moderation, Server Information, Image Manipulation and much more. Tavern Keeper also has a customisable prifix, but the default prefix is `>`
+Tavern Keeper is a powerful multi-purpose Discord bot written in JavaScript using the Discord.js library. Tavern Keeper provides the basic features of any good bot such as Server Moderation, Server Information, Image Manipulation and much more. Tavern Keeper also has a customisable prifix, but the default prefix is `>`
 
 ## ⚙ Self Hosting
 Self hosting Tavern Keeper is not supported and no help will be provided. I am not responsible or liable for any self hosted clones of Tavern Keeper.

@@ -73,7 +73,7 @@ module.exports = {
 		return string.charAt(0).toUpperCase() + string.slice(1);
 	},
 
-  // memercount.js
+	// memercount.js
 	checkBots: function(guild) {
 		let botCount = 0;
 		guild.members.cache.forEach(member => {
@@ -91,7 +91,6 @@ module.exports = {
 		return memberCount;
 	},
 
-  
 	// eval,js
 	clean: function(string) {
 		if (typeof text === 'string') {
@@ -101,5 +100,60 @@ module.exports = {
 		else {
 			return string;
 		}
+	},
+
+	// color.js
+	isHex: function(string) {
+		let str = string;
+		if(str.charAt(0) == '#') {
+			str = str.slice(1);
+		}
+		return typeof str === 'string'
+		&& str.length === 6
+		&& !isNaN(Number('0x' + str));
+	},
+
+	// color.js
+	stringToHex: function(string) {
+		let hash = 0;
+		for (let i = 0; i < string.length; i++) {
+			hash = string.charCodeAt(i) + ((hash << 5) - hash);
+		}
+		let colour = '#';
+		for (let i = 0; i < 3; i++) {
+			const value = (hash >> (i * 8)) & 0xFF;
+			colour += ('00' + value.toString(16)).substr(-2);
+		}
+		return colour;
+	},
+
+	// owoify.js
+	owoify: function(text) {
+		text = text.replace(/[lr]/g, 'w');
+		text = text.replace(/u/g, 'uw');
+		text = text.replace(/[LR]/g, 'W');
+		text = text.replace(/U/g, 'UW');
+		return text;
+	},
+
+	// spongebob.js
+	alternateCaps: function(text) {
+		let array = text.split('');
+		let n = text.length;
+		let out = '';
+		let caps = false;
+
+		for (let i = 0; i < n; i++) {
+			if (!/[A-Za-z]/.test(array[i])) {
+				out += array[i];
+				continue;
+			}
+
+			if (caps) out += array[i].toUpperCase();
+			else out += array[i].toLowerCase();
+
+			caps = !caps;
+		}
+		return out;
 	},
 };
