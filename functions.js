@@ -44,7 +44,7 @@ module.exports = {
 		return parseFloat((a / Math.pow(c, f)).toFixed(d)) + ' ' + e[f];
 	},
 
-	// uptime.js & botinfo.js
+	// uptime.js, botinfo.js & channelinfo.js
 	parseDur: function(ms) {
 		let seconds = ms / 1000,
 			days = parseInt(seconds / 86400);
