@@ -33,18 +33,6 @@ client.on('message', async message => {
 	if (command) {command.run(client, message, args);}
 });
 
-// Auto Responder
-client.on('message', message => {
-	if (message.author.bot) return;
-
-	if (message.content.toLocaleLowerCase().startsWith('hi')) {
-		message.channel.send(`Hello, ${message.author}`);
-	}
-	else if (message.content.toLocaleLowerCase().startsWith('hello')) {
-		message.channel.send(`Hi, ${message.author}`);
-	}
-});
-
 keepAlive();
 client.login(token);
 client.on('ready', () => {
