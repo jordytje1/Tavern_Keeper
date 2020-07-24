@@ -1,14 +1,12 @@
 const math = require('mathjs');
 const { MessageEmbed } = require('discord.js');
 
-const prefix = process.env.prefix;
-
 module.exports = {
 	name: 'math',
 	category: 'Misc',
 	description: 'Helps you solve a math calculation.',
 	aliases: ['calculate'],
-	usage: `${prefix}math <value> <operator> <value>`,
+	usage: `math <value> <operator> <value>`,
 	run: async (client, message, args) => {
 		if (!args[0]) {
 			return message.channel.send(

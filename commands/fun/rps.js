@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 const { MessageEmbed } = require('discord.js');
 const { promptMessage } = require('../../functions.js');
-const prefix = process.env.prefix;
 
 const chooseArr = ['🗻', '📰', '✂'];
 
@@ -10,7 +9,7 @@ module.exports = {
 	category: 'Fun',
 	description: 'Play a game of Rock Paper Scissors with me.',
 	aliases: [],
-	usage: `${prefix}rps`,
+	usage: `rps`,
 	run: async (client, message, args) => {
 		const embed = new MessageEmbed()
 			.setColor('BLUE')

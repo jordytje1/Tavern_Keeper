@@ -1,15 +1,13 @@
 /* eslint-disable no-const-assign */
 /* eslint-disable no-unused-vars */
 const { MessageEmbed } = require('discord.js');
-const prefix = process.env.prefix;
-
 
 module.exports = {
 	name: 'coinflip',
 	category: 'Fun',
 	description: 'Flip a coin and see what you get. Heads or Tails?',
 	aliases: ['cf', 'coinf'],
-	usage: `${prefix}coinflip`,
+	usage: `coinflip`,
 	run: async (client, message, args) => {
 		const responses = ['Heads', 'Tails'];
 		const response =

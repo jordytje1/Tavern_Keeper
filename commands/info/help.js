@@ -7,7 +7,7 @@ module.exports = {
 	aliases: ['h', 'commands'],
 	category: 'Info',
 	description: 'Returns all commands, or one specific command info',
-	usage: `${prefix}help [command]`,
+	usage: `help [command]`,
 	run: async (client, message, args) => {
 		if (args[0]) {
 			return getCMD(client, message, args[0]);
@@ -67,7 +67,7 @@ function getCMD(client, message, input) {
 				`**❯ Name:** ${cmd.name}`,
 				`**❯ Category:** ${capitalizeFirstLetter(cmd.category.toString().toLowerCase())}`,
 				`**❯ Description:** ${cmd.description}`,
-				`**❯ Usage:** ${cmd.usage}`,
+				`**❯ Usage:** ${prefix}${cmd.usage}`,
 				`**❯ Aliases:** ${cmd.aliases.lenght ? cmd.aliases.map((a) => `\`${a}\``).join(', ') : '`None`'}`,
 			]);
 		message.channel.send(hembed);

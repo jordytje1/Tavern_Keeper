@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 const { MessageEmbed } = require('discord.js');
 const moment = require('moment');
-const prefix = process.env.prefix;
 
 const filterLevels = {
 	DISABLED: 'Off',
@@ -38,7 +37,7 @@ module.exports = {
 	category: 'Info',
 	description: 'Displays information about the server.',
 	aliases: ['server', 'guild', 'guildinfo'],
-	usage: `${prefix}serverinfo`,
+	usage: `serverinfo`,
 	run: async (cient, message, args) => {
 		const roles = message.guild.roles.cache.sort((a, b) => b.position - a.position).map(role => role.toString());
 		const members = message.guild.members.cache;
