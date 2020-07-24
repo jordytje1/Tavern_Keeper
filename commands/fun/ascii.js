@@ -6,7 +6,7 @@ module.exports = {
 	category: 'Fun',
 	description: 'Get a nice ascii art.',
 	aliases: ['art'],
-	usage: `ascii <message>`,
+	usage: 'ascii <message>',
 	run: async (client, message, args) => {
 		if(!args[0]) {return message.channel.send('Please provide text to draw').then(message.delete({ timeout: 5000 })).then(msg => {msg.delete({ timeout: 5000 });});}
 		figlet(args.join(' '), function(err, data) {

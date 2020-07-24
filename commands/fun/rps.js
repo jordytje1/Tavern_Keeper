@@ -9,7 +9,7 @@ module.exports = {
 	category: 'Fun',
 	description: 'Play a game of Rock Paper Scissors with me.',
 	aliases: [],
-	usage: `rps`,
+	usage: 'rps',
 	run: async (client, message, args) => {
 		const embed = new MessageEmbed()
 			.setColor('BLUE')

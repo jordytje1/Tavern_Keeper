@@ -7,7 +7,7 @@ module.exports = {
 	category: 'Fun',
 	description: 'Roll a dice and get a random number from 1 - 6.',
 	aliases: ['rolldice', ' diceroll'],
-	usage: `roll`,
+	usage: 'roll',
 	run: async (client, message, args) => {
 		message.channel.send('🎲 Rolling...').then((msg) => {
 			const Embed = new MessageEmbed()

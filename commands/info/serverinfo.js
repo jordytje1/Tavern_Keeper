@@ -37,7 +37,7 @@ module.exports = {
 	category: 'Info',
 	description: 'Displays information about the server.',
 	aliases: ['server', 'guild', 'guildinfo'],
-	usage: `serverinfo`,
+	usage: 'serverinfo',
 	run: async (cient, message, args) => {
 		const roles = message.guild.roles.cache.sort((a, b) => b.position - a.position).map(role => role.toString());
 		const members = message.guild.members.cache;

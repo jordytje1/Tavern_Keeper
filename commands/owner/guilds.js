@@ -7,7 +7,7 @@ module.exports = {
 	category: 'Owner',
 	description: 'Shows a list of servers that the bot is in.',
 	aliases: ['servers'],
-	usage: `guilds`,
+	usage: 'guilds',
 	run: async (client, message, args) => {
 		if (message.author.id !== ownerid) return;
 
