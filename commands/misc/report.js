@@ -12,7 +12,7 @@ module.exports = {
 		const channel = client.channels.cache.get('720955196494053376');
 		if (!channel) return;
 		channel.send(
-			`\`[${moment(message.createdTimestamp).format('HH:mm:ss')}]\` ⚠️ **${message.author.username}**#${message.author.discriminator} (ID: ${message.author.id}) has reported an issue \n\`[Issue]\` ${text}`,
+			`\`[${moment(message.createdTimestamp).format('HH:mm:ss')}]\` ⚠️ **${message.author.username}**#${message.author.discriminator} (ID: ${message.author.id}) has reported an issue. \n\`[Issue]\` ${text}`,
 		);
 		await message.channel.send(
 			'<:vSuccess:725270799098970112> Successfully reported the issue.',
