@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 const { MessageEmbed } = require('discord.js');
-const { ownerid } = process.env;
+const { BOT_OWNER } = process.env;
 
 module.exports = {
 	name: 'guilds',
@@ -9,7 +9,7 @@ module.exports = {
 	aliases: ['servers'],
 	usage: 'guilds',
 	run: async (client, message, args) => {
-		if (message.author.id !== ownerid) return;
+		if (message.author.id !== BOT_OWNER) return;
 
 		const list = client.guilds.cache.map(guild => `${guild.name} (${guild.id})`).join('\n');
 

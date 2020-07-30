@@ -1,6 +1,6 @@
 /* eslint-disable no-inner-declarations */
 const { MessageEmbed } = require('discord.js');
-const { prefix, ownerid } = process.env;
+const { BOT_PREFIX, BOT_OWNER } = process.env;
 
 module.exports = {
 	name: 'help',
@@ -24,10 +24,10 @@ function getAll(client, message) {
 		.setFooter(`${client.user.username}'s Help`, `${client.user.avatarURL()}`)
 		.setTimestamp()
 		.setColor('BLUE')
-		.setDescription(`This server's prefix is \`${prefix}\`.\nFor more info on a specific command, type \`${prefix}help <command name>\`.`);
+		.setDescription(`This server's prefix is \`${BOT_PREFIX}\`.\nFor more info on a specific command, type \`${BOT_PREFIX}help <command name>\`.`);
 
 	let categories;
-	if(message.author.id !== ownerid) {
+	if(message.author.id !== BOT_OWNER) {
 		categories = [...new Set(client.commands.filter(cmd => cmd.category !== 'Owner').map(cmd =>cmd.category))];
 	}
 	else {
@@ -67,7 +67,7 @@ function getCMD(client, message, input) {
 				`**❯ Name:** ${cmd.name}`,
 				`**❯ Category:** ${capitalizeFirstLetter(cmd.category.toString().toLowerCase())}`,
 				`**❯ Description:** ${cmd.description}`,
-				`**❯ Usage:** ${prefix}${cmd.usage}`,
+				`**❯ Usage:** ${BOT_PREFIX}${cmd.usage}`,
 				`**❯ Aliases:** ${cmd.aliases.lenght ? cmd.aliases.map((a) => `\`${a}\``).join(', ') : '`None`'}`,
 			]);
 		message.channel.send(hembed);

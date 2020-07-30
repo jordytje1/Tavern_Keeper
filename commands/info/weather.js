@@ -1,13 +1,12 @@
 /* eslint-disable max-statements-per-line */
 const weather = require('weather-js');
 const { MessageEmbed } = require('discord.js');
-const { prefix } = process.env;
 
 
 module.exports = {
 	name: 'weather',
 	description: 'Shows the weather of a specified loction.',
-	usage: `${prefix}weather <location>`,
+	usage: 'weather <location>',
 	category: 'Info',
 	aliases: ['temp'],
 	run: async (client, message, args) => {

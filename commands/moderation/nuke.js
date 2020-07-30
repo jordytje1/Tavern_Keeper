@@ -1,13 +1,12 @@
 /* eslint-disable no-unused-vars */
 const { MessageEmbed } = require('discord.js');
-const { prefix, ownerid } = process.env;
 
 module.exports = {
 	name: 'nuke',
 	category: 'Moderation',
 	description: 'Clones the current channel and deletes the old one.',
 	aliases: [],
-	usage: `${prefix}nuke`,
+	usage: 'nuke',
 	run: async (client, message, args) => {
 		if (message.member.hasPermission('ADMINISTRATOR')) {
 			return message.channel.send(
