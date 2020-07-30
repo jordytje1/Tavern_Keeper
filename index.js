@@ -1,6 +1,6 @@
 require('dotenv').config();
 const { Client, Collection } = require('discord.js');
-const { prefix, version, token } = process.env;
+const { BOT_PREFIX, BOT_VERSION, BOT_TOKEN } = process.env;
 const keepAlive = require('./server');
 
 const client = new Client({
@@ -34,10 +34,10 @@ client.on('message', async message => {
 });
 
 keepAlive();
-client.login(token);
+client.login(BOT_TOKEN);
 client.on('ready', () => {
-	client.user.setActivity(`${prefix}help`, { type: 'PLAYING' });
+	client.user.setActivity(`${BOT_PREFIX}help`, { type: 'PLAYING' });
 	console.log(`Logged in as ${client.user.tag}`);
-	console.log('Version:', version);
-	console.log('Prefix:', prefix);
+	console.log('Version:', BOT_VERSION);
+	console.log('Prefix:', BOT_PREFIX);
 });

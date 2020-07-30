@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 const { MessageEmbed } = require('discord.js');
+const prefix = process.env.BOT_PREFIX;
 
 module.exports = {
 	name: 'tos',
@@ -23,7 +24,7 @@ module.exports = {
             Don't use this bot to spam Discord's API or any API it uses.
             
             • _Abusing Bugs:_ 
-            This bot is a beta version, and there could be bugs that crash the bot. Please report these bugs [here](https://github.com/zhon12345/Tavern_Keeper/issues/new).
+            This bot is a beta version, and there could be bugs that crash the bot. Please report these bugs [here](https://github.com/zhon12345/Tavern_Keeper/issues/new) or use the \`${prefix}report\` command.
             
             **Punishment**
             Violating the TOS could result in you or your entire guild getting blacklisted (blocked from using any commands and blocked from adding the bot to a server).
