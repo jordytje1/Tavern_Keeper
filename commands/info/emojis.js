@@ -1,21 +1,21 @@
-/* eslint-disable no-unused-vars */
 const { MessageEmbed } = require('discord.js');
 module.exports = {
 	name: 'emojis',
-	description: 'View all emojis in the guild',
+	description: 'View all emojis in the guild.',
 	category: 'Info',
 	usage: 'emojis',
 	aliases: ['elist'],
-	run: async (bot, message, args) => {
+	run: async (client, message, args) => {
+		const guild = client.guilds.cache.get(args[0]) || message.guild;
 		let Emojis = '';
 		let EmojisAnimated = '';
 		let EmojiCount = 0;
 		let Animated = 0;
 		let OverallEmojis = 0;
 		function Emoji(id) {
-			return bot.emojis.cache.get(id).toString();
+			return client.emojis.cache.get(id).toString();
 		}
-		message.guild.emojis.cache.forEach((emoji) => {
+		guild.emojis.cache.forEach((emoji) => {
 			OverallEmojis++;
 			if (emoji.animated) {
 				Animated++;
@@ -27,11 +27,20 @@ module.exports = {
 			}
 		});
 		const Embed = new MessageEmbed()
-			.setTitle(`Emojis in ${message.guild.name}.`)
+			.setTitle(`Emojis in ${guild.name}.`)
 			.setDescription(
-				`**Animated [${Animated}]**:\n${EmojisAnimated}\n\n**Standard [${EmojiCount}]**:\n${Emojis}\n\n**Total: [${OverallEmojis}]**`,
+				`**Standard [${EmojiCount}]**:\n${Emojis}`,
 			)
 			.setColor('BLUE');
+
+      const Embed2 = new MessageEmbed()
+			.setTitle(`Emojis in ${guild.name}.`)
+			.setDescription(
+				`**Animated [${Animated}]**:\n${EmojisAnimated}`,
+			)
+			.setColor('BLUE');
+      console.log(Emojis)
 		message.channel.send(Embed);
+    message.channel.send(Embed2);
 	},
 };

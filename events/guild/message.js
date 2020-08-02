@@ -14,7 +14,7 @@ module.exports = async (client, message) => {
 	}
 
 	if(is_url(message.content) || is_invite(message.content) === true) {
-		if(message.member.hasPermission('KICK_MEMBERS')) {
+		if(message.member.hasPermission('KICK_MEMBERS' || 'MANAGE_MESSAGES')) {
 			return;
 		}
 		else {

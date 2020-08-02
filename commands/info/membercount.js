@@ -1,7 +1,4 @@
-/* eslint-disable no-unused-vars */
 const { MessageEmbed } = require('discord.js');
-const { checkMembers } = require('../../functions');
-const { checkBots } = require('../../functions');
 
 module.exports = {
 	name: 'membercount',
@@ -10,29 +7,31 @@ module.exports = {
 	aliases: ['usercount'],
 	usage: 'membercount',
 	run: async (client, message, args) => {
-		const bans = await message.guild.fetchBans();
+		const guild = client.guilds.cache.get(args[0]) || message.guild;
+		const members = guild.members.cache;
+		const bans = await guild.fetchBans();
 		let embed;
 		if(message.member.hasPermission('BAN_MEMBERS')) {
 			embed = new MessageEmbed()
-				.setTitle(`${message.guild.name}'s member count`)
+				.setTitle(`${guild.name}'s member count`)
 				.setColor('BLUE')
 				.setFooter(`Requested by ${message.author.tag} `)
 				.setTimestamp()
 				.setDescription([
-					`**❯ Total Members:** ${message.guild.memberCount}`,
-					`**❯ Humans:** ${checkMembers(message.guild)}`,
-					`**❯ Bots:** ${checkBots(message.guild)}`,
+					`**❯ Total Members:** ${guild.memberCount}`,
+					`**❯ Humans:** ${members.filter(member => !member.user.bot).size}`,
+					`**❯ Bots:** ${members.filter(member => member.user.bot).size}`,
 					`**❯ Bans:** ${bans.size}`,
 				]);
 		}
 		else {
 			embed = new MessageEmbed()
-				.setTitle(`${message.guild.name}'s member count`)
+				.setTitle(`${guild.name}'s member count`)
 				.setColor('BLUE')
 				.setDescription([
-					`**❯ Total Members:** ${message.guild.memberCount}`,
-					`**❯ Humans:** ${checkMembers(message.guild)}`,
-					`**❯ Bots:** ${checkBots(message.guild)}`,
+					`**❯ Total Members:** ${guild.memberCount}`,
+					`**❯ Humans:** ${members.filter(member => !member.user.bot).size}`,
+					`**❯ Bots:** ${members.filter(member => member.user.bot).size}`,
 				]);
 		}
 		message.channel.send(embed);
