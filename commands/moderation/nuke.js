@@ -11,7 +11,7 @@ module.exports = {
 		if (message.member.hasPermission('ADMINISTRATOR')) {
 			return message.channel.send(
 				'You do not have permission to use this command.',
-			).then(message.delete({ timeout: 5000 })).then(msg => {msg.delete({ timeout: 5000 });});
+			);
 		}
 
 		if (!message.guild.me.hasPermission('MANAGE_CHANNELS')) {

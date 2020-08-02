@@ -18,7 +18,7 @@ module.exports = {
 		if(!role) {
 			return message.channel.send(
 				'Please specify a role',
-			).then(message.delete({ timeout: 5000 })).then(msg => {msg.delete({ timeout: 5000 });});
+			);
 		}
 
 		const embed = new MessageEmbed()

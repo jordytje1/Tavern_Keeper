@@ -11,7 +11,7 @@ module.exports = {
 		if (!args[0]) {
 			return message.channel.send(
 				'Please input a calculation',
-			).then(message.delete({ timeout: 5000 })).then(msg => {msg.delete({ timeout: 5000 });});
+			);
 		}
 		let resp;
 		try {
@@ -20,7 +20,7 @@ module.exports = {
 		catch (e) {
 			return message.channel.send(
 				'Please input a valid calculation',
-			).then(message.delete({ timeout: 5000 })).then(msg => {msg.delete({ timeout: 5000 });});
+			);
 		}
 
 		const embed = new MessageEmbed()
