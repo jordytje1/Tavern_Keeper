@@ -179,12 +179,20 @@ module.exports = {
 		}
 	},
 
-  	// hack.js
+	// hack.js
 	sleep: function(milliseconds) {
 		const date = Date.now();
 		let currentDate = null;
 		do {
 			currentDate = Date.now();
 		} while (currentDate - date < milliseconds);
+	},
+
+	// country.js
+	formatNumber: function(number, minimumFractionDigits = 0) {
+		return Number.parseFloat(number).toLocaleString(undefined, {
+			minimumFractionDigits,
+			maximumFractionDigits: 2,
+		});
 	},
 };
