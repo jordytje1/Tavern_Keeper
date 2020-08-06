@@ -13,18 +13,6 @@ module.exports = async (client, message) => {
 		return message.channel.send(`My current prefix for this guild is \`${prefix}\``);
 	}
 
-	if(is_url(message.content) || is_invite(message.content) === true) {
-		if(message.member.hasPermission('KICK_MEMBERS' || 'MANAGE_MESSAGES')) {
-			return;
-		}
-		else {
-			message.delete();
-			message.channel.send(
-				`${message.author}, you are not allowed to send links in this channel.`,
-			);
-		}
-	}
-
 	if (!message.content.startsWith(prefix)) return;
 
 	if (!message.member) message.member = await message.guild.fetchMember(message);
