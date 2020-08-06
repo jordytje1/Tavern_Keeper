@@ -26,6 +26,7 @@
 + [Self Hosing](https://github.com/zhon12345/Tavern_Keeper#-self-hosting)
 + [Support](https://github.com/zhon12345/Tavern_Keeper#%EF%B8%8F-support)
 + [License](https://github.com/zhon12345/Tavern_Keeper#-license)
++ [Vote](https://github.com/zhon12345/Tavern_Keeper#-vote)
 
 ## ❔ About
 Tavern Keeper is a powerful multi-purpose Discord bot written in JavaScript using the Discord.js library. Tavern Keeper provides the basic features of any good bot such as Server Moderation, Server Information, Image Manipulation and much more. Tavern Keeper also has a customisable prefix, but the default prefix is `>`
@@ -38,3 +39,6 @@ For support, questions, and comments, you can join the [Discord server](https://
 
 ## 📄 License
 This project is licensed under the Apache License 2.0 - see the [LICENSE](https://github.com/zhon12345/Tavern_Keeper/blob/master/LICENSE) file for details.
+
+## 🎫 Vote
+[![Tavern Keeper](https://bots.ondiscord.xyz/bots/722054700308103200/embed?theme=dark)](https://bots.ondiscord.xyz/bots/722054700308103200)
