@@ -13,18 +13,15 @@ module.exports = {
 				'<:vError:725270799124004934> You must have the following permissions to use that: Bot Owner.',
 			);
 		}
-		else{
-			try {
-				message.channel.send('Restarting...').then(msg => msg.delete({ timeout: 300 }))
-					.then(() => client.destroy())
-					.then(() => client.login(BOT_TOKEN))
-					.then(() => client.user.setActivity(`${BOT_PREFIX}help | ${client.commands.size} Commands`, { type: 'PLAYING' }))
-					.then(() => message.channel.send('Restart Successful'));
-			}
-			catch(e) {
-				message.channel.send(`ERROR: ${e.message}`);
-			}
+		try {
+			message.channel.send('Restarting...').then(msg => msg.delete({ timeout: 300 }))
+				.then(() => client.destroy())
+				.then(() => client.login(BOT_TOKEN))
+				.then(() => client.user.setActivity(`${BOT_PREFIX}help | ${client.commands.size} Commands`, { type: 'PLAYING' }))
+				.then(() => message.channel.send('Restart Successful'));
 		}
-
+		catch(e) {
+			message.channel.send(`ERROR: ${e.message}`);
+		}
 	},
 };

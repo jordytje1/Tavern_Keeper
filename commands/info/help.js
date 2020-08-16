@@ -12,7 +12,7 @@ module.exports = {
 		if (args[0]) {
 			return getCMD(client, message, args[0]);
 		}
-		else {
+		if(!args[0]) {
 			return getAll(client, message);
 		}
 	},

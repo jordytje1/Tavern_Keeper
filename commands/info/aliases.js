@@ -12,7 +12,7 @@ module.exports = {
 		if(args[0]) {
 			return aliases(client, message, args[0]);
 		}
-		else{
+		if(!args[0]) {
 			return message.channel.send(
 				'<:vError:725270799124004934> Please provied a vaild command.',
 			);

@@ -1,5 +1,4 @@
 const prefix = process.env.BOT_PREFIX;
-const { is_url, is_invite } = require('../../functions');
 
 module.exports = async (client, message) => {
 	if (message.author.bot) return;

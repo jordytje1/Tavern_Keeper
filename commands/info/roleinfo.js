@@ -12,7 +12,7 @@ module.exports = {
 	category: 'Info',
 	description: 'Displays information about a provided role.',
 	aliases: ['role'],
-	usage: `channelinfo <role>`,
+	usage: 'channelinfo <role>',
 	run: async (client, message, args) => {
 		const role = message.mentions.roles.first() || message.guild.roles.cache.get(args[0]);
 		if(!role) {
