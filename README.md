@@ -7,11 +7,11 @@
 <div align="center">
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/137d6fb9c7d6459fa8e4d59d190d3050)](https://app.codacy.com/manual/zhon12345/Tavern_Keeper?utm_source=github.com&utm_medium=referral&utm_content=zhon12345/Tavern_Keeper&utm_campaign=Badge_Grade_Dashboard)
-  [![Run on Repl.it](https://repl.it/badge/github/zhon12345/Tavern_Keeper)](https://repl.it/github/zhon12345/Tavern_Keeper)
-  [![Discord](https://img.shields.io/discord/450846546867519503.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://discord.gg/GGMsqS9)
-  [![library](https://img.shields.io/badge/library-discord.js-blue)](https://discord.js.org/#/)
-  [![Dependancies](https://img.shields.io/depfu/zhon12345/Tavern_Keeper)](https://github.com/zhon12345/Tavern_Keeper)
-  [![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org)
+[![Run on Repl.it](https://repl.it/badge/github/zhon12345/Tavern_Keeper)](https://repl.it/github/zhon12345/Tavern_Keeper)
+[![Discord](https://img.shields.io/discord/450846546867519503.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://discord.gg/GGMsqS9)
+[![library](https://img.shields.io/badge/library-discord.js-blue)](https://discord.js.org/#/)
+[![Dependancies](https://img.shields.io/depfu/zhon12345/Tavern_Keeper)](https://github.com/zhon12345/Tavern_Keeper)
+[![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org)
 
 </div>
 
