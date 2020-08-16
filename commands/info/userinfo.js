@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 const { MessageEmbed } = require('discord.js');
 const moment = require('moment');
 
@@ -25,19 +24,14 @@ const Presence = {
 	dnd: 'Do Not Disturb',
 };
 
-const Kickable = {
-	true: 'Yes',
-	false: 'No',
-};
-
 module.exports = {
 	name: 'userinfo',
 	category: 'Info',
 	description: 'Displays information about a provided user or the message author.',
-	aliases: ['user'],
+	aliases: ['user', 'uirs'],
 	usage: 'userinfo [user]',
 	run: async (client, message, args) => {
-		const member = message.mentions.members.last() || message.guild.members.cache.get(args[0]) || message.member;
+		const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username === args.slice(0).join(' ') || x.user.username === args[0]) || message.member;
 		const roles = member.roles.cache
 			.sort((a, b) => b.position - a.position)
 			.map(role => role.toString())
@@ -63,7 +57,7 @@ module.exports = {
 				`**❯ Server Join Date:** ${moment(member.joinedAt).format('Do MMMM YYYY HH:mm')}`,
 				`**❯ Highest Role:** ${member.roles.highest.id === message.guild.id ? 'None' : member.roles.highest.name}`,
 				`**❯ Hoist Role:** ${member.roles.hoist ? member.roles.hoist.name : 'None'}`,
-				`**❯ Kickable:** ${Kickable[member.kickable]}`,
+				`**❯ Kickable:** ${member.kickable ? 'Yes' : 'No'}`,
 				`**❯ Roles [${roles.length}]:** ${roles.join(', ') || 'None'}`,
 				'\u200b',
 			]);

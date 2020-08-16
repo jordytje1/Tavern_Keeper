@@ -2,11 +2,6 @@ const { MessageEmbed } = require('discord.js');
 const moment = require('moment');
 const { parseDur } = require('../../functions');
 
-const option = {
-	true: 'Yes',
-	false: 'No',
-};
-
 const types = {
 	dm: 'DM',
 	text: 'Text',
@@ -20,8 +15,8 @@ const types = {
 module.exports = {
 	name: 'channelinfo',
 	category: 'Info',
-	description: 'Displays information about a provided role.',
-	aliases: ['channel'],
+	description: 'Displays information about a provided channel.',
+	aliases: ['channel', 'ci'],
 	usage: 'channelinfo [channel]',
 	run: async (client, message, args) => {
 		const channel = message.mentions.channels.first() || message.guild.channels.cache.get(args[0]) || message.channel;
@@ -31,7 +26,7 @@ module.exports = {
 			);
 		}
 
-    const ms = channel.rateLimitPerUser * 1000;
+		const ms = channel.rateLimitPerUser * 1000;
 
 		let topic;
 		if(!channel.topic || channel.topic === null) {
@@ -61,7 +56,7 @@ module.exports = {
 				'\u200b',
 			])
 			.addField('Server', [
-				`**❯ NSFW:** ${option[channel.nsfw]}`,
+				`**❯ NSFW:** ${channel.nsfw ? 'Yes' : 'No'}`,
 				`**❯ Type:** ${types[channel.type]}`,
 				`**❯ Slowmode:** ${parseDur(ms)}`,
 				`**❯ Parent:** ${parent}`,

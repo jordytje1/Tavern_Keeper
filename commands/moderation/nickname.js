@@ -1,7 +1,7 @@
 module.exports = {
 	name: 'nickname',
 	category: 'Moderation',
-	description: 'Set a specified user\'s nickname.',
+	description: 'Set the nickname of a specified user.',
 	aliases: ['nick'],
 	usage: 'nickname <user> <nickname>',
 	run: async (client, message, args) => {
@@ -27,7 +27,7 @@ module.exports = {
 
 		member.setNickname(nickname);
 		message.channel.send(
-			`<:vSuccess:725270799098970112> Successfully set **${member.user.tag}'s nickname to ${nickname}**`,
+			`<:vSuccess:725270799098970112> Successfully set **${member.user.tag}**'s nickname to **${nickname}**`,
 		);
 	},
 };
