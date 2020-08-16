@@ -16,7 +16,7 @@ module.exports = {
 				'<:vError:725270799124004934> Please provide a valid color.',
 			);
 		}
-		else if(isHex(args.join(' ')) != true) {
+		else if(isHex(args.join(' ')) !== true) {
 			colour = stringToHex(args.join(' '));
 		}
 		else {
