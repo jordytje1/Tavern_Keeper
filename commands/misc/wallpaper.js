@@ -1,15 +1,16 @@
 /* eslint-disable no-unused-vars */
 const fetch = require('node-fetch');
 const { MessageEmbed } = require('discord.js');
+const token = process.env.UNSPLASH_CLIENT_TOKEN;
 
 module.exports = {
 	name: 'wallpaper',
 	category: 'Misc',
-	description: 'Get the wallpaper of the day from bing.',
+	description: 'Get a ramdom wallpaper.',
 	aliases: [],
-	usage: 'walpaper',
+	usage: 'wallpaper',
 	run: async (client, message, args) => {
-		const url = 'https://bing.biturl.top/?mkt=en-US';
+		const url = 'https://api.unsplash.com/photos/random?client_id=' + token;
 
 		let response;
 		try {
@@ -22,8 +23,10 @@ module.exports = {
 		}
 		const embed = new MessageEmbed()
 			.setColor('BLUE')
-			.setImage(response.url)
-			.setTitle(response.copyright);
+			.setTitle(response.description ? response.description : 'Random Wallpaper')
+			.setURL(response.urls.raw)
+			.setImage(response.urls.raw)
+			.setFooter(`Photo by: ${response.user.name}`);
 
 		message.channel.send(embed);
 	},
