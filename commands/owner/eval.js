@@ -1,9 +1,9 @@
-/* eslint-disable no-useless-escape */
+/* eslint-disable no-unused-vars */
 const fetch = require('node-fetch');
-const { MessageEmbed } = require('discord.js');
+const { MessageEmbed, Client } = require('discord.js');
 const { clean } = require('../../functions');
-const url = 'https://hasteb.in/documents';
 const { BOT_OWNER } = process.env;
+const client = new Client();
 
 module.exports = {
 	name: 'eval',
@@ -12,6 +12,8 @@ module.exports = {
 	description: 'Evaluate a specified JavaScript code.',
 	usage: 'eval <code>',
 	run: async (bot, message, args) => {
+		const url = 'https://hasteb.in/documents';
+
 		if(message.author.id !== BOT_OWNER) {
 			return message.channel.send(
 				'<:vError:725270799124004934> You must have the following permissions to use that: Bot Owner.',
@@ -31,7 +33,7 @@ module.exports = {
 				}
 				let evaled;
 
-				if (code.includes('SECRET') || code.includes('TOKEN') || code.includes('process.env')) {
+				if (code.includes('SECRET') || code.includes('TOKEN') || code.includes('process.env') || code.includes('config.json')) {
 					evaled = 'NO.';
 				}
 				else {
@@ -47,13 +49,12 @@ module.exports = {
 						response = await fetch(url, { method: 'POST', body: output, headers: { 'Content-Type': 'text/plain' } }).then(res => res.json());
 					}
 					catch (e) {
-						console.log(e);
 						return message.channel.send('<:vError:725270799124004934> An error occured, please try again!');
 					}
 					embed.addField('Output', `https://hasteb.in/${response.key}.js`).setColor('GREEN');
 				}
 				else {
-					embed.addField('Output', '```js\n' + output + '```').setColor('GREEN');
+					embed.addField('Output', '```js\n' + output	 + '```').setColor('GREEN');
 				}
 
 				message.channel.send(embed);
@@ -67,7 +68,6 @@ module.exports = {
 						response = await fetch(url, { method: 'POST', body: err, headers: { 'Content-Type': 'text/plain' } }).then(res => res.json());
 					}
 					catch (e) {
-						console.log(e);
 						return message.channel.send('<:vError:725270799124004934> An error occured, please try again!');
 					}
 					embed.addField('Output', `https://hasteb.in/${response.key}.js`).setColor('RED');
