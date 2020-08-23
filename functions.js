@@ -1,4 +1,3 @@
-/* eslint-disable prefer-const */
 module.exports = {
 	// love.js
 	getMember: function(message, toFind = '') {
@@ -21,16 +20,18 @@ module.exports = {
 	},
 
 	// rps.js
-	promptMessage: async function(message, author, time, validReactions) {
-		time *= 1000;
-
-		for (const reaction of validReactions) await message.react(reaction);
-
-		const filter = (reaction, user) => validReactions.includes(reaction.emoji.name) && user.id === author.id;
-
-		return message
-			.awaitReactions(filter, { max: 1, time: time })
-			.then(collected => collected.first() && collected.first().emoji.name);
+	getResult: function(me, clientChosen) {
+		if ((me === '🗻' && clientChosen === '✂') ||
+			(me === '📰' && clientChosen === '🗻') ||
+			(me === '✂' && clientChosen === '📰')) {
+			return 'You won!';
+		}
+		else if (me === clientChosen) {
+			return 'It\'s a tie!';
+		}
+		else {
+			return 'You lost!';
+		}
 	},
 
 	// botinfo.js
@@ -46,8 +47,9 @@ module.exports = {
 
 	// uptime.js, botinfo.js & channelinfo.js
 	parseDur: function(ms) {
-		let seconds = ms / 1000,
-			days = parseInt(seconds / 86400);
+		let seconds = ms / 1000;
+
+		const days = parseInt(seconds / 86400);
 		seconds = seconds % 86400;
 
 		const hours = parseInt(seconds / 3600);
@@ -138,8 +140,8 @@ module.exports = {
 
 	// spongebob.js
 	alternateCaps: function(text) {
-		let array = text.split('');
-		let n = text.length;
+		const array = text.split('');
+		const n = text.length;
 		let out = '';
 		let caps = false;
 
@@ -194,5 +196,15 @@ module.exports = {
 			minimumFractionDigits,
 			maximumFractionDigits: 2,
 		});
+	},
+
+	// scramble.js
+	shuffle: function(word) {
+		let shuffledWord = '';
+		word = word.split('');
+		while (word.length > 0) {
+			shuffledWord += word.splice(word.length * Math.random() << 0, 1);
+		}
+		return shuffledWord;
 	},
 };
