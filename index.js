@@ -8,6 +8,7 @@ const client = new Client({
 
 client.commands = new Collection();
 client.aliases = new Collection();
+client.category = new Collection();
 
 ['command', 'event'].forEach(handler => {
 	require(`./handlers/${handler}`)(client);
