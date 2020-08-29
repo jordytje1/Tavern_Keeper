@@ -9,8 +9,6 @@
   "author": "zhon12345",
   "license": "ISC",
   "dependencies": {
-    "ascii-table": "0.0.9",
-    "common-tags": "^1.8.0",
     "cpu-stat": "^2.0.1",
     "discord.js": "^12.3.1",
     "dotenv": "^8.2.0",
@@ -18,13 +16,12 @@
     "express": "^4.17.1",
     "figlet": "^1.5.0",
     "html2plaintext": "^2.1.2",
-    "mathjs": "^7.1.0",
+    "mathjs": "^7.2.0",
     "moment": "^2.27.0",
     "ms": "^2.1.2",
     "node-fetch": "^2.6.0",
     "nodemon": "^2.0.4",
     "os": "^0.1.1",
-    "quick.db": "^7.1.1",
     "twemoji-parser": "^13.0.0",
     "weather-js": "^2.0.0"
   }

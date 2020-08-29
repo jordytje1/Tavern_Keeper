@@ -4,9 +4,9 @@ const { MessageEmbed } = require('discord.js');
 module.exports = {
 	name: 'embed',
 	category: 'Misc',
-	description: 'Get a example embed.',
+	description: 'Get a example embed or embed specified text.',
 	aliases: [],
-	usage: 'embed',
+	usage: 'embed [text]',
 	guildOnly: true,
 	run: async (client, message, args) => {
 		const exampleEmbed = new MessageEmbed()
@@ -27,6 +27,6 @@ module.exports = {
 			.setTimestamp('2020-07-17T09:56:39.960Z')
 			.setFooter('footer text', 'https://i.imgur.com/wSTFkRM.png');
 
-		message.channel.send('this `supports` __a__ **subset** *of* ~~markdown~~ 😃 ```js\nfunction foo(bar) {\n  console.log(bar);\n}\n\nfoo(1);```', exampleEmbed);
+		return message.channel.send('this `supports` __a__ **subset** *of* ~~markdown~~ 😃 ```js\nfunction foo(bar) {\n  console.log(bar);\n}\n\nfoo(1);```', exampleEmbed);
 	},
 };
