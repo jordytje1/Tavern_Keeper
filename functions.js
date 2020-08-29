@@ -190,14 +190,6 @@ module.exports = {
 		} while (currentDate - date < milliseconds);
 	},
 
-	// country.js
-	formatNumber: function(number, minimumFractionDigits = 0) {
-		return Number.parseFloat(number).toLocaleString(undefined, {
-			minimumFractionDigits,
-			maximumFractionDigits: 2,
-		});
-	},
-
 	// scramble.js
 	shuffle: function(word) {
 		let shuffledWord = '';
