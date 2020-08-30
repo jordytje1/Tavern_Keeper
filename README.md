@@ -44,3 +44,4 @@ This project is licensed under the Apache License 2.0 - see the [LICENSE](https:
 ## 🎫 Vote
 [![Tavern Keeper](https://bots.ondiscord.xyz/bots/722054700308103200/embed?theme=dark)](https://bots.ondiscord.xyz/bots/722054700308103200)
 [![Tavern Keeper](https://dbots.co/api/bots/722054700308103200/widget?size=medium)](https://dbots.co/bots/722054700308103200)
+[![Tavern Keeper](https://discord.boats/api/widget/722054700308103200)](https://discord.boats/bot/722054700308103200)
