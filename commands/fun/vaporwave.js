@@ -1,14 +1,14 @@
-const dictionary = require('../../assets/json/emojify.json');
+const dictionary = require('../../assets/json/vaporwave.json');
 
 module.exports = {
-	name: 'emojify',
+	name: 'vaporwave',
+	aliases: ['aesthetic'],
+	description: 'Converts text into ｖａｐｏｒｗａｖｅ.',
+	usage: 'vapourwave <text>',
 	category: 'Fun',
-	description: 'Changes text into emojis',
-	aliases: [],
-	usage: 'emojify <text>',
 	run: async (client, message, args) => {
 		const text = args.slice().join(' ');
-		if(!text) {
+		if(!args[0]) {
 			return message.channel.send(
 				'<:vError:725270799124004934> Please provide valid text.',
 			);
@@ -18,10 +18,10 @@ module.exports = {
 			return message.channel.send('<:vError:725270799124004934> The provided message exceeds 2000 characters.');
 		}
 
-		const emojified = text.toLowerCase().split('').map(letter => {
-			return `${dictionary[letter]} `;
+		const vapour = text.split('').map(letter => {
+			return `${dictionary[letter]}`;
 		}).join('');
 
-		message.channel.send(emojified);
+		message.channel.send(vapour);
 	},
 };

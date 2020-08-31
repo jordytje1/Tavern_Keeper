@@ -2,7 +2,7 @@ module.exports = {
 	name: 'unpin',
 	aliases: [],
 	category: 'Moderation',
-	description: 'Unpin a specific messaged to the channel.',
+	description: 'Unpin a specific messaged from the channel.',
 	usage: 'unpin <message>',
 	run: async (bot, message, args) => {
 		if(!message.member.hasPermission('MANAGE_MESSAGES')) {

@@ -1,11 +1,11 @@
-const dictionary = require('../../assets/json/emojify.json');
+const dictionary = require('../../assets/json/cursive.json');
 
 module.exports = {
-	name: 'emojify',
+	name: 'cursive',
 	category: 'Fun',
-	description: 'Changes text into emojis',
+	description: 'Converts text into 𝒸𝓊𝓇𝓈𝒾𝓋𝑒 𝓉𝑒𝓍𝓉.',
 	aliases: [],
-	usage: 'emojify <text>',
+	usage: 'cursive <message>',
 	run: async (client, message, args) => {
 		const text = args.slice().join(' ');
 		if(!text) {
@@ -18,10 +18,10 @@ module.exports = {
 			return message.channel.send('<:vError:725270799124004934> The provided message exceeds 2000 characters.');
 		}
 
-		const emojified = text.toLowerCase().split('').map(letter => {
-			return `${dictionary[letter]} `;
+		const cursified = text.toLowerCase().split('').map(letter => {
+			return `${dictionary[letter]}`;
 		}).join('');
 
-		message.channel.send(emojified);
+		message.channel.send(cursified);
 	},
 };
