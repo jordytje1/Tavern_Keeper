@@ -13,12 +13,12 @@ module.exports = {
 			.setDescription([
 				`Hello! I'm **${client.user.username}**, A featureful multi-purpouse Discord bot!`,
 				`Created and maintained by \`${client.users.cache.get(BOT_OWNER).tag}\`.`,
-				'Built using [Node.js](https://nodejs.org/en/) and [Discord.js](https://discord.js.org/#/)',
+				'Built using [Node.js](https://discord.gg/QPjqKxj) and [Discord.js](https://discord.gg/QPjqKxj)',
 			])
 			.addFields(
 				{
 					name: 'Need some help?',
-					value: 'Join our [Discord Server](https://discord.gg/GGMsqS9)',
+					value: 'Join our [Discord Server](https://discord.gg/QPjqKxj)',
 				},
 			)
 			.setFooter(`Requested by ${message.author.tag}`)
