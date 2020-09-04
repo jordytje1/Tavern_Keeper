@@ -12,7 +12,7 @@ module.exports = {
 		const text = args.slice().join(' ');
 		if(!text) {
 			return message.channel.send(
-				'<:x: ${userid} > Please provide valid text',
+				'<:x: ${message.author.username} > Please provide valid text',
 			);
 		}
 		const channel = client.channels.cache.get('734719742958633041');
@@ -21,7 +21,7 @@ module.exports = {
 			`\`[${moment(message.createdTimestamp).format('HH:mm:ss')}]\` ❗ **${message.author.username}**#${message.author.discriminator} (ID: ${message.author.id}) has made a suggestion in **${message.guild.name}** (ID: ${message.guild.id}).\n\`[Suggestion]\` ${text}`,
 		);
 		await message.channel.send(
-			'<:white_check_mark: ${user.id} > Successfully made the suggestion.',
+			'<:white_check_mark: ${message.author.username} > Successfully made the suggestion.',
 		).then(message.delete());
 	},
 };
