@@ -6,7 +6,7 @@ module.exports = {
   description: 'Report an issue within the bot to the developers.',
   aliases: [],
   usage: 'report <issue>',
-  guildOnly: true,
+  guildOnly: false,
   run: async (client, message, args) => {
     const text = args.slice().join(' ');
     if (!text) {
