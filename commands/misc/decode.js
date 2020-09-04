@@ -15,7 +15,20 @@ module.exports = {
 			return message.channel.send(
 				'<:vError:725270799124004934> Please provide valid text',
 			);
+		}
+		else if(text.length >= 1024) {
+			return message.channel.send(
+				'<:vError:725270799124004934> Please provide text that is lesser that 1024 words.',
+			);
+		}
+		else if(isNaN(text)) {
+			url = `https://some-random-api.ml/base64?decode=${text}`;
+			embed.setTitle('Base64 Decoder');
 
+		}
+		else {
+			url = `http://some-random-api.ml/binary?decode=${text}`;
+			embed.setTitle('Binary Decoder');
 		}
 
 		let response, data;
@@ -30,6 +43,7 @@ module.exports = {
 
 		embed.setColor('BLUE');
 		embed.addField('Input', `\`\`\`\n${text}\`\`\``);
+		embed.addField('Output', `\`\`\`\n${data}\`\`\``);
 
 		message.channel.send(embed);
 	},
