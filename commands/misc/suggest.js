@@ -12,7 +12,7 @@ module.exports = {
 		const text = args.slice().join(' ');
 		if(!text) {
 			return message.channel.send(
-				'<:x: username> Please provide valid text',
+				'<:x: $username > Please provide valid text',
 			);
 		}
 		const channel = client.channels.cache.get('734719742958633041');
