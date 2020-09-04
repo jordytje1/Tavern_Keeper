@@ -14,7 +14,7 @@ module.exports = {
         '<:vError:725270799124004934> Please provide text.'
       );
     }
-    const channel = client.channels.cache.get('720955196494053376');
+    const channel = client.channels.cache.get('734140726987718778');
     if (!channel) return;
     channel.send(
       `\`[${moment(message.createdTimestamp).format('HH:mm:ss')}]\` ⚠️ **${message.author.username}**#${message.author.discriminator} (ID: ${message.author.id}) has reported an issue in **${message.guild.name}** (ID: ${message.guild.id}). \n\`[Issue]\` ${text}`,
