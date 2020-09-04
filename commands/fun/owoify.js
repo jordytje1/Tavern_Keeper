@@ -5,7 +5,7 @@ module.exports = {
 	category: 'Fun',
 	description: 'OwOify a provided text.',
 	aliases: [],
-	usage: 'owoify <text>',
+	usage: 'say <text>',
 	run: async (client, message, args) => {
 		const text = args.slice().join(' ');
 		if(!text) {
