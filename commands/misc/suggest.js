@@ -25,3 +25,7 @@ module.exports = {
 		).then(message.delete());
 	},
 };
+{
+          message.react("👍")
+          message.react("👎")
+};
