@@ -19,9 +19,6 @@ module.exports = {
 		if (!channel) return;
 		channel.send(
 			`\`[${moment(message.createdTimestamp).format('HH:mm:ss')}]\` ❗ **${message.author.username}**#${message.author.discriminator} (ID: ${message.author.id}) has made a suggestion in **${message.guild.name}** (ID: ${message.guild.id}).\n\`[Suggestion]\` ${text}`,
-		                    await bot.channels.find(x => x.name === "suggestions").send(suggestionEmbed).then(function sendReaction(message){
-                        message.react('✅');
-                        message.react('❌');
 		);
 		await message.channel.send(
 			':white_check_mark: **Successfully** made the suggestion.',
