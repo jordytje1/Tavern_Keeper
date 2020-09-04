@@ -50,7 +50,7 @@ module.exports = {
         .setDescription([`
 				This server's prefix is \`${BOT_PREFIX}\`.
 				For more info on a specific command, type \`${BOT_PREFIX}help <command>\`.
-				Visit the bot's support server [here](https://discord.gg/QPjqKxj) for more info on certain features.
+				Visit the bot's support server [here](https://discord.gg/QPjqKxj.com) for more info on certain features.
 				`]);
 
       let categories;
