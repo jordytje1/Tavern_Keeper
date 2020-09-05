@@ -1,27 +1,41 @@
-/* eslint-disable no-shadow */
-const moment = require('moment');
+const { MessageEmbed } = require("discord.js")
+
 
 module.exports = {
-	name: 'suggest',
-	category: 'Misc',
-	description: 'Make suggestion for the bot\'s upcoming features.',
-	aliases: [],
-	usage: 'suggest <suggestion>',
-	guildOnly: false,
-	run: async (client, message, args) => {
-		const text = args.slice().join(' ');
-		if(!text) {
-			return message.channel.send(
-				':x: **Please** provide valid text',
-			);
-		}
-		const channel = client.channels.cache.get('734719742958633041');
-		if (!channel) return;
-		channel.send(
-			`\`[${moment(message.createdTimestamp).format('HH:mm:ss')}]\` ❗ **${message.author.username}**#${message.author.discriminator} (ID: ${message.author.id}) has made a suggestion in **${message.guild.name}** (ID: ${message.guild.id}).\n\`[Suggestion]\` ${text}`,
-		);
-		await message.channel.send(
-			':white_check_mark: **Successfully** made the suggestion.',
-		).then(message.delete());
-	},
-};
+  name: "suggest",
+  usage: "suggest <message>",
+  description: "Send your Suggestion",
+  category: "main",
+  run: async (client, message, args) => {
+    
+    if(!args.length) {
+      return message.channel.send("Please Give the Suggestion")
+    }
+    
+    let channel = message.guild.channels.cache.find((x) => (x.name === "suggestion" || x.name === "suggestions"))
+    
+    
+    if(!channel) {
+      return message.channel.send("there is no channel with name - suggestions")
+    }
+                                                    
+    
+    let embed = new MessageEmbed()
+    .setAuthor("SUGGESTION: " + message.author.tag, message.author.avatarURL())
+    .setThumbnail(message.author.avatarURL())
+    .setColor("#ff2050")
+    .setDescription(args.join(" "))
+    .setTimestamp()
+    
+    
+    channel.send(embed).then(m => {
+      m.react("✅")
+      m.react("❌")
+    })
+    
+
+    
+    message.channel.send("Sended Your Suggestion to " + channel)
+    
+  }
+}
