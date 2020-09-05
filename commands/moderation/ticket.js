@@ -58,8 +58,5 @@ module.exports = {
               channel = message.guild.channels.cache.find(c => c.name == "ticket-numberherelater" && c.type == "text");
               if (category && channel) channel.setParent(category.id);
 else console.error(`One of the channels is missing:\nCategory: ${!!category}\nChannel: ${!!channel}`);
-          });
-}
-        }
-    });
+  }
 }
