@@ -1,41 +1,25 @@
-const { MessageEmbed } = require("discord.js")
-
+const { MessageEmbed } = require('discord.js');
 
 module.exports = {
-  name: "say",
-  usage: "say <message>",
-  description: "Send your announcement",
-  category: "main",
-  run: async (client, message, args) => {
-    
-    if(!args.length) {
-      return message.channel.send("Please Give your message")
-    }
-    
-    let channel = message.guild.channels.cache.find((x) => (x.name === "" || x.name === ""))
-    
-    
-    if(!channel) {
-      return message.channel.send("there is no channel with name - XXX")
-    }
-                                                    
-    
-    let embed = new MessageEmbed()
-    .setTitle('Announcement')
-    .setThumbnail(message.author.avatarURL())
-    .setColor("#F8C300")
-    .setDescription(args.join(" "))
-    .setFooter(`Requested by ${message.author.tag} `)
-    .setTimestamp()   
-    
-    channel.send(embed).then(m => {
-      m.react("")
-      m.react("")
-    })
-    
+    name: 'say',
+    category: 'general',
+    description: 'Bot repeats what you tell it to.',
+    usage: `say`,
+    run: (client, message, args) => {
+        console.log("ACTIVITY: " + message.author.username + " ran the command: " + message.content)
+        message.delete()
+        
+        if (args.length < 1)
+            return message.channel.send('You must specify something for the bot to repeat!').then(m => m.delete({timeout: 5000}));
+            
+        if (args[0].toLowerCase() === 'embed') {
+            const embed = new MessageEmbed()
+                .setColor(process.env.COLOR)
+                .setDescription(args.slice(1).join(' '))
 
-    
-    message.channel.send("Sended Your message to " + channel)
-    
-  }
+            message.channel.send(embed);
+        } else {
+            message.channel.send(args.join(' '));
+        }
+    }
 }
