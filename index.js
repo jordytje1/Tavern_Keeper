@@ -20,18 +20,6 @@ client.category = new Collection();
 
 
 
-client.on("guildMemberAdd", member => { // Adds the role to the new member
-	if(v.enabled) // Checks if the bot is on
-	{
-		let role = member.guild.roles.cache.find(role => role.name === v.test);
-		member.roles.add(role);
-	}
-	else if(v.roleID) // If role specified in the JSON, bot is always on
-	{
-		let role = member.guild.roles.cache.find(role => role.id === v.734367385447825482);
-		member.roles.add(role);
-	}
-});
 
 
 
