@@ -1,11 +1,11 @@
 module.exports = {
         name: 'mute',
-	      category: 'Moderation',
-	      description: 'mute a user.',
+	category: 'Moderation',
+	description: 'mute a user.',
       	aliases: [],
-	      usage: 'mute <user>',
-	      guildOnly: true,
-    run: async(client, message, args) => {
+	usage: 'mute <user>',
+	guildOnly: true,
+        run: async(client, message, args) => {
         if(!message.member.hasPermission(['KICK_MEMBERS', 'BAN_MEMBERS']))
             message.channel.send("You don't have permissions to use that command.");
         else {
@@ -26,5 +26,8 @@ module.exports = {
             }
             else
                 message.channel.send("Member not found.");
-	},
-};
+        }
+    },
+    aliases: [],
+    description: 'Mutes a user'
+}
