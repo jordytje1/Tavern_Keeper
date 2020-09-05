@@ -25,7 +25,7 @@ module.exports = {
     .setColor("#F8C300")
     .setDescription(args.join("ANNOUNCEMENT"))
     .setFooter(`Requested by ${message.author.tag} `)
-    .setTimestamp())    
+    .setTimestamp()   
     
     channel.send(embed).then(m => {
       m.react("")
