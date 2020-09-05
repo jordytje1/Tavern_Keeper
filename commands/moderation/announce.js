@@ -21,10 +21,9 @@ module.exports = {
                                                     
     
     let embed = new MessageEmbed()
-    .setAuthor("ANNOUNCEMENT:"()
     .setThumbnail(message.author.avatarURL())
     .setColor("#F8C300")
-    .setDescription(args.join(" "))
+    .setDescription(args.join("ANNOUNCEMENT"))
     .setFooter(`Requested by ${message.author.tag} `)
     .setTimestamp())    
     
