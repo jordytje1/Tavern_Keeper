@@ -21,11 +21,12 @@ module.exports = {
                                                     
     
     let embed = new MessageEmbed()
-    .setAuthor("SUGGESTION: " + message.author.tag, message.author.avatarURL())
+    .setTitle('Suggestion')
     .setThumbnail(message.author.avatarURL())
-    .setColor("#ff2050")
+    .setColor("#00D166")
     .setDescription(args.join(" "))
-    .setTimestamp()
+    .setFooter(`Requested by ${message.author.tag} `)
+    .setTimestamp()   
     
     
     channel.send(embed).then(m => {
