@@ -1,33 +1,64 @@
+const { MessageEmbed } = require("discord.js");
+
 module.exports = {
-        name: 'mute',
-	category: 'Moderation',
-	description: 'mute a user.',
-      	aliases: [],
-	usage: 'mute <user>',
-	guildOnly: true,
-        run: async(client, message, args) => {
-        if(!message.member.hasPermission(['KICK_MEMBERS', 'BAN_MEMBERS']))
-            message.channel.send("You don't have permissions to use that command.");
-        else {
-            let memberId = message.content.substring(message.content.indexOf(' ')+1);
-            let member = message.guild.members.cache.get(args);
-            if(member) {
-                if(member.hasPermission(['KICK_MEMBERS', 'BAN_MEMBERS']) && !message.member.hasPermission('ADMINISTRATOR'))
-                    message.channel.send("You cannot mute that person!");
-                else {
-                    let mutedRole = message.guild.roles.cache.get('690056380140355621');
-                    if(mutedRole) {
-                        member.roles.add(mutedRole);
-                        message.channel.send("User was muted.");
-                    }
-                    else
-                        message.channel.send("Muted role not found.");
-                }
-            }
-            else
-                message.channel.send("Member not found.");
-        }
-    },
-    aliases: [],
-    description: 'Mutes a user'
-}
+  name: "mute",
+  description: "Mute anyone who break rules",
+  category: "moderation",
+  usage: "mute <@mention> <reason>",
+  run: async (client, message, args) => {
+    if (!message.member.hasPermission("MANAGE_ROLES")) {
+      return message.channel.send(
+        "Sorry but you do not have permission to mute anyone"
+      );
+    }
+
+    if (!message.guild.me.hasPermission("MANAGE_ROLES")) {
+      return message.channel.send("I do not have permission to manage roles.");
+    }
+
+    const user = message.mentions.members.first();
+    
+    if(!user) {
+      return message.channel.send("Please mention the member to who you want to mute")
+    }
+    
+    if(user.id === message.author.id) {
+      return message.channel.send("I won't mute you -_-");
+    }
+    
+    
+    let reason = args.slice(1).join(" ")
+    
+    
+    if(!reason) {
+      return message.channel.send("Please Give the reason to mute the member")
+    }
+    
+  //TIME TO LET MUTED ROLE
+    
+    let muterole = message.guild.roles.cache.find(x => x.name === "Muted")
+    
+    
+      if(!muterole) {
+      return message.channel.send("This server do not have role with name `Muted`")
+    }
+    
+    
+   if(user.roles.cache.has(muterole)) {
+      return message.channel.send("Given User is already muted")
+    }
+    
+  
+    
+    
+    user.roles.add(muterole)
+    
+await message.channel.send(`You muted **${message.mentions.users.first().username}** For \`${reason}\``)
+    
+    user.send(`You are muted in **${message.guild.name}** For \`${reason}\``)
+    
+    
+//WE ARE DONE HERE 
+    
+  }
+};
