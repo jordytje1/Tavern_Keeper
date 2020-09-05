@@ -7,6 +7,7 @@ module.exports = {
 	aliases: ['ask'],
 	usage: '8ball <question>',
 	guildOnly: true,
+	enabled: false,
 	run: async (client, message, args) => {
 		const question = args[0];
 		if (!question) {
