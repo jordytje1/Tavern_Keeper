@@ -25,9 +25,8 @@ module.exports = {
     .setThumbnail(message.author.avatarURL())
     .setColor("#F8C300")
     .setDescription(args.join(" "))
-    .setTimestamp()
-    .setFooter("Requested by: "+ message.author.tag())
-    
+    .setFooter(`Requested by ${message.author.tag} `)
+    .setTimestamp()    
     
     channel.send(embed).then(m => {
       m.react("")
