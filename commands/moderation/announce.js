@@ -24,7 +24,7 @@ module.exports = {
     .setTitle('Announcement')
     .setThumbnail(message.author.avatarURL())
     .setColor("#F8C300")
-    .setDescription(args.join(""))
+    .setDescription(args.join(" "))
     .setFooter(`Requested by ${message.author.tag} `)
     .setTimestamp()   
     
