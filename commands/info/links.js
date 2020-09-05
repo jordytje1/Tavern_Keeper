@@ -15,7 +15,7 @@ module.exports = {
 			.addFields(
 				{ name: 'Invite link', value: '[Invite](http://tiny.cc/TavernKeeper)', inline: true },
 				{ name: 'Website', value: '[Website](http://tavernkeeper.ml/)', inline:true },
-				{ name: 'Support Server', value: '[Discord Server](https://discord.gg/GGMsqS9)', inline: true },
+				{ name: 'Support Server', value: '[Discord Server](https://discord.gg/jMpw3jw)', inline: true },
 				{ name: 'Discord Boats', value: '[Vote](https://discord.boats/bot/722054700308103200)', inline:true },
 				{ name: 'Discord Bots', value: '[Vote](https://discord.bots.gg/bots/722054700308103200)', inline:true },
 				{ name: 'DBots', value: '[Vote](https://dbots.co/bots/722054700308103200)', inline:true },
