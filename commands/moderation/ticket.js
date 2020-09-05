@@ -62,4 +62,4 @@ else console.error(`One of the channels is missing:\nCategory: ${!!category}\nCh
 }
         }
     });
-};
+}
