@@ -4,7 +4,7 @@ const { MessageEmbed } = require("discord.js")
 module.exports = {
   name: "announce",
   usage: "announce <message>",
-  description: "Send your Suggestion",
+  description: "Send your announcement",
   category: "main",
   run: async (client, message, args) => {
     
@@ -21,16 +21,12 @@ module.exports = {
                                                     
     
     let embed = new MessageEmbed()
-    .setAuthor("SUGGESTION: " + message.author.tag, message.author.avatarURL())
+    .setAuthor("ANNOUNCEMENT: " + message.author.tag, message.author.avatarURL())
     .setThumbnail(message.author.avatarURL())
     .setColor("#F8C300")
     .setDescription(args.join(" "))
     .setTimestamp()
-    
-    
-    channel.send(embed).then(m => {
-      m.react("✅")
-      m.react("❌")
+
     })
     
 
