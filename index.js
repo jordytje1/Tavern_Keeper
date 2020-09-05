@@ -69,8 +69,6 @@ const prefix = "!";
             });
     }
 
-);
-
 function isCommand(message) {
     return message.content.toLowerCase().startsWith(prefix);
 }
