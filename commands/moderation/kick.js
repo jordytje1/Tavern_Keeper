@@ -10,11 +10,11 @@ module.exports = {
    
     }
  }
-     if(!message.member.hasPermission("KICK_MEMBERS")) {
+     if(message.member.hasPermission("KICK_MEMBERS")) {
       return message.channel.send(`**${message.author.username}**, You do not have enough permission to use this command`)
     }
     
-    if(!message.guild.me.hasPermission("KICK_MEMBERS")) {
+    if(message.guild.me.hasPermission("KICK_MEMBERS")) {
       return message.channel.send(`**${message.author.username}**, I do not have enough permission to use this command`)
     }
      let target = message.mentions.members.first();
