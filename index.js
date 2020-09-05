@@ -17,10 +17,10 @@ client.category = new Collection();
 
 const prefix = "!";
 
-    if (isCommand(message, "new")) {
-        const reason = message.content.split(" ").slice(1).join(" ");
-        if (!message.guild.roles.exists("name", "Support Staff")) return message.channel.send(`This server doesn't have a \`Support Staff\` role made, so the ticket won't be opened.\nIf you are an administrator, make one with that name exactly and give it to users that should be able to see tickets.`);
-        if (message.guild.channels.exists("name", "ticket-" + message.author.id)) return message.channel.send(`You already have a ticket open.`);
+    if (isCommand(msg, "new")) {
+        const reason = nsg.content.split(" ").slice(1).join(" ");
+        if (!message.guild.roles.exists("name", "Support Staff")) return msg.channel.send(`This server doesn't have a \`Support Staff\` role made, so the ticket won't be opened.\nIf you are an administrator, make one with that name exactly and give it to users that should be able to see tickets.`);
+        if (message.guild.channels.exists("name", "ticket-" + message.author.id)) return msg.channel.send(`You already have a ticket open.`);
         message.guild.createChannel(`ticket-${message.author.id}`, "text").then(c => {
             let role = message.guild.roles.find("name", "Support Staff");
             let role2 = message.guild.roles.find("name", "@everyone");
@@ -69,11 +69,11 @@ const prefix = "!";
             });
     }
 
-function isCommand(message) {
+function isCommand(msg) {
     return message.content.toLowerCase().startsWith(prefix);
 }
 
-function isCommand(message, cmd) {
+function isCommand(msg, cmd) {
     return message.content.toLowerCase().startsWith(prefix + cmd);
 }
 
