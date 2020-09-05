@@ -5,7 +5,7 @@ const Discord = require("discord.js");
 module.exports = {
   name: 'ticket',
   description: 'Create a support-ticket.',
-  usage: 'ticket'
+  usage: 'ticket',
   category: "main",
   run = async (client, message, args) => {
     
