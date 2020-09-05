@@ -7,7 +7,7 @@ module.exports = {
 	description: 'Get a example embed or embed specified text.',
 	aliases: [],
 	usage: 'embed [text]',
-	guildOnly: true,
+	guildOnly: false,
 	run: async (client, message, args) => {
 		const exampleEmbed = new MessageEmbed()
 			.setColor('#0099ff')
