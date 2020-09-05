@@ -26,6 +26,7 @@ module.exports = {
     .setColor("#F8C300")
     .setDescription(args.join(" "))
     .setTimestamp()
+    .setFooter(message.author.avatarURL())
     
     
     channel.send(embed).then(m => {
