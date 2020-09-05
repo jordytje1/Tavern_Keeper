@@ -17,6 +17,7 @@ module.exports = {
                 .setTitle('Message')
                 .setThumbnail(message.author.avatarURL())
                 .setColor("#30afe3")
+                .setDescription(args.slice(1).join(' '))
                 .setFooter(`Requested by ${message.author.tag} `)
                 .setTimestamp()
             
