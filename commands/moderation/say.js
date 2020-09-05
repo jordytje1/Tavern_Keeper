@@ -14,9 +14,12 @@ module.exports = {
             
         if (args[0].toLowerCase() === 'embed') {
             const embed = new MessageEmbed()
-                .setColor(process.env.COLOR)
-                .setDescription(args.slice(1).join(' '))
-
+                .setTitle('Message')
+                .setThumbnail(message.author.avatarURL())
+                .setColor("#30afe3")
+                .setFooter(`Requested by ${message.author.tag} `)
+                .setTimestamp()
+            
             message.channel.send(embed);
         } else {
             message.channel.send(args.join(' '));
