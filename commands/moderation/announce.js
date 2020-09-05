@@ -26,7 +26,11 @@ module.exports = {
     .setColor("#F8C300")
     .setDescription(args.join(" "))
     .setTimestamp()
-
+    
+    
+    channel.send(embed).then(m => {
+      m.react("")
+      m.react("")
     })
     
 
