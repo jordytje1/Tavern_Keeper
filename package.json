@@ -23,7 +23,6 @@
     "nodemon": "^2.0.4",
     "os": "^0.1.1",
     "twemoji-parser": "^13.0.0",
-    "weather-js": "^2.0.0",
-    "mongoose": "^5.9.19",
+    "weather-js": "^2.0.0"
   }
 }
