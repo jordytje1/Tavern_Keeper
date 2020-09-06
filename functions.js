@@ -181,15 +181,6 @@ module.exports = {
 		}
 	},
 
-	// hack.js
-	sleep: function(milliseconds) {
-		const date = Date.now();
-		let currentDate = null;
-		do {
-			currentDate = Date.now();
-		} while (currentDate - date < milliseconds);
-	},
-
 	// scramble.js
 	shuffle: function(word) {
 		let shuffledWord = '';
@@ -198,5 +189,10 @@ module.exports = {
 			shuffledWord += word.splice(word.length * Math.random() << 0, 1);
 		}
 		return shuffledWord;
+	},
+
+	// hack.js & tableflip.js
+	delay: function(ms) {
+		return new Promise(resolve => setTimeout(resolve, ms));
 	},
 };
