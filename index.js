@@ -14,12 +14,5 @@ client.category = new Collection();
 });
 
 
-client.on('guildMemberAdd', member => {
-  if(active === true) {
-    var role = member.guild.roles.find("name", "lol");
-    member.addRole(role).catch(console.error);
-  }
-})
-
 keepAlive();
 client.login(process.env.BOT_TOKEN);
