@@ -18,7 +18,7 @@ client.category = new Collection();
 
 
 client.on('guildMemberAdd', (guild, member) => {
-	guild.addMemberRole(member.author.id, config.roleID, `Role added by Tom's AutoRole`)
+	guild.addMemberRole(!member.author.id, config.roleID, `Role added by Tom's AutoRole`)
 });
 
 keepAlive();
