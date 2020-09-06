@@ -2,16 +2,16 @@ const { MessageEmbed } = require('discord.js');
 const fetch = require('node-fetch');
 
 module.exports = {
-	name: 'boobs',
+	name: 'belle',
 	category: 'nsfw',
 	description: 'What do you prefer? Red pandas or Pandas.',
-	aliases: ['boobs'],
-	usage: 'boobs',
+	aliases: ['belle'],
+	usage: 'belle',
 	guildOnly: true,
 	run: async (client, message, args) => {
 		const subreddits = [
-			'boob',
-			'boobs',
+			'belle dephile',
+			'belle dephile onlyfans',
 		];
 
 		const sub = subreddits[Math.round(Math.random() * (subreddits.length - 1))];
