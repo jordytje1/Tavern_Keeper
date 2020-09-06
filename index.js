@@ -13,9 +13,6 @@ client.category = new Collection();
 	require(`./handlers/${handler}`)(client);
 });
 
- client.on('guildMemberAdd', member=> {
-    member.addRole(member.guild.roles.cache.find("name","lol"));
-    });
 
 keepAlive();
 client.login(process.env.BOT_TOKEN);
