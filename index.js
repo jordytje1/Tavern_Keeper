@@ -5,8 +5,6 @@ const client = new Client({
 	disableEveryone: true,
 });
 
-const config = require('./config.json');
-
 client.commands = new Collection();
 client.aliases = new Collection();
 client.category = new Collection();
@@ -16,10 +14,6 @@ client.category = new Collection();
 });
 
 
-
-client.on('guildMemberAdd', (guild, member) => {
-	guild.addMemberRole(member.message.author.id, config.roleID, `Role added by Tom's AutoRole`)
-});
 
 keepAlive();
 client.login(process.env.BOT_TOKEN);
