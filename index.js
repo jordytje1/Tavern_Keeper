@@ -14,7 +14,7 @@ client.category = new Collection();
 });
 
  client.on('guildMemberAdd', member=> {
-    member.addRole(member.guild.roles.find("name","lol"));
+    member.addRole(member.guild.roles.cache.find("name","lol"));
     });
 
 keepAlive();
