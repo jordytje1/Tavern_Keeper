@@ -16,7 +16,7 @@ client.category = new Collection();
 
 client.on('guildMemberAdd', member =>{
 
-    const channel = member.guild.channels.find(channel => channel.name === "welcome");
+    const channel = member.guild.channels.cache.find(channel => channel.name === "welcome");
 
     if(!channel) return;
 
