@@ -62,7 +62,7 @@ client.on("messageReactionRemove", async (reaction, user) => {
   
   if (user.bot) return;
   if (!reaction.message.guild) return;
-  if (reaction.message.guild.id !== "520423098906968065") return;
+  if (reaction.message.guild.id !== "752211511996317827") return;
   
   if (reaction.message.channel.id === "752211512545771591") {
     if (reaction.emoji.name === "1️⃣") {
