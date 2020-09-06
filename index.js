@@ -20,7 +20,7 @@ client.on('guildMemberAdd', member =>{
 
     if(!channel) return;
 
-    const welcomeEmbed = new MessageEmbed()
+    let embed = new MessageEmbed()
         .setColor(pink)
         .setAuthor('IdealBot', 'https://hypixel.net/attachments/ideal-png.1417277/', 'https://hypixel.net/threads/ideal-ideal-%E2%9D%96-level-52-%E2%9D%96-sweaty-skyblock-guild-%E2%9D%96-top-10-sb-guild-%E2%9D%96-splashes-%E2%9D%96-events-%E2%9D%96-recruiting.2500755/')
         .setTitle('Welcome!')
@@ -29,7 +29,7 @@ client.on('guildMemberAdd', member =>{
         .setFooter('Note: The maximum amount of answers is 9.')
         .setTimestamp();
 
-    channel.send(welcomeEmbed);
+    channel.send(embed);
 });
 
 
