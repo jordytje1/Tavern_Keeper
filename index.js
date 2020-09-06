@@ -114,6 +114,7 @@ if (message.content.toLowerCase().startsWith(prefix + `close`)) {
 
 
 
+//hello
 
 
 
