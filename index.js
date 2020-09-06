@@ -64,9 +64,9 @@ client.on("messageReactionRemove", async (reaction, user) => {
   if (!reaction.message.guild) return;
   if (reaction.message.guild.id !== "520423098906968065") return;
   
-  if (reaction.message.channel.id === "708551760645587014") {
+  if (reaction.message.channel.id === "752211512545771591") {
     if (reaction.emoji.name === "1️⃣") {
-      await reaction.message.guild.members.cache.get(user.id).roles.remove("708554596817174559") // Minecraft role removed.
+      await reaction.message.guild.members.cache.get(user.id).roles.remove("752230218235772931") // Minecraft role removed.
       return user.send("Minecraft role was taken!").catch(() => console.log("Failed to send DM."));
     }
     
