@@ -38,11 +38,11 @@ client.on("messageReactionAdd", async (reaction, user) => {
   
   if (user.bot) return; // If the user was a bot, return.
   if (!reaction.message.guild) return; // If the user was reacting something but not in the guild/server, ignore them.
-  if (reaction.message.guild.id !== "520423098906968065") return; // Use this if your bot was only for one server/private server.
+  if (reaction.message.guild.id !== "752211511996317827") return; // Use this if your bot was only for one server/private server.
   
-  if (reaction.message.channel.id === "708551760645587014") { // This is a #self-roles channel.
+  if (reaction.message.channel.id === "752211512545771591") { // This is a #self-roles channel.
     if (reaction.emoji.name === "1️⃣") {
-      await reaction.message.guild.members.cache.get(user.id).roles.add("708554596817174559") // Minecraft role.
+      await reaction.message.guild.members.cache.get(user.id).roles.add("752230218235772931") // Minecraft role.
       return user.send("Minecraft role was given!").catch(() => console.log("Failed to send DM."));
     }
     
