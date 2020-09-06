@@ -20,6 +20,7 @@ module.exports = {
 	name: 'botinfo',
 	category: 'Info',
 	description: 'Displays indept information about the bot.',
+	cooldown: 10,
 	aliases: ['bot', 'bi'],
 	usage: 'botinfo',
 	run: async (client, message, args) => {
