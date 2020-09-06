@@ -1,7 +1,7 @@
 require('dotenv').config();
 const { Client, Collection } = require('discord.js');
 const keepAlive = require('./server');
-
+const db = require("quick.db")
 
 const client = new Client({
 	disableEveryone: true,
