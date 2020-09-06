@@ -14,7 +14,7 @@ if(!message.guild.me.hasPermission(["MANAGE_ROLES", "ADMINISTRATOR"])) return me
      
 //define the reason and mutee
 let time = args[1];
-let mutee = message.mentions.members.first() || message.guild.members.get(args[0]);
+let mutee = message.mentions.members.first() || message.guild.members(args[0]);
 if(!mutee) {
         return message.channel.send("Please mention the user that you want to mute")
         .then(m => m.delete(10000));
