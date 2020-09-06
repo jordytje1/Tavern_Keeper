@@ -14,18 +14,28 @@ client.category = new Collection();
 });
 
 
-client.on('messageReactionAdd', async (reaction, user) => {
-    if (reaction.message.partial); await reaction.message.fetch();
-    if (reaction.partial) await reaction.fetch();
+client.on('guildMemberAdd', member => {
+  let channel = member.guild.channels.find('name', 'channel.name');
+  let memberavatar = member.user.avatarURL
+      if (!channel) return;
+      let embed = new Discord.RichEmbed()
+      .setColor('RANDOM')
+      .setThumbnail(memberavatar)
+      .addField('Welcome', `${member}`)
+      .addField(':family_mwgb: | Actually there is ', `${member.guild.memberCount} people`)
+      .addField("Name", `<@` + `${member.id}` + `>`, true)
+      .addField('Server', `${member.guild.name}`, true )
+      .setFooter(`**${member.guild.name}**`)
+      .setTimestamp()
 
-    if (user.bot) return;
-    if (!reaction.message.guild) return;
-
-    if ((reaction.message.channel.id === "734022513838915666") && (reaction.emoji.name === '🔒')) {
-            reaction.message.guild.members.cache.get(user.id).roles.add('734367385447825482').catch()
-    }
+      channel.sendEmbed(embed);
 });
 
+client.on('guildMemberAdd', member => {
+
+  console.log(`${member}`, "has arrived" + `${member.guild.name}`)
+
+});
 
 keepAlive();
 client.login(process.env.BOT_TOKEN);
