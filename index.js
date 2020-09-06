@@ -1,8 +1,7 @@
 require('dotenv').config();
-const { Client, Collection } = require('discord.js');
+const { Client, Collection, Discord } = require('discord.js');
 const keepAlive = require('./server');
 prefix = "!",
-const Discord = require("discord.js"),
 client = new Discord.Client,
 const client = new Client({
 	disableEveryone: true,
