@@ -87,7 +87,16 @@ client.on("messageReactionRemove", async (reaction, user) => {
 
 
 
-
+client.on('messageDelete', async(message) => {
+	let logs = message.guild.channels.cache.find(channel => channel.name == config.logs);
+	if (!logs) return
+	let deleteEmbed = new discord.MessageEmbed()
+		.setTitle(`Message has been deleted in #${message.channel.name}`)
+		.setAuthor(message.author.tag, message.author.displayAvatarURL())
+		.setDescription(`**Message Content:**\n${message.content}`)
+		.setTimestamp()
+	logs.send(deleteEmbed)
+})
 
 
 
