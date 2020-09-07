@@ -15,7 +15,7 @@ module.exports = {
 		}
 		if (!args[0]) { return message.channel.send("You need to type a reason to open the ticket \n``t.ticket reason``").then(m => m.delete({ timeout: 15000 }));}
 		const everyone = message.guild.roles.cache.find(r => r.name == "@everyone");
-		const ticketstaff = message.guild.roles.cache.find(r => r.name == "TicketSup");
+		const ticketstaff = message.guild.roles.cache.find(r => r.name == "Support");
 		if(!ticketstaff) {
 			message.guild.roles.create ({
 				data:{
@@ -31,9 +31,9 @@ module.exports = {
 		if(message.guild.channels.cache.find(c => c.name.replace(/-/g, " ") == memberid)) {
 			return message.channel.send("You already have a ticket");
 		}
-		const tch = message.guild.channels.cache.find(c => c.name == "TICKETS" && c.type == "category");
+		const tch = message.guild.channels.cache.find(c => c.name == "tickets" && c.type == "category");
 		if(!tch) {
-			return await message.guild.channels.create("TICKETS", {
+			return await message.guild.channels.create("tickets", {
 				type: "category",
 			});
 		}
