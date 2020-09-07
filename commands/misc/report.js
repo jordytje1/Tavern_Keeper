@@ -22,10 +22,15 @@ module.exports = {
                                                     
     
     let embed = new MessageEmbed()
-    .setTitle('Suggestion')
+    .setTitle('Report')
     .setThumbnail(message.author.avatarURL())
     .setColor("#00D166")
     .setDescription(args.join(" "))
+    .addFields(
+		{ name: 'Regular field title', value: 'Some value here' },
+		{ name: '\u200B', value: '\u200B' },
+		{ name: 'Inline field title', value: 'Some value here', inline: true },
+		{ name: 'Inline field title', value: 'Some value here', inline: true }
     .setFooter(`Requested by ${message.author.tag} `)
     .setTimestamp()   
     
