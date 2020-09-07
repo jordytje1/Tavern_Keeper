@@ -85,48 +85,6 @@ client.on("messageReactionRemove", async (reaction, user) => {
 
 
 
-client.on("guildMemberRemove", member => {
-  if (member.guild.id !== "752211511996317827") return;
-
-        let messageDelete = new Discord.MessageEmbed()
-            .setThumbnail(message.author.displayAvatarURL({
-                dynamic: true,
-                format: 'png',
-                size: 512
-            }))
-            .setColor("RED")
-            .setTitle("🗑️ Message Delete")
-            .setDescription([
-                `**Message Author: ${message.author}**`,
-                `**Deleted By: ${entry.executor}**`,
-                `**Channel: ${message.channel}**\n`,
-                `**Message: ${message.cleanContent}**`,
-            ])
-        channel.send(messageDelete);
-        console.log(`[MESSAGE DELETE] User: ${message.author.tag} (${message.author.id}) | Deleted By: ${entry.executor.tag} | Channel: #${message.channel.name} (${message.channel.id}) | Message: ${message.cleanContent}`);
-    }
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//hello
-
-
-
-
-
 
 
 
