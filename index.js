@@ -13,7 +13,7 @@ client.category = new Collection();
 	require(`./handlers/${handler}`)(client);
 });
 
-
+const { LOGS_CHANNEL_ID } = process.env
 
 let memberlog = "752211513401671763";
 
@@ -83,7 +83,29 @@ client.on("messageReactionRemove", async (reaction, user) => {
 
 
 
+client.on('messageDelete', async message => {
+	if (message.author.bot) return;
 
+	const logChannel =  await client.channels.fetch(LOGS_CHANNEL_ID)
+
+    if (!logChannel) return;
+    
+	const embed = new MessageEmbed()
+		.setColor('#000000')
+		.setThumbnail(message.author.avatarURL({ dynamic: true }))
+		.setTimestamp();
+
+	let info = stripIndents` **Message Deleted**
+			**- Member:** ${message.author.tag} (${message.author.id})
+			**- Channel:** ${message.channel} (${message.channel.id})
+			**- Message:** ${message.content}`
+
+	if(message.attachments.array().length > 0) {
+		const result = message.attachments.array()
+		info += `\n[**Attached file found. Click here**](${result[0].proxyURL})`
+	}
+	logChannel.send(embed.setDescription(info))
+})
 
 
 
