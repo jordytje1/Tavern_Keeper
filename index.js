@@ -91,7 +91,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
   if (reaction.message.guild.id !== "752211511996317827") return; // Use this if your bot was only for one server/private server.
   
   if (reaction.message.channel.id === "752211512248107175") { // This is a #self-roles channel.
-    if (reaction.emoji.name === "✅) {
+    if (reaction.emoji.name === ":white_check_mark:) {
       await reaction.message.guild.members.cache.get(user.id).roles.add("752585847534125096") // Minecraft role.
       return user.send("you are now verified 🎉").catch(() => console.log("Failed to send DM."));
     }
@@ -116,7 +116,7 @@ client.on("messageReactionRemove", async (reaction, user) => {
   if (reaction.message.guild.id !== "752211511996317827") return;
   
   if (reaction.message.channel.id === "752211512248107175") {
-    if (reaction.emoji.name === "✅) {
+    if (reaction.emoji.name === ":white_check_mark:) {
       await reaction.message.guild.members.cache.get(user.id).roles.remove("752585847534125096") // Minecraft role removed.
       return user.send("Minecraft role was taken!").catch(() => console.log("Failed to send DM."));
     }
