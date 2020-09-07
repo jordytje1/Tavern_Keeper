@@ -96,7 +96,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
       return user.send("you are now verified 🎉").catch(() => console.log("Failed to send DM."));
     }
     
-    if (reaction.emoji.name === "✅") {
+    if (reaction.emoji.name.id === "✅") {
       await reaction.message.guild.members.cache.get(user.id).roles.add("708554654409293894"); // Roblox role.
       return user.send("Roblox role was given!").catch(() => console.log("Failed to send DM."));
     }
