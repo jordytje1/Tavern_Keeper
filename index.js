@@ -17,16 +17,6 @@ client.category = new Collection();
 let memberlog = "752211513401671763";
 
 
-client.on("message", message => {
-
-    if (message.content.startsWith(prefix + "test")) {
-        message.channel.send("You have been given `Need to be tested` role! You will be tested shortly!")
-        client.channels.cache.get("701547440310059059").send(` please test ${message.author}!`)
-        const member = message.mentions.members.first();
-        let testRole = message.guild.roles.find(role => role.id == "609021049375293460")
-        member.addRole(testRole)
-        
-    }})
 
 
 client.on("guildMemberAdd", member => {
