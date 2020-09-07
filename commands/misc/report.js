@@ -26,7 +26,7 @@ module.exports = {
     .setThumbnail(message.author.avatarURL())
     .setColor("#ff2509")
     .setDescription(args.join(" "))
-    .setFooter(`Requested by **${message.author.tag}** in **${message.guild.name}** `)
+    .setFooter(`Requested by [${message.author.tag}] in [${message.guild.name}] guild ID : [${message.guild.id}]`)
     .setTimestamp()   
     
     
