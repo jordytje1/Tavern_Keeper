@@ -19,12 +19,12 @@ module.exports = {
 		if(!ticketstaff) {
 			message.guild.roles.create ({
 				data:{
-					name: "TicketSup",
+					name: "Support",
 					color: "GRAY",
 
 				},
 			});
-			message.channel.send("A role named ``TicketSup`` has been crated, add it to your moderators/staff");
+			message.channel.send("A role named ``Support`` has been crated, add it to your moderators/staff");
 		}
 		const memberid = message.author.tag.replace(/[^a-zA-z0-9]/g, "").trim().toLowerCase();
 
