@@ -85,22 +85,36 @@ client.on("messageReactionRemove", async (reaction, user) => {
 
 
 
+bot.on('messageDelete', async message => {
+    if (message.channel.type == 'text') {
 
+        let channel = message.guild.channels.cache.find(ch => ch.id === `${logchannel}`);
+        if (!channel) return;
 
-client.on('messageDelete', async(message) => {
-	let logs = message.guild.channels.cache.find(channel => channel.name == config.logs);
-	if (!logs) return
-	let deleteEmbed = new discord.MessageEmbed()
-		.setTitle(`Message has been deleted in #${message.channel.name}`)
-		.setAuthor(message.author.tag, message.author.displayAvatarURL())
-		.setDescription(`**Message Content:**\n${message.content}`)
-		.setTimestamp()
-	logs.send(deleteEmbed)
-})
+        let logses = await message.guild.fetchAuditLogs({
+            type: 72
+        });
 
+        let entry = logses.entries.first();
 
-
-
+        let messageDelete = new Discord.MessageEmbed()
+            .setThumbnail(message.author.displayAvatarURL({
+                dynamic: true,
+                format: 'png',
+                size: 512
+            }))
+            .setColor("RED")
+            .setTitle("🗑️ Message Delete")
+            .setDescription([
+                `**Message Author: ${message.author}**`,
+                `**Deleted By: ${entry.executor}**`,
+                `**Channel: ${message.channel}**\n`,
+                `**Message: ${message.cleanContent}**`,
+            ])
+        channel.send(messageDelete);
+        console.log(`[MESSAGE DELETE] User: ${message.author.tag} (${message.author.id}) | Deleted By: ${entry.executor.tag} | Channel: #${message.channel.name} (${message.channel.id}) | Message: ${message.cleanContent}`);
+    }
+});
 
 
 
