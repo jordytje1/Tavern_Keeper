@@ -85,17 +85,8 @@ client.on("messageReactionRemove", async (reaction, user) => {
 
 
 
-client.on('messageDelete', async message => {
-    if (message.channel.type == 'text') {
-
-        let channel = message.guild.channels.cache.find(ch => ch.id === `${logchannel}`);
-        if (!channel) return;
-
-        let logses = await message.guild.fetchAuditLogs({
-            type: 72
-        });
-
-        let entry = logses.entries.first();
+client.on("guildMemberRemove", member => {
+  if (member.guild.id !== "752211511996317827") return;
 
         let messageDelete = new Discord.MessageEmbed()
             .setThumbnail(message.author.displayAvatarURL({
