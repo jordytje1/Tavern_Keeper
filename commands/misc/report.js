@@ -27,7 +27,7 @@ module.exports = {
     .setColor("#00D166")
     .setDescription(args.join(" "))
     .addField('${message.author.tag}', true)
-    .setFooter(`Requested by ${message.author.tag} `)
+    .setFooter(`Requested by ${message.author.tag} in ${message.guild.name} `)
     .setTimestamp()   
     
     
