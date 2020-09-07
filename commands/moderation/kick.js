@@ -21,6 +21,8 @@ module.exports = {
         }
         else {
             return message.reply(member.displayName + " could not be kicked!")
+            
+            user.send(`You are kicked in **${message.guild.name}** For \`${reason}\``)
         }
     }
 }
