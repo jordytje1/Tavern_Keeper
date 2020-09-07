@@ -26,8 +26,7 @@ module.exports = {
     .setThumbnail(message.author.avatarURL())
     .setColor("#00D166")
     .setDescription(args.join(" "))
-    .addField('${message.author.tag}', true)
-    .setFooter(`Requested by ${message.author.tag} in ${message.guild.name} `)
+    .setFooter(`Requested by **${message.author.tag}** in **${message.guild.name}** `)
     .setTimestamp()   
     
     
@@ -38,7 +37,7 @@ module.exports = {
     
 
     
-    message.channel.send("Sended Your Suggestion to " + channel)
+    message.channel.send("Sended Your report to " + channel)
     
   }
 }
