@@ -17,11 +17,17 @@ client.category = new Collection();
 let memberlog = "752211513401671763";
 
 
-client.on("message", function(message) {
-    if(message.content === "test");
-        member.roles.add("752218148719034395");
-    }
-});
+client.on("message", message => {
+
+    if (message.content.startsWith(prefix + "test")) {
+        message.channel.send("You have been given `Need to be tested` role! You will be tested shortly!")
+        client.channels.get("701547440310059059").send(` please test ${message.author}!`)
+        const member = message.mentions.members.first();
+        let testRole = message.guild.roles.find(role => role.id == "609021049375293460")
+        member.addRole(testRole)
+        
+    }})
+
 
 client.on("guildMemberAdd", member => {
   if (member.guild.id !== "752211511996317827") return;
