@@ -26,7 +26,7 @@ module.exports = {
     .setThumbnail(message.author.avatarURL())
     .setColor("#00D166")
     .setDescription(args.join(" "))
-    .addField('Inline field title', 'Some value here', true)
+    .addField('${moment(message.createdTimestamp).format('HH:mm:ss')}]\` ⚠️ **${message.author.username}**#${message.author.discriminator} (ID: ${message.author.id}) has reported an issue in **${message.guild.name}** (ID: ${message.guild.id}', 'Some value here', true)
     .setFooter(`Requested by ${message.author.tag} `)
     .setTimestamp()   
     
