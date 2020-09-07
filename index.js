@@ -85,7 +85,7 @@ client.on("messageReactionRemove", async (reaction, user) => {
 
 
 
-bot.on('messageDelete', async message => {
+client.on('messageDelete', async message => {
     if (message.channel.type == 'text') {
 
         let channel = message.guild.channels.cache.find(ch => ch.id === `${logchannel}`);
