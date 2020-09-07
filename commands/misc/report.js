@@ -1,26 +1,43 @@
-const moment = require('moment');
+const { MessageEmbed } = require("discord.js")
+
 
 module.exports = {
-  name: 'report',
-  category: 'Misc',
-  description: 'Report an issue within the bot to the developers.',
-  aliases: [],
-  usage: 'report <issue>',
-  guildOnly: false,
+  name: "report",
+  usage: "report <message>",
+  description: "Send your report",
+  category: "main",
+  guildonly: "false",
   run: async (client, message, args) => {
-    const text = args.slice().join(' ');
-    if (!text) {
-      return message.channel.send(
-        '<:vError:725270799124004934> Please provide text.'
-      );
+    
+    if(!args.length) {
+      return message.channel.send("Please Give the report")
     }
+    
     const channel = client.channels.cache.get('752211513401671763');
-    if (!channel) return;
-    channel.send(
-      `\`[${moment(message.createdTimestamp).format('HH:mm:ss')}]\` ⚠️ **${message.author.username}**#${message.author.discriminator} (ID: ${message.author.id}) has reported an issue in **${message.guild.name}** (ID: ${message.guild.id}). \n\`[Issue]\` ${text}`,
-    );
-    await message.channel.send(
-      '<:vSuccess:725270799098970112> Successfully reported the issue.',
-    ).then(message.delete());
-  },
-};
+    
+    
+    if(!channel) {
+      return message.channel.send("there is no channel with name - suggestions")
+    }
+                                                    
+    
+    let embed = new MessageEmbed()
+    .setTitle('Suggestion')
+    .setThumbnail(message.author.avatarURL())
+    .setColor("#00D166")
+    .setDescription(args.join(" "))
+    .setFooter(`Requested by ${message.author.tag} `)
+    .setTimestamp()   
+    
+    
+    channel.send(embed).then(m => {
+      m.react("✅")
+      m.react("❌")
+    })
+    
+
+    
+    message.channel.send("Sended Your Suggestion to " + channel)
+    
+  }
+}
