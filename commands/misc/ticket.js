@@ -1,72 +1,64 @@
-const { MessageEmbed } = require("discord.js");
-const discord = require('discord.js');
-
-
+const Discord = require("discord.js");
 
 module.exports = {
-	name: "ticket",
-	category: "info",
-	description: "Returns latency and API ping",
-  aliases: [],
-  usage: 'ticket',
-	run: async (client, message, args) => {
-		if(!message.guild.me.hasPermission("MANAGE_CHANNELS")) {
-			return message.channel.send("I dont have perms to create channels give me!");
-		}
-		if (!args[0]) { return message.channel.send("You need to type a reason to open the ticket \n``t.ticket reason``").then(m => m.delete({ timeout: 15000 }));}
-		const everyone = message.guild.roles.cache.find(r => r.name == "@everyone");
-		const ticketstaff = message.guild.roles.cache.find(r => r.name == "Support");
-		if(!ticketstaff) {
-			message.guild.roles.create ({
-				data:{
-					name: "Support",
-					color: "GRAY",
+    name: "createroom",
+    description: "Creates a temporary role and text channel and adds message author and user to the role",
+    usage: "<user>",
+    roles: "TECH",
+    example: "!createroom Gameproguy",
+    execute(client, message, config, command){
 
-				},
-			});
-			message.channel.send("A role named ``Support`` has been crated, add it to your moderators/staff");
-		}
-		const memberid = message.author.tag.replace(/[^a-zA-z0-9]/g, "").trim().toLowerCase();
+        //TODO
+        /*
+            Make temp role stay on user, then that allows them to search for their own solutions
+            Modify deleteroom to NOT delete user role
+        */
 
-		if(message.guild.channels.cache.find(c => c.name.replace(/-/g, " ") == memberid)) {
-			return message.channel.send("You already have a ticket");
-		}
-		const tch = message.guild.channels.cache.find(c => c.name == "tickets" && c.type == "category");
-		if(!tch) {
-			return await message.guild.channels.create("tickets", {
-				type: "category",
-			});
-		}
-		return message.guild.channels.create(memberid, {
-			type: "text",
-			permissionOverwrites: [
-				{
-					id: everyone.id,
-					deny: ["VIEW_CHANNEL", "SEND_MESSAGES"],
-				},
-				{
-					id: ticketstaff.id,
-					allow: ["VIEW_CHANNEL", "SEND_MESSAGES"],
-				},
-				{
-					id: message.author.id,
-					allow: ["VIEW_CHANNEL", "SEND_MESSAGES"],
-				},
-				{
-					id: message.me.id,
-					allow: ["ADMINISTRATOR"],
-				},
-			],
-			parent: tch.id,
-		}).then(c => {message.channel.send("Ticket created!"),
-		message.guild.channels.cache.find(m => m.name.replace(/-/g, " ") == memberid).send(
-			new MessageEmbed()
-				.setTitle("¡TICKET!")
-				.setDescription("Wait until a staff member helps you")
-				.setAuthor(message.member.displayName, message.author.displayAvatarURL)
-				.setTimestamp(new Date())
-				.setFooter("Tickets"),
-		);
-		});
-	},
-};
+        //Name and ID of the mentioned user
+
+        let user = message.mentions.users.first();
+        let guildUser = message.guild.members.find();
+        console.log(user + "\n\n\n" + guildUser);
+        console.log("*************" + user.username+"**************");
+
+            //Creates role with name of user, pink color, then adds user to role
+            message.guild.createRole({
+                name: user.username,
+                color: 'LUMINOUS_VIVID_PINK'
+            }).then(() =>{
+                console.log("Created Role")
+                let role = message.guild.roles.find(r => r.name === user.username)
+                console.log(role);
+                console.log("Role Created")
+                console.log(role.id);
+                user.addRole(role.id);
+            }).catch(console.error);
+
+
+
+            
+
+        //console.log(message);
+
+        message.channel.send("Create Room!");
+        message.guild.createChannel(user.username,{
+            type: "text",
+            parent: "641755544549326848",
+            permissionOverwrites: [
+                {
+                    //Users
+                    id: "641330577517314048",
+                    deny: ["VIEW_CHANNEL"]
+                },
+                {
+                    //Staff
+                    id: "641330637000933397",
+                    allow: ["VIEW_CHANNEL"]
+                }
+            ]
+        }).then(()=>{
+            //console.log;
+        })
+        .catch(console.error);
+    }
+}
