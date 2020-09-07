@@ -24,7 +24,7 @@ module.exports = {
     let embed = new MessageEmbed()
     .setTitle('Report')
     .setThumbnail(message.author.avatarURL())
-    .setColor("#00D166")
+    .setColor("#ff2509")
     .setDescription(args.join(" "))
     .setFooter(`Requested by **${message.author.tag}** in **${message.guild.name}** `)
     .setTimestamp()   
