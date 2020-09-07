@@ -16,12 +16,21 @@ client.category = new Collection();
 
 let memberlog = "752211513401671763";
 
+
+client.on("message", function(message) {
+    if(message.content === "test");
+        member.roles.add("752218148719034395");
+    }
+});
+
 client.on("guildMemberAdd", member => {
   if (member.guild.id !== "752211511996317827") return;
   
   client.channels.cache.get(memberlog).send(`Welcome to the **${member.guild.name}**, <@!${member.user.id}> !!!`);
   member.roles.add("752218148719034395"); // Member role.
 })
+
+
 
 client.on("guildMemberRemove", member => {
   if (member.guild.id !== "752211511996317827") return;
