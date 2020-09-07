@@ -23,7 +23,7 @@ client.on("guildMemberAdd", member => {
   if (member.guild.id !== "752211511996317827") return;
   
   client.channels.cache.get(memberlog).send(`Welcome to the **${member.guild.name}**, <@!${member.user.id}> !!!`);
-  member.roles.add("752218148719034395"); // Member role.
+  member.roles.add("752585847534125096"); // Member role.
 })
 
 
