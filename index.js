@@ -19,7 +19,26 @@ client.category = new Collection();
 let memberlog = "752211513401671763";
 
 
-
+client.on('messageReactionAdd', (reaction, user) => {
+  const { name } = reaction.emoji;
+  const member = reaction.message.guild.members.cache.get(user.id);
+  if (reaction.message.id === '752943174670090260') {
+    switch (name) {
+      case '🍎':
+        member.roles.add('752585847534125096');
+        break;
+      case '🍌':
+        member.roles.add('752218148719034395');
+        break;
+      case '🍇':
+        member.roles.add('752905551318351904');
+        break;
+      case '🍑':
+        member.roles.add('738664590178779167');
+        break;
+    }
+  }
+});
 
 client.on("guildMemberAdd", member => {
   if (member.guild.id !== "752211511996317827") return;
