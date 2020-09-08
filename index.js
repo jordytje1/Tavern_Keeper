@@ -88,7 +88,7 @@ client.on("messageReactionRemove", async (reaction, user) => {
   if (message.content === `!verify`) {
     message.delete(1000);
 keepAlive();
-
+  });
 client.on('message', (message) => {
 
     if (message.content == "!verify"){
