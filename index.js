@@ -38,9 +38,8 @@ client.on("guildMemberRemove", member => {
 
 
 client.on('message', message =>{
-  if(message.author.id == "YourID") {
   if(message.channel.id === "752211512248107175") {
-  message.guild.channels(channel => channel.delete())
+	  message.delete()
     }
   }
 })
