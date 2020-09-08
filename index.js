@@ -37,12 +37,6 @@ client.on("guildMemberRemove", member => {
 
 
 
-client.on('message', (message) => {
-	    message.delete()
-    }
-
-});
-
 
 
 
