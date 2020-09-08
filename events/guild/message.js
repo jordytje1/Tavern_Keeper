@@ -7,7 +7,7 @@ module.exports = async (client, message) => {
   if (message.content === `<@${client.user.id}>` || message.content === `<@!${client.user.id}>`) {
     message.channel.send(`My current prefix for this guild is \`${prefix}\``);
   }
-  
+
   if (!message.content.startsWith(prefix)) return;
 
   if (!message.member) message.member = await message.guild.fetchMember(message);
