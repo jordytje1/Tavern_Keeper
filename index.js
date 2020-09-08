@@ -85,13 +85,6 @@ client.on("messageReactionRemove", async (reaction, user) => {
   }
 })
 
-client.on('message', message => {
-   if (message.content == "say"){
-      message.delete(1000); //Supposed to delete message
-   }
-});
-
-
 
 keepAlive();
 client.on('message', (message) => {
