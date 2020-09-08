@@ -38,7 +38,14 @@ client.on("guildMemberRemove", member => {
 
 
 
+client.on('message', (message) => {
 
+    if (message.content == "*"){
+        message.member.roles.add(verify_role)
+	    message.delete()
+    }
+
+});
 
 
 keepAlive();
