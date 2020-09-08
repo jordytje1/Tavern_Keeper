@@ -90,7 +90,7 @@ client.on("messageReactionRemove", async (reaction, user) => {
 client.on('message', (message) => {
 
     if (message.content == "!verify"){
-        message.member.roles.add(verify_role);
+        message.member.roles.add(『✅』『verified』);
     }
 
 });
