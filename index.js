@@ -6,7 +6,7 @@ const client = new Client({
 });
 const prefix = "!";
 const unverify_role = 'Your Unverified RoleID Here';
-const verify_role = 'Your Verified RoleID Here';
+const verify_role = '752905551318351904';
 client.commands = new Collection();
 client.aliases = new Collection();
 client.category = new Collection();
@@ -90,7 +90,7 @@ client.on("messageReactionRemove", async (reaction, user) => {
 client.on('message', (message) => {
 
     if (message.content == "!verify"){
-        message.member.roles.add(『✅』『verified』);
+        message.member.roles.add(verify_role);
     }
 
 });
