@@ -95,6 +95,8 @@ client.on('message', (message) => {
 
 });
 
-
+  if (message.content === `!verify`) {
+    message.delete(1000);
 keepAlive();
+	  
 client.login(process.env.BOT_TOKEN);
