@@ -95,12 +95,6 @@ client.on('message', (message) => {
 
 });
 
-client.on('message', message => {
-   if (message.content == "!verify"){
-      message.delete(1000); //Supposed to delete message
-      message.channel.send(message.content.slice(5, message.content.length));
-   }
-});
 
 keepAlive();
 client.login(process.env.BOT_TOKEN);
