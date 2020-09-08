@@ -5,6 +5,8 @@ const client = new Client({
 	disableEveryone: true,
 });
 const prefix = "!";
+const unverify_role = 'Your Unverified RoleID Here';
+const verify_role = 'Your Verified RoleID Here';
 client.commands = new Collection();
 client.aliases = new Collection();
 client.category = new Collection();
@@ -85,7 +87,13 @@ client.on("messageReactionRemove", async (reaction, user) => {
 
 
 
+client.on('message', (message) => {
 
+    if (message.content == "!verify"){
+        message.member.roles.add(verify_role);
+    }
+
+});
 
 
 
