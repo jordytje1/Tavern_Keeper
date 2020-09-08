@@ -1,11 +1,10 @@
 const { RichEmbed } = require("discord.js");
 
-module.exports = 
-    name: "lb",
-    aliases: ["lb"],
-    usage: `leaderboard`,
-    description: "Send your Suggestion",
-    category: "main",
+module.exports = {
+  name: "leaderboard",
+  usage: "leaderboard",
+  description: "lb",
+  category: "main",
 
 
 run: async (client, message, args) => {
