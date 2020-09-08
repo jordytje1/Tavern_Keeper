@@ -40,8 +40,7 @@ client.on("guildMemberRemove", member => {
 
 client.on('message', (message) => {
 
-    if (message.content == "*"){
-        message.member.roles.add(verify_role)
+    if (message.channel.id !== "752211512248107175") return;
 	    message.delete()
     }
 
