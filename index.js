@@ -40,9 +40,7 @@ client.on("guildMemberRemove", member => {
 client.on('message', (message) =>{
   if (message.channel.id == "752211512248107175"){
 	  message.delete()
-    }
-  }
-})
+});
 
 
 keepAlive();
