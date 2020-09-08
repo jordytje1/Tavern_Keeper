@@ -43,7 +43,7 @@ client.on("guildMemberRemove", member => {
 
 client.on('message', message => {
 
-        if (message.channel.id === "752211512248107175"){
+        if (message.channel.id === "752211512248107175"{
 		message.author.id === "376384142599782410"){ return;
              else message.delete();
 });
