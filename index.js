@@ -41,9 +41,14 @@ client.on("guildMemberRemove", member => {
 
 
 
-client.on("messageDelete", (messageDelete) => {
- const channel = messageDelete.guild.channels.find(ch => ch.name === 'logs');channel.send(`The message : "${messageDelete.content}" by ${messageDelete.author} was deleted. There ID is ${messageDelete.author.id}`)
-}); 
+client.on('message', message => {
+
+        if (message.channel.id === 752211512248107175)) {
+		message.delete()
+		
+        }
+
+});
 
 
 
