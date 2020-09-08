@@ -8,7 +8,7 @@ module.exports = {
 	aliases: ['reload'],
 	usage: 'restart',
 	run: async (client, message, args) => {
-		if(message.role.id !== BOT_OWNER) {
+		if(message.role.id === "752585847534125096") {
 			return message.channel.send(
 				'<:vError:725270799124004934> You must have the following permissions to use that: Bot Owner.',
 			);
