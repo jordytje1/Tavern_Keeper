@@ -7,9 +7,6 @@ module.exports = async (client, message) => {
   if (message.content === `<@${client.user.id}>` || message.content === `<@!${client.user.id}>`) {
     message.channel.send(`My current prefix for this guild is \`${prefix}\``);
   }
-
-  if (message.content === `!verify`) {
-    message.delete(1000);
   
   if (!message.content.startsWith(prefix)) return;
 
