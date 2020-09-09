@@ -27,12 +27,6 @@ client.on("guildMemberAdd", member => {
   member.roles.add("752585847534125096"); // Member role.
 })
 
-client.on('message', (message => {
-	if (message.author.bot) return;
-	  if (message.channel.type == "dm");
-  member.roles.add("752585847534125096"); // Member role.
-})
-
 
 client.on("guildMemberRemove", member => {
   if (member.guild.id !== "752211511996317827") return;
