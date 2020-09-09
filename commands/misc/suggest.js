@@ -12,7 +12,7 @@ module.exports = {
       return message.channel.send("Please Give the Suggestion")
     }
     
-    let channel = message.guild.channels.cache.find((x) => (x.name === "suggestion" || x.name === "suggestions"))
+    let channel = message.guild.channels.cache.find((x) => (x.name === "suggestion" || x.name === "》🛡《suggestions"))
     
     
     if(!channel) {
