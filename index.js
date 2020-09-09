@@ -30,6 +30,16 @@ client.on("guildMemberAdd", member => {
 })
 
 
+client.on("guildMemberAdd", member => {
+  if (member.guild.id !== "653322621710106635") return;
+  
+  client.channels.cache.get(log).send(`Welcome to the **${member.guild.name}**, <@!${member.user.id}> !!!`);
+  member.roles.add("653329683085000744"); // Member role.
+})
+
+
+
+
 client.on("guildMemberRemove", member => {
   if (member.guild.id !== "752211511996317827") return;
   
