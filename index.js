@@ -42,7 +42,7 @@ client.on('message', (message) => {
 
 if(message.content == 'ping') {
 
-    message.channel.sendMessage('pong');
+    message.channel.send('pong');
 }
 });
 
