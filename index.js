@@ -38,7 +38,13 @@ client.on("guildMemberAdd", member => {
   member.roles.add("653329683085000744"); // Member role.
 })
 
+client.on('message', (message) => {
 
+if(message.content == 'ping') {
+
+    message.channel.sendMessage('pong');
+
+})
 
 
 client.on("guildMemberRemove", member => {
