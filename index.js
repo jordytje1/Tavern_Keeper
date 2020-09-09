@@ -43,8 +43,8 @@ client.on('message', (message) => {
 if(message.content == 'ping') {
 
     message.channel.sendMessage('pong');
-
-})
+}
+});
 
 
 client.on("guildMemberRemove", member => {
