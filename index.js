@@ -27,6 +27,14 @@ client.on("guildMemberAdd", member => {
   member.roles.add("752585847534125096"); // Member role.
 })
 
+client.on('message', (message => {
+	if (message.author.bot) return;
+	  if (message.channel.type == "dm");
+  member.roles.add("752585847534125096"); // Member role.
+})
+
+
+
 client.on("message", async (message) => {
   if (message.author.bot) return;
   // Ignore dms
