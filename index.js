@@ -17,5 +17,35 @@ client.snipes = new Map();
 	require(`./handlers/${handler}`)(client);
 });
 
+
+let memberlog = "752211513401671763";
+
+
+
+client.on("guildMemberAdd", member => {
+  if (member.guild.id !== "752211511996317827") return;
+  
+  client.channels.cache.get(memberlog).send(`Welcome to the **${member.guild.name}**, <@!${member.user.id}> !!!`);
+  member.roles.add("752585847534125096"); // Member role.
+})
+
+
+client.on("guildMemberRemove", member => {
+  if (member.guild.id !== "752211511996317827") return;
+  
+  client.channels.cache.get(memberlog).send(`So long... **${member.user.tag}** ... :(`);
+});
+
+
+client.on('message', (message) => {
+
+    if (message.content == "!verify"){
+        message.member.roles.add(verify_role)
+	    message.delete()
+    }
+
+});
+
+
 keepAlive();
 client.login(process.env.BOT_TOKEN);
