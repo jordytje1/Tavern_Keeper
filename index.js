@@ -1,10 +1,6 @@
 require('dotenv').config();
 const { Client, Collection } = require('discord.js');
 const keepAlive = require('./server');
-const prefix = "!";
-const unverify_role = 'Your Unverified RoleID Here';
-const verify_role = '752905551318351904';
-
 
 const client = new Client({
 	disableEveryone: true,
@@ -19,46 +15,5 @@ client.snipes = new Map();
 	require(`./handlers/${handler}`)(client);
 });
 
-
-let memberlog = "752211513401671763";
-
-
-
-client.on("guildMemberAdd", member => {
-  if (member.guild.id !== "752211511996317827") return;
-  
-  client.channels.cache.get(memberlog).send(`Welcome to the **${member.guild.name}**, <@!${member.user.id}> !!!`);
-  member.roles.add("752585847534125096"); // Member role.
-})
-
-
-client.on("guildMemberRemove", member => {
-  if (member.guild.id !== "752211511996317827") return;
-  
-  client.channels.cache.get(memberlog).send(`So long... **${member.user.tag}** ... :(`);
-});
-
-
-
-client.on('message', (message) =>{
-  if (message.channel.id == "752211512248107175"){
-	  message.delete()
-};
-
-
-client.on('message', (message) => {
-
-    if (message.content == "!verify"){
-        message.member.roles.add(verify_role)
-	    message.delete()
-    }
-
-});
-
-
-
-
-
 keepAlive();
 client.login(process.env.BOT_TOKEN);
-);
