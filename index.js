@@ -41,8 +41,7 @@ client.on("guildMemberAdd", member => {
 client.on('message', (message) => {
 
 if(message.content == 'ping') {
-
-    message.channel.send('pong');
+     message.delete()
 }
 });
 
