@@ -51,7 +51,7 @@ client.on("guildMemberRemove", member => {
 client.on("guildMemberRemove", member => {
   if (member.guild.id !== "653322621710106635") return;
   
-  client.channels.cache.get(log).send(`**${member.user.tag}** has left the server 😭(`);
+  client.channels.cache.get(log).send(`**${member.user.tag}** has left the server 😭`);
 });
 
 client.on('message', (message) => {
