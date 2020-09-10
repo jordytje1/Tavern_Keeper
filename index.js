@@ -5,6 +5,7 @@ const prefix = "!";
 const unverify_role = 'Your Unverified RoleID Here';
 const verify_role = '752905551318351904';
 const log = '753313405833576498';
+const config = require("./config.json");
 const client = new Client({
 	disableEveryone: true,
 });
@@ -67,6 +68,13 @@ client.on('message', (message) => {
     }
 
 });
+
+
+client.on('message', message => {
+  if(config.FILTER_LIST.some(word => message.content.toLowerCase().includes(word))){
+    message.delete()
+  }})
+
 
 
 keepAlive();
