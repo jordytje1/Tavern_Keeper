@@ -5,7 +5,7 @@ const prefix = "!";
 const unverify_role = 'Your Unverified RoleID Here';
 const verify_role = '752905551318351904';
 const log = '753313405833576498';
-const bannedWords = [`discord.gg`, `.gg/`, `.gg /`, `. gg /`, `. gg/`, `discord .gg /`, `discord.gg /`, `discord .gg/`, `discord .gg`, `discord . gg`, `discord. gg`, `discord gg`, `discordgg`, `discord gg /`];
+const bannedWords = [`kut`, `vagina/`, `homo /`, `kanker/`, `kk/`, `kkr/`, `tyfus/`, `tering/`, `penis`, `.gg`, `discord.gg`, `discord gg`, `discordgg`, `discord gg /`];
 const client = new Client({
 	disableEveryone: true,
 });
@@ -72,12 +72,11 @@ client.on('message', (message) => {
 
 
 client.on(`message`, async message => {
-    const bannedWords = [`discord.gg`, `.gg/`, `.gg /`, `. gg /`, `. gg/`, `discord .gg /`, `discord.gg /`, `discord .gg/`, `discord .gg`, `discord . gg`, `discord. gg`, `discord gg`, `discordgg`, `discord gg /`]
     try {
         if (bannedWords.some(word => message.content.toLowerCase().includes(word))) {
             if (message.author.id === message.guild.ownerID) return;
             await message.delete();
-            await message.channel.send(`You cannot send invites to other Discord servers`);
+            await message.channel.send(`**please shut up your mouth and watch your language`);
         }
     } catch (e) {
         console.log(e);
