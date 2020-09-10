@@ -5,6 +5,9 @@ const prefix = "!";
 const unverify_role = 'Your Unverified RoleID Here';
 const verify_role = '752905551318351904';
 const log = '753313405833576498';
+const Discord = require("discord.js");
+const client = new Discord.Client();
+const fs = require("fs");
 let botAdmins = [
   "376384142599782410"
 ];
