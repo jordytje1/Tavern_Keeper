@@ -100,8 +100,8 @@ client.on(`message`, async message => {
 
 var request = require('request');
 var mcCommand = '/minecraft'; // Command for triggering
-var mcIP = '123.123.123.123'; // Your MC server IP or hostname address
-var mcPort = 25565; // Your MC server port (25565 is the default)
+var mcIP = 'play.questal.eu'; // Your MC server IP or hostname address
+var mcPort = 25607; // Your MC server port (25565 is the default)
 
 var url = 'http://mcapi.us/server/status?ip=' + mcIP + '&port=' + mcPort;
 
