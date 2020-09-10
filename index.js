@@ -69,13 +69,6 @@ client.on('message', (message) => {
 
 });
 
-client.on("message", message => {
-  let delete = false
-  for(word in blacklisted){
-    if(message.content.includes(word)) delete = true
-  }
-  if(delete) message.delete()
-});
 
 
 keepAlive();
