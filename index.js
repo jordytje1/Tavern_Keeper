@@ -5,7 +5,7 @@ const prefix = "!";
 const unverify_role = 'Your Unverified RoleID Here';
 const verify_role = '752905551318351904';
 const log = '753313405833576498';
-const blacklisted = ["word1", "word2", "word3"]; // and continue doing this until you have entered all your desired words
+const bannedWords = [`discord.gg`, `.gg/`, `.gg /`, `. gg /`, `. gg/`, `discord .gg /`, `discord.gg /`, `discord .gg/`, `discord .gg`, `discord . gg`, `discord. gg`, `discord gg`, `discordgg`, `discord gg /`];
 const client = new Client({
 	disableEveryone: true,
 });
@@ -68,6 +68,22 @@ client.on('message', (message) => {
     }
 
 });
+
+
+
+client.on(`message`, async message => {
+    const bannedWords = [`discord.gg`, `.gg/`, `.gg /`, `. gg /`, `. gg/`, `discord .gg /`, `discord.gg /`, `discord .gg/`, `discord .gg`, `discord . gg`, `discord. gg`, `discord gg`, `discordgg`, `discord gg /`]
+    try {
+        if (bannedWords.some(word => message.content.toLowerCase().includes(word))) {
+            if (message.author.id === message.guild.ownerID) return;
+            await message.delete();
+            await message.channel.send(`You cannot send invites to other Discord servers`);
+        }
+    } catch (e) {
+        console.log(e);
+    }
+});
+
 
 
 
