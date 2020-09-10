@@ -5,6 +5,7 @@ const prefix = "!";
 const unverify_role = 'Your Unverified RoleID Here';
 const verify_role = '752905551318351904';
 const log = '753313405833576498';
+const blacklisted = ["word1", "word2", "word3"]; // and continue doing this until you have entered all your desired words
 const client = new Client({
 	disableEveryone: true,
 });
@@ -68,7 +69,13 @@ client.on('message', (message) => {
 
 });
 
-
+client.on("message", message => {
+  let delete = false
+  for(word in blacklisted){
+    if(message.content.includes(word)) delete = true
+  }
+  if(delete) message.delete()
+});
 
 
 keepAlive();
