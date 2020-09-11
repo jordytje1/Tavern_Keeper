@@ -1,5 +1,5 @@
 const { BOT_OWNER } = process.env;
-const { sleep } = require('../../functions');
+const { delay } = require('../../functions');
 const responses = require('../../assets/json/fight.json');
 
 module.exports = {
@@ -10,7 +10,7 @@ module.exports = {
 	dexcription: 'Simulates a fight against another user.',
 	run: async (client, message, args) => {
 		const player1 = message.author;
-		const player2 = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username === args.slice(0).join(' ') || x.user.username === args[0]) || message.member;
+		const player2 = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username === args.slice(0).join(' ') || x.user.username === args[0]);
 		if(!player2) {
 			return message.channel.send(
 				'<:vError:725270799124004934> Please provide valid user',
@@ -40,13 +40,13 @@ module.exports = {
 					if (turn1 === true) {
 						hp2 -= x;
 						await msg.edit(`**${player2.user.username}** ${responses[i]} **${player1.username}**! *[-${x} hp] [${hp2} HP remaining]*`);
-						await sleep(2000);
+						await delay(2000);
 						turn1 = false;
 					}
 					else {
 						hp1 -= x;
 						await msg.edit(`**${player1.username}** ${responses[i]} **${player2.user.username}**! *[-${x} hp] [${hp1} HP remaining]*`);
-						await sleep(2000);
+						await delay(2000);
 						turn1 = true;
 					}
 					if (hp1 <= 0) {
