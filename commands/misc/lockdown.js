@@ -5,11 +5,11 @@ module.exports = {
 	aliases: [],
 	usage: 'lock',
 	run: async (client, message, args) => {
-		if (args[0] === 'off') {
+		if (args === 'off') {
             message.channel.overwritePermissions(message.guild.id, {
             SEND_MESSAGES: true,
             
-          if (arg[0] === 'on'){
+          if (arg === 'on'){
             message.channel.overwritePermissions(message.guild.id, {
             SEND_MESSAGES: false
             
