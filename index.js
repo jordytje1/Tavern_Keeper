@@ -5,7 +5,6 @@ const prefix = "!";
 const unverify_role = 'Your Unverified RoleID Here';
 const verify_role = '752905551318351904';
 const log = '753313405833576498';
-const cooldowns = new Set();
 const bannedWords = [`kut`, `vagina/`, `homo /`, `kanker/`, `kk/`, `kkr/`, `tyfus/`, `tering/`, `penis`, `.gg`, `discord.gg`, `discord gg`, `discordgg`, `discord gg /`];
 const client = new Client({
 	disableEveryone: true,
@@ -140,18 +139,6 @@ client.on('message', async message => {
 });
 
 
-
-function cooldown(user, time) {
-  cooldowns.add(user);
-  setTimeout(() => cooldowns.delete(user), time * 1000);
-  console.log(`${user.tag} (${user.id}) is cooling down for ${time} seconds`);
-}
-
-client.on('message', (message) => {
-  if (message.author.bot || cooldowns.has(message.author)) return;
-  if (message.content === '!ping');
-    cooldown(message.author, 5);
-  })
 
 
 
