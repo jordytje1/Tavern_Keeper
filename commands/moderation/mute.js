@@ -62,7 +62,6 @@ await message.channel.send(`You muted **${message.mentions.users.first().usernam
                 .setColor(0x333333)
                 .setAuthor("👋 " + member.displayName + " has been successfully kicked!")
                 message.channel.send(mute);
-            }
         }
         else {
             return message.reply(member.displayName + " could not be kicked!")
