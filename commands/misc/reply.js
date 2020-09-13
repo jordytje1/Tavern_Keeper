@@ -15,7 +15,7 @@ const userr = message.mentions.users.first();
 const user = message.guild.member(userr);
       
 //if (user.roles.has('746858184504770651')) {
-if(message.member.roles.cache.some(role => role.name === 'Modmail Access')){
+if(message.member.roles.cache.some(role => role.name === '『💛』『support』')){
 
 const argse = message.content.slice(`m+reply ${userr}`.length).split( );
       
