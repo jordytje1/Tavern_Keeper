@@ -8,6 +8,7 @@ const { MessageEmbed } = require("discord.js");
 const verify_role = '752905551318351904';
 const Discord = require("discord.js");
 const log = '753313405833576498';
+const welcome = '752211512248107177';
 const bannedWords = [`kut`, `vagina/`, `homo /`, `kanker/`, `kk/`, `kkr/`, `tyfus/`, `tering/`, `penis`, `.gg`, `discord.gg`, `discord gg`, `discordgg`, `discord gg /`];
 const client = new Client({
 	disableEveryone: true,
@@ -77,7 +78,12 @@ client.on('messageReactionRemove', async (reaction, user) => {
 client.on("guildMemberAdd", member => {
   if (member.guild.id !== "752211511996317827") return;
   
-  client.channels.cache.get(memberlog).send(`Welcome to the **${member.guild.name}**, <@!${member.user.id}> !!!`);
+	
+	
+		 const welcomes = new Discord.MessageEmbed()
+                .setColor(0x333333)
+                .setAuthor("👋 " + member.displayName + " has been joined ⚡𝙎𝙥𝙖𝙧𝙠𝙮⚡𝙨𝙪𝙥𝙥𝙤𝙧𝙩 𝙨𝙚𝙧𝙫𝙚𝙧")
+  client.channels.cache.get(welcome).send(welcomes);
   member.roles.add("752585847534125096"); // Member role.
 })
 
@@ -100,7 +106,13 @@ if(message.content == 'ping') {
 client.on("guildMemberRemove", member => {
   if (member.guild.id !== "752211511996317827") return;
   
-  client.channels.cache.get(memberlog).send(`So long... **${member.user.tag}** ... :(`);
+	
+	
+	
+	         const bye = new Discord.MessageEmbed()
+                .setColor(0x333333)
+                .setAuthor("👋 " + member.displayName + " has been leaved ⚡𝙎𝙥𝙖𝙧𝙠𝙮⚡𝙨𝙪𝙥𝙥𝙤𝙧𝙩 𝙨𝙚𝙧𝙫𝙚𝙧")
+  client.channels.cache.get(welcome).send(bye);
 });
 
 
