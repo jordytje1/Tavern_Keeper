@@ -158,7 +158,7 @@ client.on("message", (message) => {
     .setFooter(`Requested by [${message.author.tag}]`)
     .setTimestamp()
             client.channels.cache.get('752211513401671763').send(embed)
-        });
+        };
 });
 
 
