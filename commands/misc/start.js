@@ -6,7 +6,6 @@ module.exports = {
     category: "modmail",//this is what ever ever dir you are in (dev, info, moderation, music)
     description: "Start a thread",
     usage: "start",
-    dev: false,//if it is for the dev the true;
     run: async (client, message, args) => {
 //your code goes here!
 const start = new Discord.MessageEmbed()
