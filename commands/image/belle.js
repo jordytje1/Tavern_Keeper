@@ -10,8 +10,9 @@ module.exports = {
 	guildOnly: true,
 	run: async (client, message, args) => {
 		const subreddits = [
-			'belle dephile',
-			'belle dephile onlyfans',
+			'Belle_Delphine_',
+			'Belle_Delphine',
+			'belledelphine_onlyfans'
 		];
 
 		const sub = subreddits[Math.round(Math.random() * (subreddits.length - 1))];
