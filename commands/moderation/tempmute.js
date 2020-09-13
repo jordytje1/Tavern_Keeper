@@ -1,8 +1,16 @@
 const Discord = require("discord.js");
 const config = require("../config.json");
 const ms = require("ms");
-module.exports.run = async (bot, message, args) => {
 
+
+
+
+module.exports = {
+  name: "mute",
+  description: "Mute anyone who break rules",
+  category: "moderation",
+  usage: "mute <@mention> <reason>",
+  run: async (client, message, args) => {
 
   if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You have insufficient permissions to execute this command.");
   let muteUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
@@ -70,6 +78,3 @@ module.exports.run = async (bot, message, args) => {
   }, ms(length));
 
 }
-
-module.exports.help = {
-  name: "mute"
