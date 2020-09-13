@@ -153,7 +153,7 @@ client.on("message", (message) => {
     let yumz = new Discord.RichEmbed()
                 .setTimestamp()
                 .setTitle("Direct Message To The Bot")
-                .addField(Sent By:, <@${message.author.id}>)
+                .addField("Sent By:, <@${message.author.id}>)
                 .setColor("RANDOM")
                 .setThumbnail(message.author.displayAvatarURL)
                 .addField(Message:, \n\n\``${message.content}```)
