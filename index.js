@@ -152,7 +152,6 @@ client.on('message', (message) => {
   if (message.content === '!ping');
     cooldown(message.author, 5);
   })
-};
 
 
 
