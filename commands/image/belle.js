@@ -9,6 +9,8 @@ module.exports = {
 	usage: 'belle',
 	guildOnly: true,
 	run: async (client, message, args) => {
+		if (message.channel.nsfw === true) return;
+                else message.reply('Sorry this is not a nsfw channel!')
 		const subreddits = [
 			'BelleDelphinePatreon',
 		];
