@@ -43,7 +43,7 @@ client.on('messageReactionAdd', async (reaction, user) => {
 	if (reaction.message.partial) await reaction.message.fetch()
 	if (reaction.partial) await reaction.fetch()
 	if (user.bot) return
-	if (reaction.message.id === '754770037306294462) {
+	if (reaction.channel.message.id === '754770037306294462) {
 		if (reaction.emoji.name === '✅') await reaction.message.guild.members.cache.get(user.id).roles.add('752905551318351904')
 		if (reaction.emoji.name === '❎') await reaction.message.guild.members.cache.get(user.id).roles.add('754682919624245379')
 	}
