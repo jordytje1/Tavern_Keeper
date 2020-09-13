@@ -1,5 +1,4 @@
 const { MessageEmbed } = require("discord.js");
-const Discord = require("discord.js");
 
 module.exports = {
   name: "mute",
@@ -57,6 +56,7 @@ module.exports = {
 await message.channel.send(`You muted **${message.mentions.users.first().username}** For \`${reason}\``)
     
     user.send(`You are muted in **${message.guild.name}** For \`${reason}\``)
+    
     
 //WE ARE DONE HERE 
     
