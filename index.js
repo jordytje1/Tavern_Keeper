@@ -2,7 +2,6 @@ require('dotenv').config();
 const { Client, Collection } = require('discord.js');
 const keepAlive = require('./server');
 const prefix = "!";
-const Discord = require('discord.js');
 const unverify_role = 'Your Unverified RoleID Here';
 const verify_role = '752905551318351904';
 const log = '753313405833576498';
@@ -142,16 +141,6 @@ client.on('message', async message => {
 
 
 
-
-
-client.on('message', async msg => {
-  if (msg.content === 'test') {
-    let channel = await message.guild.createChannel('foo'); 
-    // ^ replaced with guild.channels.create on master
-    channel = await channel.setParent('462771637910241290'); // hardcoded, existing category channel
-    console.log(channel.parentID);
-  }
-});
 
 
 
