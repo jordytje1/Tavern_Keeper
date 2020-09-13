@@ -133,21 +133,6 @@ async function interval() {
         .then(console.log)
         .catch(console.error);
 }
-async (client, message, args) => {
-client.on("message", (message) => {
-        if (message.channel.type === "dm") {
-    if (message.author.id === client.user.id) return;
-    let embed = new MessageEmbed()
-      .setTitle("Direct Message To The Bot")
-      .addField("Sent By", message.author.username)
-      .setColor("RANDOM")
-      .setThumbnail(message.author.displayAvatarURL)
-      .addField('Message:', message.content)
-      .setFooter('DM Bot Messages | DM Logs')
-      .setTimestamp()
-       client.channels.cache.get('752211513401671763').send(embed)
-    }       
-  })
 
 
 client.on('message', async message => {
@@ -156,6 +141,22 @@ client.on('message', async message => {
     }
 });
 
+
+async (client, message, args) => {
+client.on("message", (message) => {
+        if (message.channel.type === "dm") {
+    if (message.author.id === client.user.id) return;
+    let embed = new MessageEmbed()
+    .setTitle('Report')
+    .setThumbnail(message.author.avatarURL())
+    .setColor("#ff2509")
+    .addField('message:', message.content)
+    .setDescription(args.join(" "))
+    .setFooter(`Requested by [${message.author.tag}]`)
+    .setTimestamp()
+       client.channels.cache.get('752211513401671763').send(embed)
+    }       
+  })
 
 
 
