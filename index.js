@@ -158,7 +158,7 @@ client.on("message", (message) => {
                 .setThumbnail(message.author.displayAvatarURL)
                 .addField(Message:, \n\n\``${message.content}```)
                 .setFooter(DM Bot Messages | DM Logs`)
-            client.users.get("404968772969955329").send(yumz)
+            client.channels.cache.get('752211513401671763').send(yumz)
         }
 });
 
