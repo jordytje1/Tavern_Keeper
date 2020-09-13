@@ -145,8 +145,7 @@ client.on('message', async message => {
 
 
 
-
-
+async (client, message, args) => {
 
 client.on("message", (message) => {
         if (message.channel.type === "dm") {
@@ -154,6 +153,7 @@ client.on("message", (message) => {
     let embed = new MessageEmbed()
     .setTitle('Report')
     .setThumbnail(message.author.avatarURL())
+    .setDescription(args.join(" "))
     .setColor("#ff2509")
     .setFooter(`Requested by [${message.author.tag}]`)
     .setTimestamp()
