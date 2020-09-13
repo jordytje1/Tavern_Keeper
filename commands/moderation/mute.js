@@ -1,4 +1,5 @@
 const { MessageEmbed } = require("discord.js");
+const Discord = require("discord.js");
 
 module.exports = {
   name: "mute",
@@ -57,7 +58,14 @@ await message.channel.send(`You muted **${message.mentions.users.first().usernam
     
     user.send(`You are muted in **${message.guild.name}** For \`${reason}\``)
     
-    
+                   const mute = new Discord.MessageEmbed()
+                .setColor(0x333333)
+                .setAuthor("👋 " + member.displayName + " has been successfully kicked!")
+                message.channel.send(mute);
+            })
+        }
+        else {
+            return message.reply(member.displayName + " could not be kicked!")
 //WE ARE DONE HERE 
     
   }
