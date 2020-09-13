@@ -2,33 +2,25 @@ const { MessageEmbed } = require("discord.js")
 
 
 module.exports = {
-  name: "sreport",
-  usage: "sreport <message>",
-  description: "Send your report",
+  name: "suggest",
+  usage: "suggest <message>",
+  description: "Send your Suggestion",
   category: "main",
-  guildonly: "false",
   run: async (client, message, args) => {
-  
-    if(message.channel.type == "dm") return; 
     
-      if(!args.length) {
-      return message.channel.send("Please Give the report")
+    if(!args.length) {
+      return message.channel.send("Please Give the Suggestion")
     }
     
-    const channel = client.channels.cache.get('752211513401671763');
-    
-    
-    if(!channel) {
-      return message.channel.send("there is no channel with name - suggestions")
-    }
+    if(message.channel.type == "dm") {
                                                     
     
     let embed = new MessageEmbed()
-    .setTitle('Report')
+    .setTitle('Suggestion')
     .setThumbnail(message.author.avatarURL())
-    .setColor("#ff2509")
+    .setColor("#00D166")
     .setDescription(args.join(" "))
-    .setFooter(`Requested by [${message.author.tag}] in [${message.guild.name}] guild ID : [${message.guild.id}]`)
+    .setFooter(`Requested by ${message.author.tag} `)
     .setTimestamp()   
     
     
@@ -39,7 +31,7 @@ module.exports = {
     
 
     
-    message.channel.send("Sended Your report to " + channel),
+    message.channel.send("Sended Your Suggestion to " + channel)
     
   }
 }
