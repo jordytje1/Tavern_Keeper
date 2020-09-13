@@ -2,8 +2,8 @@ const { MessageEmbed } = require("discord.js")
 
 
 module.exports = {
-  name: "suggest",
-  usage: "suggest <message>",
+  name: "ssuggest",
+  usage: "ssuggest <message>",
   description: "Send your Suggestion",
   category: "main",
   run: async (client, message, args) => {
