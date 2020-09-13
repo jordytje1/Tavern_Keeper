@@ -25,6 +25,18 @@ client.snipes = new Map();
 let memberlog = "752211513401671763";
 
 
+
+client.on("message", (msg) => {
+
+  // checks if the message's channel type is 'DM'.
+  if(msg.channel.type === "dm") {
+   client.channels.cache.get('752211513401671763') return;
+	  client.channels.cache.get(memberlog).send(`Welcome to the **${member.guild.name}**, <@!${member.user.id}> !!!`);
+	  
+  }
+});
+
+
 client.on("guildMemberAdd", member => {
   if (member.guild.id !== "752211511996317827") return;
   
