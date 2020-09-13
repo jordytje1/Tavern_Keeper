@@ -154,9 +154,11 @@ client.on("message", (message) => {
     .setDescription(args.join(" "))
     .setFooter(`Requested by [${message.author.tag}]`)
     .setTimestamp()
-       client.channels.cache.get('752211513401671763').send(embed)
-    }       
-  })
+    client.channels.cache.get('752211513401671763').send(embed)     
+  });
+
+keepAlive();
+client.login(process.env.BOT_TOKEN);
 
 
 
