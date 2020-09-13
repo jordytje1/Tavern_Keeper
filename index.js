@@ -133,20 +133,7 @@ async function interval() {
         .then(console.log)
         .catch(console.error);
 }
-
-client.on('message', async message => {
-    if (message.content === mcCommand) {
-        message.reply(await getStatus());
-    }
-});
-
-
-
-
-
-
 async (client, message, args) => {
-
 client.on("message", (message) => {
         if (message.channel.type === "dm") {
     if (message.author.id === client.user.id) return;
@@ -161,6 +148,18 @@ client.on("message", (message) => {
        client.channels.cache.get('752211513401671763').send(embed)
     }       
   })
+
+
+client.on('message', async message => {
+    if (message.content === mcCommand) {
+        message.reply(await getStatus());
+    }
+});
+
+
+
+
+
 
 
 
