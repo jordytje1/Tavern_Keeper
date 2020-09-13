@@ -33,7 +33,9 @@ module.exports = {
     
    const unmuted = new Discord.MessageEmbed()
 .setColor(0x333333)
-.setAuthor("👋 " + " has been successfully unmuted!")
+.setAuthor("🔊" + message.mentions.users.first().username + " has been successfully unmuted!")
+.setFooter(`Requested by [${message.author.tag}]`)
+.setTimestamp()
    
     user.roles.remove(muterole)
     
