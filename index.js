@@ -24,12 +24,6 @@ client.snipes = new Map();
 
 let memberlog = "752211513401671763";
 
-client.on("message", (message) => {
-    if (message.channel.type === "dm") {
-    if (message.author.id === client.user.id) return;
-    if guild.channels.id('753313405833576498').send(message.content)
-	   
-
 
 client.on("guildMemberAdd", member => {
   if (member.guild.id !== "752211511996317827") return;
