@@ -3,6 +3,7 @@ const { Client, Collection } = require('discord.js');
 const keepAlive = require('./server');
 const prefix = "!";
 const unverify_role = 'Your Unverified RoleID Here';
+const { MessageEmbed } = require("discord.js");
 const verify_role = '752905551318351904';
 const Discord = require("discord.js");
 const log = '753313405833576498';
