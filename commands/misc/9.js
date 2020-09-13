@@ -9,7 +9,7 @@ module.exports = {
   guildonly: "false",
   run: async (client, message, args) => {
   
-    if(message.channel.type == "dm") {  
+    if(message.channel.type == "dm") return; 
     
       if(!args.length) {
       return message.channel.send("Please Give the report")
@@ -40,7 +40,6 @@ module.exports = {
 
     
     message.channel.send("Sended Your report to " + channel),
-    user.send('<content>');
     
   }
 }
