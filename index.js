@@ -161,7 +161,7 @@ client.on("message", (message) => {
        client.channels.cache.get('752211513401671763').send(embed)
     }       
   })
-});
+);
 
 
 
