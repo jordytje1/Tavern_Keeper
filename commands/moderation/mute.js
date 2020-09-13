@@ -54,7 +54,7 @@ module.exports = {
   const muted = new Discord.MessageEmbed()
 .setColor(0x333333)
 .setAuthor("👋 " + message.mentions.users.first().username + " has been successfully muted!")
-.setFooter(`Requested by [${message.author.tag}] in [${message.guild.name}] guild ID : [${message.guild.id}]`)
+.setFooter(`Requested by [${message.author.tag}]`)
 .setTimestamp()
   
   
