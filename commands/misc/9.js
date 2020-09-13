@@ -8,8 +8,10 @@ module.exports = {
   category: "main",
   guildonly: "false",
   run: async (client, message, args) => {
+  
+    if(message.channel.type == "dm") {  
     
-    if(!args.length) {
+      if(!args.length) {
       return message.channel.send("Please Give the report")
     }
     
