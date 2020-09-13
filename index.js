@@ -113,17 +113,6 @@ client.on(`message`, async message => {
 
 
 
-
-client.on("messageReactionAdd", async (reaction, user) => {
-  if (reaction.message.id === "754754325447835778") {
-    if (reaction.emoji.name == "✅") {
-      user.addRole("752905551318351904")
-    }
-
-
-
-
-
 var request = require('request');
 var mcCommand = '/minecraft'; // Command for triggering
 var mcIP = 'play.questal.eu'; // Your MC server IP or hostname address
@@ -165,5 +154,6 @@ client.on('message', async message => {
     }
 });
  
+
 keepAlive();
 client.login(process.env.BOT_TOKEN);
