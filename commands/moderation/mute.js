@@ -3,7 +3,7 @@ const Discord = require("discord.js");
 
 const muted = new Discord.MessageEmbed()
 .setColor(0x333333)
-.setAuthor("👋 " + " has been successfully banned!")
+.setAuthor("👋 " + " has been successfully muted!")
 
 module.exports = {
   name: "mute",
