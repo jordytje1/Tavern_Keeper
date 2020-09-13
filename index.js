@@ -31,7 +31,31 @@ let memberlog = "752211513401671763";
 
 
 
-
+client.on('message', async message => {
+	if (message.content.startsWith('${PREFIX}reactionroles')) {
+		let msg = await message.channel.send('react for some roles')
+		await msg.react('✅').then(msg.react('❎'))
+		
+	}
+})
+client.on('messageReactionAdd', async (reaction, user) => {
+	if (reaction.message.partial) await reaction.message.fetch()
+	if (reaction.partial) await reaction.fetch()
+	if (user.bot) return
+	if (reaction.message.channel.id === '752211512248107175') {
+		if (reaction.emoji.name === '✅') await reaction.message.guild.members.cache.get(user.id).roles.add('752905551318351904')
+		if (reaction.emoji.name === '❎') await reaction.message.guild.members.cache.get(user.id).roles.add('754682919624245379')
+	}
+})
+client.on('messageReactionRemove', async (reaction, user) => {
+	if (reaction.message.partial) await reaction.message.fetch()
+	if (reaction.partial) await reaction.fetch()
+	if (user.bot) return
+	if (reaction.message.channel.id === '752211512248107175') {
+		if (reaction.emoji.name === '✅') await reaction.message.guild.members.cache.get(user.id).roles.remove('752905551318351904')
+		if (reaction.emoji.name === '❎') await reaction.message.guild.members.cache.get(user.id).roles.remove('754682919624245379')
+	}
+})
 
 
 
