@@ -2,8 +2,8 @@ const { MessageEmbed } = require("discord.js")
 
 
 module.exports = {
-  name: "report",
-  usage: "report <message>",
+  name: "sreport",
+  usage: "sreport <message>",
   description: "Send your report",
   category: "main",
   guildonly: "false",
