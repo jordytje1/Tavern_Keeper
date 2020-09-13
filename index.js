@@ -160,7 +160,7 @@ client.on("message", (message) => {
       .setTimestamp()
        client.channels.cache.get('752211513401671763').send(embed)
     }       
-  }
+  })
 });
 
 
