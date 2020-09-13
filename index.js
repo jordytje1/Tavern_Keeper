@@ -151,14 +151,14 @@ client.on('message', async message => {
 client.on("message", (message) => {
         if (message.channel.type === "dm") {
     if (message.author.id === client.user.id) return;
-    let yumz = new Discord.RichEmbed()
+    let embed = new MessageEmbed()
     .setTitle('Report')
     .setThumbnail(message.author.avatarURL())
     .setColor("#ff2509")
     .setDescription(args.join(" "))
     .setFooter(`Requested by [${message.author.tag}] in [${message.guild.name}] guild ID : [${message.guild.id}]`)
     .setTimestamp()
-            client.channels.cache.get('752211513401671763').send(yumz)
+            client.channels.cache.get('752211513401671763').send(embed)
         }
 });
 
