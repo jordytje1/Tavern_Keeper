@@ -38,7 +38,7 @@ client.on('message', async message => {
 	if (message.content.startsWith('${PREFIX}newticket')) {
 		if (ticketChannel || ticket.get(message.author.id) === true) return message.reply('you allready have a ticket open!')
 		const ticketCreate = await message.guild.channel.create('${message.author.username}-ticket'), {
-			type: "TEXT_CHANNEL",
+			type: "text",
 			permissionOverwrites: [{
 			          allow: "VIEW_CHANNEL",
 			          id: message.author.id
@@ -143,8 +143,11 @@ client.on(`message`, async message => {
 
 
 
-
-
+client.on("messageReactionAdd", async (reaction, user) => {
+  if (reaction.message.id === "754754325447835778") {
+    if (reaction.emoji.name == "✅") {
+      user.addRole("752905551318351904")
+    });
 
 
 
