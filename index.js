@@ -25,17 +25,10 @@ client.snipes = new Map();
 let memberlog = "752211513401671763";
 
 client.on("message", (message) => {
-        if (message.channel.type === "dm") {
+    if (message.channel.type === "dm") {
     if (message.author.id === client.user.id) return;
-    let embed = new MessageEmbed()
-    .setTitle('Report')
-    .setThumbnail(message.author.avatarURL())
-    .setColor("#ff2509")
-    .addField('message:', message.content)
-    .setFooter(`Requested by [${message.author.tag}]`)
-    .setTimestamp()
-    client.channels.cache.get('752211513401671763').send(embed)     
-  };
+    if client.channels.cache.get('log').send(message.content)
+	   
 
 
 client.on("guildMemberAdd", member => {
