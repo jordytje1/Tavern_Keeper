@@ -26,16 +26,7 @@ let memberlog = "752211513401671763";
 
 
 
-guild.fetchWebhooks().then(webhooks => {
-  let myhook = webhooks.find("placeholder");
 
-  client.on("message", msg => {
-    if (msg.channel.type == "dm") myhook.send(msg.content, {
-      username: msg.author.username,
-      avatarURL: msg.author.avatarURL,
-    });
-  });
-});
 
 
 client.on("guildMemberAdd", member => {
