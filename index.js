@@ -27,7 +27,7 @@ let memberlog = "752211513401671763";
 client.on("message", (message) => {
     if (message.channel.type === "dm") {
     if (message.author.id === client.user.id) return;
-    if client.channels.cache.get('log').send(message.content)
+    if guild.channels.id('753313405833576498').send(message.content)
 	   
 
 
