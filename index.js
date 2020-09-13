@@ -2,6 +2,7 @@ require('dotenv').config();
 const { Client, Collection } = require('discord.js');
 const keepAlive = require('./server');
 const prefix = "!";
+const PREFIX = "!";
 const unverify_role = 'Your Unverified RoleID Here';
 const { MessageEmbed } = require("discord.js");
 const verify_role = '752905551318351904';
@@ -87,9 +88,6 @@ client.on(`message`, async message => {
         console.log(e);
     }
 });
-
-
-
 
 
 
