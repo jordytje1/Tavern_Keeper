@@ -53,7 +53,7 @@ module.exports = {
     
   const muted = new Discord.MessageEmbed()
 .setColor(0x333333)
-.setAuthor("👋 " + " has been successfully muted!")
+.setAuthor("👋 " + member.displayName + " has been successfully muted!")
   
   
     
