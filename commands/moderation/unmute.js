@@ -1,10 +1,6 @@
 const { MessageEmbed } = require("discord.js");
 const Discord = require("discord.js");
 
-const unmuted = new Discord.MessageEmbed()
-.setColor(0x333333)
-.setAuthor("👋 " + " has been successfully unmuted!")
-
 
 module.exports = {
   name: "unmute",
@@ -35,7 +31,10 @@ module.exports = {
       return message.channel.send("Given User do not have mute role so what i am suppose to take")
     }
     
-    
+   const unmuted = new Discord.MessageEmbed()
+.setColor(0x333333)
+.setAuthor("👋 " + " has been successfully unmuted!")
+   
     user.roles.remove(muterole)
     
     await message.channel.send(unmuted);
