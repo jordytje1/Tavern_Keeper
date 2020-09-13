@@ -140,23 +140,6 @@ client.on('message', async message => {
         message.reply(await getStatus());
     }
 });
-
-
-async (client, message, args) => {
-client.on("message", (message) => {
-        if (message.channel.type === "dm") {
-    if (message.author.id === client.user.id) return;
-    let embed = new MessageEmbed()
-    .setTitle('Report')
-    .setThumbnail(message.author.avatarURL())
-    .setColor("#ff2509")
-    .addField('message:', message.content)
-    .setDescription(args.join(" "))
-    .setFooter(`Requested by [${message.author.tag}]`)
-    .setTimestamp()
-    client.channels.cache.get('752211513401671763').send(embed)     
-  };
-
+ 
 keepAlive();
 client.login(process.env.BOT_TOKEN);
-
