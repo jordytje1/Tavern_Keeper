@@ -118,7 +118,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
   if (reaction.message.id === "754754325447835778") {
     if (reaction.emoji.name == "✅") {
       user.addRole("752905551318351904")
-    });
+    }
 
 
 
