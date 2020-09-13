@@ -1,4 +1,9 @@
 const { MessageEmbed } = require("discord.js");
+const Discord = require("discord.js");
+
+const muted = new Discord.MessageEmbed()
+.setColor(0x333333)
+.setAuthor("👋 " + member.displayName + " has been successfully banned!")
 
 module.exports = {
   name: "mute",
@@ -11,7 +16,8 @@ module.exports = {
         "Sorry but you do not have permission to mute anyone"
       );
     }
-
+    
+    
     if (!message.guild.me.hasPermission("MANAGE_ROLES")) {
       return message.channel.send("I do not have permission to manage roles.");
     }
@@ -53,7 +59,7 @@ module.exports = {
     
     user.roles.add(muterole)
     
-await message.channel.send(`You muted **${message.mentions.users.first().username}** For \`${reason}\``)
+await message.channel.send(muted);
     
     user.send(`You are muted in **${message.guild.name}** For \`${reason}\``)
     
