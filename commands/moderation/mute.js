@@ -1,7 +1,6 @@
 const { MessageEmbed } = require("discord.js");
 const Discord = require("discord.js");
 
-
 module.exports = {
   name: "mute",
   description: "Mute anyone who break rules",
@@ -49,19 +48,16 @@ module.exports = {
     
    if(user.roles.cache.has(muterole)) {
       return message.channel.send("Given User is already muted")
-    }
+    } 
     
-  const muted = new Discord.MessageEmbed()
+    user.roles.add(muterole)
+    
+    
+    const muted = new Discord.MessageEmbed()
 .setColor(0x333333)
 .setAuthor("🔈" + message.mentions.users.first().username + " has been successfully muted!")
 .setFooter(`Requested by [${message.author.tag}]`)
 .setTimestamp()
-  
-  
-    
-    
-    user.roles.add(muterole)
-    
 await message.channel.send(muted);
     
     user.send(`You are muted in **${message.guild.name}** For \`${reason}\``)
