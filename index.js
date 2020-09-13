@@ -38,7 +38,7 @@ client.on('message', async message => {
 	if (message.content.startsWith('${PREFIX}newticket')) {
 		if (ticketChannel || ticket.get(message.author.id) === true) return message.reply('you allready have a ticket open!')
 		const ticketCreate = await message.guild.channel.create('${message.author.username}-ticket'), {
-			type: "text",
+			type: "TEXT_CHANNEL",
 			permissionOverwrites: [{
 			          allow: "VIEW_CHANNEL",
 			          id: message.author.id
