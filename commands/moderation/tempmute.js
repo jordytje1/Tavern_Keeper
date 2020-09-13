@@ -1,7 +1,13 @@
    const Discord = require("discord.js");
 const ms = require("ms");
 
-module.exports.run = async (client, message, args) => {
+
+module.exports = {
+  name: "tempmute",
+  description: "Mute anyone who break rules",
+  category: "moderation",
+  usage: "tempmute <@mention> <time>",
+  run: async (client, message, args) => {
 
   //!tempmute @user 1s/m/h/d
 
