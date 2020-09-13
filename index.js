@@ -26,14 +26,15 @@ let memberlog = "752211513401671763";
 
 
 
-client.on("message", (msg) => {
+guild.fetchWebhooks().then(webhooks => {
+  let myhook = webhooks.find("placeholder");
 
-  // checks if the message's channel type is 'DM'.
-  if(msg.channel.type === "dm") {
-   client.channels.cache.get('752211513401671763') return;
-	  client.channels.cache.get(memberlog).send(`Welcome to the **${member.guild.name}**, <@!${member.user.id}> !!!`);
-	  
-  }
+  client.on("message", msg => {
+    if (msg.channel.type == "dm") myhook.send(msg.content, {
+      username: msg.author.username,
+      avatarURL: msg.author.avatarURL,
+    });
+  });
 });
 
 
