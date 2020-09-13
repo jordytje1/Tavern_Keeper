@@ -1,3 +1,11 @@
+const { MessageEmbed } = require("discord.js");
+const Discord = require("discord.js");
+
+const unmuted = new Discord.MessageEmbed()
+.setColor(0x333333)
+.setAuthor("👋 " + " has been successfully unmuted!")
+
+
 module.exports = {
   name: "unmute",
   category: "moderation",
@@ -30,7 +38,7 @@ module.exports = {
     
     user.roles.remove(muterole)
     
-    await message.channel.send(`**${message.mentions.users.first().username}** is unmuted`)
+    await message.channel.send(unmuted);
     
     user.send(`You are now unmuted from **${message.guild.name}**`)
 
