@@ -328,7 +328,6 @@ client.on("message", async message => {
         return supportUser.send(`Hello again! Your ticket #${actualticket} has been labelled as complete. Thanks for contacting us. If you wish to open a new ticket, feel free to message me.`)
       }
     };
-  }
 })
 
 
