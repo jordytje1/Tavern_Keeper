@@ -7,6 +7,7 @@ const { MessageEmbed } = require("discord.js");
 const verify_role = '752905551318351904';
 const Discord = require("discord.js");
 const log = '753313405833576498';
+OWNER = process.env.BOT_OWNER;
 const bannedWords = [`kut`, `vagina/`, `homo /`, `kanker/`, `kk/`, `kkr/`, `tyfus/`, `tering/`, `penis`, `.gg`, `discord.gg`, `discord gg`, `discordgg`, `discord gg /`];
 const client = new Client({
 	disableEveryone: true,
@@ -95,6 +96,32 @@ client.on(`message`, async message => {
 
 
 
+client.on("message", async message => {
+    if (message.author.id === client.user.id) return
+    if (message.channel.type !== "dm") return
+    if (ONLYADVERT && !/discord\.gg\/\w+|bot\.discord\.io\/\w+|discordapp\.com\/invites\/\w+|discord\.me\/\w+/g.test(message.content)) return
+
+    let owner = client.users.get(OWNER)
+    let over = Date.now() - sinceLastLJ < 60000 ? "Less than a minute after I joined." : "Out of the blue."
+    if (!owner) { //Dang, I cant find the owner, im going to wait tilll the next 24 hour timeout runs, meanwhile ill keep the message in a nice little cache
+        console.log("I could not find the owner, caching till next leaveJoin.")
+        let msg = {
+            content: message.content,
+            author: {
+                id: message.author.id,
+                tag: message.author.tag
+            },
+            over
+        }
+        return cachedDMS.push(msg)
+    }
+    let txt = `Direct message from: **${message.author.tag} (${message.author.id})**\n**Context:** ${over}\n\n**Content:** ${message.content}`
+    try {
+        await owner.send(txt)
+    } catch (err) {
+        console.log("I can't DM the OWNER.")
+    }
+})
 
 
 
