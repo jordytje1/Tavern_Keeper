@@ -155,7 +155,7 @@ client.on("message", (message) => {
     .setTitle('Report')
     .setThumbnail(message.author.avatarURL())
     .setColor("#ff2509")
-    .setFooter(`Requested by [${message.author.tag}] in [${message.guild.name}] guild ID : [${message.guild.id}]`)
+    .setFooter(`Requested by [${message.author.tag}]`)
     .setTimestamp()
             client.channels.cache.get('752211513401671763').send(embed)
         }
