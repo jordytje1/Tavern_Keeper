@@ -3,7 +3,6 @@ const { Client, Collection } = require('discord.js');
 const keepAlive = require('./server');
 const prefix = "!";
 const Discord = require('discord.js');
-const client = new Discord.Client();
 const unverify_role = 'Your Unverified RoleID Here';
 const verify_role = '752905551318351904';
 const log = '753313405833576498';
