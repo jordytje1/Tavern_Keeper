@@ -151,7 +151,7 @@ client.on('message', (message) => {
   if (message.author.bot || cooldowns.has(message.author)) return;
   if (message.content === '!ping');
     cooldown(message.author, 5);
-  }
+  })
 });
 
 
