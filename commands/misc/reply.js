@@ -33,7 +33,8 @@ const replyEmbed = new Discord.MessageEmbed()
   .setDescription(`You have recieved a reply from ${message.author.tag}`)
   .addField("Message:", replyMessage)
   .setColor("4f8edb")
-user.send(replyEmbed)
+user.send(replyEmbed){
+userr.send(replyEmbed)
 
   } else{
 
