@@ -24,8 +24,10 @@ const replyMessage = argse;
 const embed = new Discord.MessageEmbed()
   .setTitle(`Message Sent!`)
   .setDescription(`Successfully send the message to <@${user.id}> (${userr.tag})`)
+  .addfield("want to type a message back?? try a guild where the bot is in and send !message @user [message]"
   .addField("Message:", replyMessage)
   .setColor("62c95d")
+  .setTimestamp()
 message.author.send(embed)
 
 const replyEmbed = new Discord.MessageEmbed()
@@ -33,6 +35,7 @@ const replyEmbed = new Discord.MessageEmbed()
   .setDescription(`You have recieved a reply from ${message.author.tag}`)
   .addField("Message:", replyMessage)
   .setColor("4f8edb")
+  .setTimestamp()
 user.send(replyEmbed)
 
   } else{
