@@ -24,7 +24,6 @@ const replyMessage = argse;
 const embed = new Discord.MessageEmbed()
   .setTitle(`Message Sent!`)
   .setDescription(`Successfully send the message to <@${user.id}> (${userr.tag})`)
-  .addfield("want to type a message back?? try a guild where the bot is in and send !message @user [message]")
   .addField("Message:", replyMessage)
   .setColor("62c95d")
 message.author.send(embed)
