@@ -1,10 +1,10 @@
 {
     "YOUR_ID": "376384142599782410",
-    "PREFIX": "your prefix",
+    "PREFIX": "!",
     "SERVER_ID": "752211511996317827",
     "CHANNEL_ID": "752211513401671763", 
 	"RED": "#b70000",
-  "ORANGE": "#ff6a00",
+        "ORANGE": "#ff6a00",
 	"GREEN": "#00ff26",
 	"PURPLE": "#d604cf"
 }
