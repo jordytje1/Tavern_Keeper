@@ -27,6 +27,7 @@ const embed = new Discord.MessageEmbed()
   .addField("Message:", replyMessage)
   .setColor("62c95d")
 message.channel.send(embed)
+message.author.send('test')
 
 const replyEmbed = new Discord.MessageEmbed()
   .setTitle(`New Reply!`)
