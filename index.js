@@ -62,7 +62,7 @@ client.on('messageReactionRemove', async (reaction, user) => {
 
 
 client.on('message', async message => {
-	if (message.author.bot || !message.content.startWith(PREFIX)) return;
+	if (message.author.bot || !message.content.startsWith(PREFIX)) return;
 	if (message.channel.type === 'dm') return;
 	
 	const ticketChannel = message.guild.channels.cache.find(t => t.name === '${message.author.username}-ticket'.tolowercase())
