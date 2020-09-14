@@ -26,6 +26,7 @@ const embed = new Discord.MessageEmbed()
   .setDescription(`Successfully send the message to <@${user.id}> (${userr.tag})`)
   .addField("Message:", replyMessage)
   .setColor("62c95d")
+  .setTimestamp()
 message.author.send(embed)
 
 const replyEmbed = new Discord.MessageEmbed()
