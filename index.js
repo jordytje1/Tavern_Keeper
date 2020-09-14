@@ -10,6 +10,7 @@ const verify_role = '752905551318351904';
 const Discord = require("discord.js");
 const log = '753313405833576498';
 const welcome = '752211512248107177';
+const embed = require('discord.js');
 const bannedWords = [`kut`, `vagina/`, `homo /`, `kanker/`, `kk/`, `kkr/`, `tyfus/`, `tering/`, `penis`, `.gg`, `discord.gg`, `discord gg`, `discordgg`, `discord gg /`];
 const client = new Client({
 	disableEveryone: true,
