@@ -27,7 +27,7 @@ const embed = new Discord.MessageEmbed()
   .addfield("want to type a message back?? try a guild where the bot is in and send !message @user [message]"
   .addField("Message:", replyMessage)
   .setColor("62c95d")
-  .setTimestamp()
+  .setTimestamp())
 message.author.send(embed)
 
 const replyEmbed = new Discord.MessageEmbed()
@@ -35,7 +35,7 @@ const replyEmbed = new Discord.MessageEmbed()
   .setDescription(`You have recieved a reply from ${message.author.tag}`)
   .addField("Message:", replyMessage)
   .setColor("4f8edb")
-  .setTimestamp()
+  .setTimestamp())
 user.send(replyEmbed)
 
   } else{
