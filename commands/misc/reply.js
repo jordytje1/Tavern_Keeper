@@ -33,7 +33,6 @@ const replyEmbed = new Discord.MessageEmbed()
   .setDescription(`**You have recieved a reply from ${message.author.tag}**`)
   .addField("Message:", replyMessage)
   .setColor("4f8edb")
-  .setFooter("wanna send a message back? send !message <@${user.id}> [message] only works on guilds where the bot is in")
   .setTimestamp()
 user.send(replyEmbed)
 
