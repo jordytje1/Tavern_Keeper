@@ -26,7 +26,7 @@ const embed = new Discord.MessageEmbed()
   .setDescription(`Successfully send the message to <@${user.id}> (${userr.tag})`)
   .addField("Message:", replyMessage)
   .setColor("62c95d")
-user.send(embed)
+message.channel.send(embed)
 
 const replyEmbed = new Discord.MessageEmbed()
   .setTitle(`New Reply!`)
