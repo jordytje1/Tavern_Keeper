@@ -30,11 +30,11 @@ message.author.send(embed)
 
 const replyEmbed = new Discord.MessageEmbed()
   .setTitle(`New Reply!`)
-  .setDescription(`**You have recieved a reply from ${message.author.tag}** 
-**wanna send a message back send !message <@${user.id}> [message] only works on guilds where the bot is in**`)
+  .setDescription(`**You have recieved a reply from ${message.author.tag}**`)
   .addField("Message:", replyMessage)
   .setColor("4f8edb")
-  .setFooter("test")
+  .setFooter("wanna send a message back? send !message <@${user.id}> [message] only works on guilds where the bot is in")
+  .setTimestamp()
 user.send(replyEmbed)
 
   } else{
