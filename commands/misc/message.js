@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 //packges or const here!
 module.exports = {
-    name: "reply",//aka the folder name without js
+    name: "message",//aka the folder name without js
     aliases: ["message"],
     category: "message",//this is what ever ever dir you are in (dev, info, moderation, music)
     description: "message a user",
