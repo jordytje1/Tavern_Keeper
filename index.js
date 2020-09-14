@@ -4,6 +4,7 @@ const keepAlive = require('./server');
 const prefix = "!";
 const PREFIX = "!";
 const unverify_role = 'Your Unverified RoleID Here';
+const config = require("./config.json");
 const { MessageEmbed } = require("discord.js");
 const verify_role = '752905551318351904';
 const Discord = require("discord.js");
