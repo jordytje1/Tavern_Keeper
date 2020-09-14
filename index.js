@@ -61,34 +61,7 @@ client.on('messageReactionRemove', async (reaction, user) => {
 
 
 
-client.on('message', async message => {
-	if (message.author.bot || !message.content.startsWith(PREFIX)) return;
-	if (message.channel.type === 'dm') return;
-	
-	const ticketChannel = message.guild.channels.cache.find(t => t.name === '${message.author.username}-ticket'.tolowercase())
-	if (message.content.startsWith('${PREFIX}newticket')) {
-		if (ticketChannel || ticket.get(message.author.id) === true) return message.reply('you allready have a ticket open!')
-		const ticketCreate = await message.guild.createChannel(`ticket-${message.author.id}`, "text").then(c => {
-			permissionOverwrites: [{
-			          allow: "VIEW_CHANNEL",
-			          id: message.author.id
-		        },
-		        {
-				  deny: "VIEW_CHANNEL",
-				  id: message.guild.id
-			}
-		   ]
-	})
-	ticket.set(messsage.author.id, true)
-	ticketCreated.send('moderators will come soon please explain why you have make this ticket')
-	message.channel.send('your new ticket has been created')
-    }   else if (message.content.startsWith('${PREFIX}close')) {
-	if (!message.channel.name.includes('ticket')) return message.reply('you need to create a ticket first')
-	await message.channel.delete()
-	ticket.set(message.author.id, false)
-	
-    }
-})
+
 
 
 
