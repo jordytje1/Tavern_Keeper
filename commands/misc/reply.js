@@ -1,11 +1,11 @@
 const Discord = require("discord.js");
 //packges or const here!
 module.exports = {
-    name: "reply",//aka the folder name without js
-    aliases: ["reply"],
-    category: "modmail",//this is what ever ever dir you are in (dev, info, moderation, music)
-    description: "Reply to a message",
-    usage: "reply {user <@id>} {msg content}",
+    name: "message",//aka the folder name without js
+    aliases: ["message"],
+    category: "message",//this is what ever ever dir you are in (dev, info, moderation, music)
+    description: "message a user",
+    usage: "message {user <@id>} {msg content}",
     run: async (client, message, args) => {
 //your code goes here!
       
@@ -30,8 +30,8 @@ const embed = new Discord.MessageEmbed()
 message.author.send(embed)
 
 const replyEmbed = new Discord.MessageEmbed()
-  .setTitle(`New Reply!`)
-  .setDescription(`**You have recieved a reply from ${message.author.tag}**`)
+  .setTitle(`New Message!`)
+  .setDescription(`**You have recieved a message from ${message.author.tag}**`)
   .addField("Message:", replyMessage)
   .setColor("4f8edb")
   .setTimestamp()
