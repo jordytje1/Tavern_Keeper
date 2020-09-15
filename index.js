@@ -69,7 +69,7 @@ client.on('message', message => {
       if (message.content.startsWith(`${prefix}lockdown`)) {
         if (!message.member.hasPermission(["ADMINISTRATOR"])) return message.reply('You can\'t use this command!')
         const channel = message.guild.channels.cache.filter(ch => ch.type !== 'category');
-        if (args[1] === 'on') => {
+        if (args[1] === 'on') {
                 channel.updateOverwrite(message.guild.roles.everyone, {
                     SEND_MESSAGES: false
                 }).then(() => {
@@ -77,7 +77,7 @@ client.on('message', message => {
                 })
             })
             return message.channel.send('Locked all channels');
-        } else if (args[1] === 'off') => {
+        } else if (args[1] === 'off') {
                 channel.updateOverwrite(message.guild.roles.everyone, {
                     SEND_MESSAGES: true
                 }).then(() => {
