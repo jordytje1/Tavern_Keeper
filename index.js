@@ -95,7 +95,10 @@ client.on('messageReactionRemove', async (reaction, user) => {
 
 
 
-
+client.on("messageDelete", (messageDelete) => {
+  const channel = messageDelete.guild.channels.find(ch => ch.name === 'logs');
+  channel.send(`The message : "${messageDelete.content}" by ${messageDelete.author} was deleted. Their ID is ${messageDelete.author.id}`);
+}); 
 
 
 
