@@ -41,7 +41,8 @@ module.exports = {
   .setFooter("Author: 𝕯𝖗𝖆𝖌𝖔𝖓𝖇𝖔𝖞#6241")
 
   
-
+ let role = message.guild.roles.find("name", "『💛』『support』");
+ let role2 = message.guild.roles.find("name", "@everyone");
   message.guild.channels.create('${message.author.tag}-ticket'),args.slice(0).join(" "), {type: 'text',
 			      permissionOverwrites: [{
 			          allow: "VIEW_CHANNEL",
@@ -50,10 +51,12 @@ module.exports = {
 		        {
 				  deny: "VIEW_CHANNEL",
 				  id: message.guild.id
-			}
-		   ]
-	}
-
+			},
+			{
+	    overwritePermissions(role, [{
+            allow: "VIEW_CHANNEL",
+            id: message.author.id
+        },
   message.channel.send("Channel successfully created!");
 
   logchannel.send(createembed)
