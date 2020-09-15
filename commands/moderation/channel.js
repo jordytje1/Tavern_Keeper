@@ -10,13 +10,14 @@ module.exports = {
 	usage: 'channel',
 	run: async (client, message, args) => {
 
+if (message.guild.channels.cache.find(channel => channel.name === '`${message.author.username}`')
+    return message.channel.send('You do not have permission to use this command.',);
   
+    
 
  let logchannel = message.guild.channels.cache.find(ch => ch.name === "logs")
 
  if(!logchannel) return message.channel.send("Couldn't find log channel called 'logchannel'")
-
-  
 
  let perms = message.member.hasPermission("ADMINISTRATOR")
 
