@@ -52,8 +52,9 @@ module.exports = {
 			},
 			{
 				allow: "VIEW_CHANNEL",
-			        id: role
-						}
+			        id: message.guild.roles.cache.find(r => r.name === "『💛』『support』"
+			}
+						 
 		   ]
 	}
   message.channel.send("Channel successfully created!");
