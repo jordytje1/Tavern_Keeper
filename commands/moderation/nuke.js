@@ -9,8 +9,7 @@ module.exports = {
 	usage: 'nuke',
 	run: async (client, message, args) => {
 		  if(message.member.roles.cache.some(role => role.name === '*')){
-			return message.channel.send(
-				'You do not have permission to use this command.',
+			return;
 			);
 		}
 
