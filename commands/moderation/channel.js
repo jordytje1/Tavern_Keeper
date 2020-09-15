@@ -10,7 +10,7 @@ module.exports = {
 	usage: 'channel',
 	run: async (client, message, args) => {
 
-     if message.guild.channels.some(channel => channel.name.toLowerCase() === message.author.username + 's-ticket')) {
+     if message.guild.channels.cache.some(channel => channel.name.toLowerCase() === message.author.username + 's-ticket')) {
             message.author.send("You already have a ticket!");
 	
 		
