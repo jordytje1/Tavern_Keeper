@@ -61,6 +61,12 @@ let role = message.guild.roles.cache.find(r => r.name === "『💛』『support�
 		   ]
 								
 	}))
+        message.channel.send(`:white_check_mark: Ticket Kanalın oluşturuldu, #${message.channel.name}.`);
+        const embed = new Discord.RichEmbed()
+        .setColor(0xCF40FA)
+        .addField(`Hey ${message.author.username}!`, `Selam Başarılı bir Şekilde Ticket Açıldı, Bu bot opensource bir projedir. http://github.com/arpelo`)
+        .setTimestamp();
+        message.channel.send({ embed: embed });
   message.channel.send("Channel successfully created!");
 
   logchannel.send(createembed)
