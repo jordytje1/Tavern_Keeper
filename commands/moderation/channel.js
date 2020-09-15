@@ -12,7 +12,7 @@ module.exports = {
 
   
 
- let logchannel = message.guild.channels.cache.find(ch => ch.name === "logchannel")
+ let logchannel = message.guild.channels.cache.find(ch => ch.name === "logs")
 
  if(!logchannel) return message.channel.send("Couldn't find log channel called 'logchannel'")
 
