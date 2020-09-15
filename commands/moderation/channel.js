@@ -42,7 +42,17 @@ module.exports = {
 
   
 
-  message.guild.channels.create(args.slice(0).join(" "), {type: 'text'});
+  message.guild.channels.create(args.slice(0).join(" "), {type: 'text',
+			      permissionOverwrites: [{
+			          allow: "VIEW_CHANNEL",
+			          id: message.author.id
+		        },
+		        {
+				  deny: "VIEW_CHANNEL",
+				  id: message.guild.id
+			}
+		   ]
+	})
 
   message.channel.send("Channel successfully created!");
 
