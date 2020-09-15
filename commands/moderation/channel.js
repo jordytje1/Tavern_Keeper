@@ -2,7 +2,7 @@ const discord = require('discord.js')
 
 
 
-module.exports.run = {
+module.exports = {
 	name: 'channel',
 	category: 'moderation',
 	description: 'Feeling bored? Get some activities to do.',
