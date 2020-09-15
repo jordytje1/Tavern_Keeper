@@ -53,10 +53,10 @@ module.exports = {
 				  id: message.guild.id
 			},
 			{
-	    overwritePermissions(role, [{
-            allow: "VIEW_CHANNEL",
-            id: message.author.id
-        },
+				allow: "VIEW_CHANNEL",
+			        id: role
+			},
+						     {
   message.channel.send("Channel successfully created!");
 
   logchannel.send(createembed)
