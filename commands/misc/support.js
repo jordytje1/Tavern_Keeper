@@ -29,7 +29,7 @@ const embed = new Discord.MessageEmbed()
   .setTimestamp()
 let channel = message.guild.channels.cache.get(c => c.id === '752211513401671763')
 message.author.send(embed)
-channel.send(embed)
+message.channel.send(embed)
 
 const replyEmbed = new Discord.MessageEmbed()
   .setTitle(`New Message!`)
