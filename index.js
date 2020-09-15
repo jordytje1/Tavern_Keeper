@@ -69,7 +69,7 @@ client.on('messageReactionRemove', async (reaction, user) => {
 
 client.on('message', async message => {
 if(message.content == '!close') {
-     channel.delete()
+     message.channel.delete()
 }
 });
 
