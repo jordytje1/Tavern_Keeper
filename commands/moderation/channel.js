@@ -52,7 +52,7 @@ module.exports = {
 				  id: message.guild.id
 			}
 		   ]
-	})
+	}
 
   message.channel.send("Channel successfully created!");
 
