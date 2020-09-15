@@ -10,11 +10,7 @@ module.exports = {
 	usage: 'channel',
 	run: async (client, message, args) => {
 
-const test = message.guild.channels.cache.find(channel => channel.name === "`${message.author.username}`");
-    
-if(!test) return;
-
-    message.send("test");
+if (message.guild.channels.exists("name", "ticket-" + message.author.username)) return message.channel.send(`You already have a ticket open.`);
 	
 		
 		
@@ -47,7 +43,7 @@ if(!test) return;
   .setFooter("Author: 𝕯𝖗𝖆𝖌𝖔𝖓𝖇𝖔𝖞#6241")
 
 let role = message.guild.roles.cache.find(r => r.name === "『💛』『support』");
-  message.guild.channels.create(`${message.author.username}`,(args.slice(0).join(" "), {type: 'text',
+  message.guild.channels.create(`ticket-${message.author.username}`,(args.slice(0).join(" "), {type: 'text',
 
 			     permissionOverwrites: [{
 			          allow: "VIEW_CHANNEL",
