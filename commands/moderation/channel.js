@@ -40,12 +40,12 @@ module.exports = {
 
   .setFooter("Author: 𝕯𝖗𝖆𝖌𝖔𝖓𝖇𝖔𝖞#6241")
 
-
+let roless = message.guild.roles.cache.find(r => r.name === "『💛』『support』");
   message.guild.channels.create(args.slice(0).join(" "), {type: 'text',
 
 			     permissionOverwrites: [{
 			          allow: "VIEW_CHANNEL",
-			          id: message.author.id
+			          id: roless
 		        },
 		        {
 				  deny: "VIEW_CHANNEL",
