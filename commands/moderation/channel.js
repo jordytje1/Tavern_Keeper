@@ -56,7 +56,7 @@ let role = message.guild.roles.cache.find(r => r.name === "『💛』『support�
 			        id: message.author.id
 			}
 		   ]
-	})
+	}
   message.channel.send("Channel successfully created!");
 
   logchannel.send(createembed)
