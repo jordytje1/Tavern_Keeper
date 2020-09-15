@@ -41,7 +41,8 @@ module.exports = {
   .setFooter("Author: 𝕯𝖗𝖆𝖌𝖔𝖓𝖇𝖔𝖞#6241")
 
 
-  message.guild.channels.create('${message.author.tag}-ticket'),args.slice(0).join(" "), {type: 'text',
+  message.guild.channels.create(args.slice(0).join(" "), {type: 'text',
+
 			     permissionOverwrites: [{
 			          allow: "VIEW_CHANNEL",
 			          id: message.author.id
@@ -51,7 +52,7 @@ module.exports = {
 				  id: message.guild.id
 			}
 		   ]
-	}
+	})
   message.channel.send("Channel successfully created!");
 
   logchannel.send(createembed)
