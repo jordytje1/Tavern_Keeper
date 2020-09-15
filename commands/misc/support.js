@@ -14,8 +14,6 @@ const memberr = args[1];
 const userr = message.mentions.users.first();
 const user = message.guild.member(userr);
       
-//if (user.roles.has('746858184504770651')) {
-if(message.member.roles.cache.some(role => role.name === '')){
 
 const argse = message.content.slice(`m+reply ${userr}`.length).split( );
       
@@ -37,11 +35,6 @@ const replyEmbed = new Discord.MessageEmbed()
   .setTimestamp()
 user.send(replyEmbed)
 
-  } else{
-
-  message.reply(`Error Code 403 ||| Solution: Please gain the role "Modmail Access" to run this command!`)
-    
-  }
       
 //end code
   }
