@@ -47,25 +47,6 @@ module.exports = {
   message.channel.send("Channel successfully created!");
 
   logchannel.send(createembed)
+   },
+};
 
-  
-
-  
-
-}
-
-
-
-module.exports.help = {
-
-name: "createchannel",
-
-  aliases: ["create_channel", "makechannel", "addchannel"],
-
-  usage: "createchannel name",
-
-  description: "Creates a Discord Channel",
-
-  category: "Moderation"
-
-}
