@@ -10,7 +10,7 @@ module.exports = {
 	usage: 'channel',
 	run: async (client, message, args) => {
 
-if (message.guild.channels.cache.find(channel => channel.name === '`${message.author.username}`')
+if (message.guild.channels.cache.find(channel => channel.name === '`${message.author.username}`')){
     return message.channel.send('You do not have permission to use this command.',);
   
     
