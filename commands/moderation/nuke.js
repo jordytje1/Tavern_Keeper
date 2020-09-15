@@ -9,8 +9,7 @@ module.exports = {
 	usage: 'nuke',
 	run: async (client, message, args) => {
 		  if(message.member.roles.cache.some(role => role.name === '*')){
-			return;
-			);
+			return
 		}
 
 		if (!message.guild.me.hasPermission('MANAGE_CHANNELS')) {
