@@ -10,11 +10,24 @@ module.exports = {
 	usage: 'channel',
 	run: async (client, message, args) => {
 
-if (message.guild.channels.cache.find(ch => ch.name === '`${message.author.username}`')){
-    return message.channel.send('You do not have permission to use this command.',);
-  
+const test = member.guild.channels.cache.find(channel => channel.name === "`${message.author.username}`");
     
+if(!test) return;
+         const welcomeEmbed = new Discord.MessageEmbed()
+        .setColor('#7289da')
+        .setAuthor(''
+        .setTitle('Welcome!')
+        .setDescription(`${message.author.username} just joined the discord! Make sure to read #rules!`)
+        .setThumbnail(message.user.avatarURL)
+        .setFooter('Note: The maximum amount of answers is 9.')
+        .setTimestamp();
 
+    message.send(welcomeEmbed);
+	
+		
+		
+		
+		
  let logchannel = message.guild.channels.cache.find(ch => ch.name === "logs")
 
  if(!logchannel) return message.channel.send("Couldn't find log channel called 'logchannel'")
@@ -62,6 +75,6 @@ let role = message.guild.roles.cache.find(r => r.name === "『💛』『support�
   message.channel.send("Channel successfully created!");
 
   logchannel.send(createembed)
-   }
-}
+   },
+};
 
