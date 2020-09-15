@@ -41,7 +41,7 @@ module.exports = {
   .setFooter("Author: 𝕯𝖗𝖆𝖌𝖔𝖓𝖇𝖔𝖞#6241")
 
 let role = message.guild.roles.cache.find(r => r.name === "『💛』『support』");
-  message.guild.channels.create('${message.author.username}-ticket').args.slice(0).join(" "), {type: 'text',
+  message.guild.channels.create("lol",(args.slice(0).join(" "), {type: 'text',
 
 			     permissionOverwrites: [{
 			          allow: "VIEW_CHANNEL",
@@ -56,7 +56,7 @@ let role = message.guild.roles.cache.find(r => r.name === "『💛』『support�
 			        id: message.author.id
 			}
 		   ]
-	}
+	})
   message.channel.send("Channel successfully created!");
 
   logchannel.send(createembed)
