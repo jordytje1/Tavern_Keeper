@@ -4,7 +4,6 @@ module.exports = {
     aliases: ['channel'],
 	  usage: 'channel',
  	  run: (client, message, args) => {
-    execute(message) {
         const userName = message.author.username;
         const channelName = `Channel for ${userName}`;
 
