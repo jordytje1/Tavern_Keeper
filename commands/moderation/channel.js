@@ -10,7 +10,7 @@ module.exports = {
 	usage: 'channel',
 	run: async (client, message, args) => {
 
-if (message.guild.channels.cache.find(channel => channel.name === '`${message.author.username}`')){
+if (message.guild.channels.cache.find(ch => ch.name === '`${message.author.username}`')){
     return message.channel.send('You do not have permission to use this command.',);
   
     
@@ -62,6 +62,6 @@ let role = message.guild.roles.cache.find(r => r.name === "『💛』『support�
   message.channel.send("Channel successfully created!");
 
   logchannel.send(createembed)
-   }
+   },
 };
 
