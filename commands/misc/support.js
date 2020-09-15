@@ -14,8 +14,7 @@ const memberr = args[1];
 const userr = message.mentions.users.first();
 const user = message.guild.member(userr);
       
-//if (user.roles.has('746858184504770651')) {
-if(message.member.roles.cache.some(role => role.name === '『💛』『support』')){
+
 
 const argse = message.content.slice(`m+reply ${userr}`.length).split( );
       
@@ -27,9 +26,7 @@ const embed = new Discord.MessageEmbed()
   .addField("Message:", supportMessage)
   .setColor("62c95d")
   .setTimestamp()
-const CHANNEL = message.guild.channels.cache.get(c => c.id === '752211513401671763')
 message.author.send(embed)
-message.CHANNEL.send(embed)
 
 const replyEmbed = new Discord.MessageEmbed()
   .setTitle(`New Message!`)
