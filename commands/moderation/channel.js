@@ -51,8 +51,6 @@ module.exports = {
 				  id: message.guild.id
 			},
 			{
-				allow: "VIEW_CHANNEL",
-			        id: message.guild.roles.cache.find(r => r.name === "『💛』『support』"
 			}
 						 
 		   ]
