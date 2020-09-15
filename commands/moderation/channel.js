@@ -24,7 +24,7 @@ module.exports = {
 
   
 
-  if(!args[0]) return message.channel.send("Please include a name for the channel!")
+
 
   
 
