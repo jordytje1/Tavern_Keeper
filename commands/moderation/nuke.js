@@ -8,7 +8,7 @@ module.exports = {
 	aliases: [],
 	usage: 'nuke',
 	run: async (client, message, args) => {
-		if (message.member.hasPermission('')) {
+		  if (message.member.roles.find(r => r.name === "*")) {
 			return message.channel.send(
 				'You do not have permission to use this command.',
 			);
