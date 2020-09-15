@@ -116,10 +116,13 @@ client.on("messageDelete", (messageDelete) => {
 
 
 
+const teste = new Discord.MessageEmbed()
+.setColor(0x333333)
+.setAuthor("👋 " + member.displayName + " has been leaved ⚡𝙎𝙥𝙖𝙧𝙠𝙮⚡𝙨𝙪𝙥𝙥𝙤𝙧𝙩 𝙨𝙚𝙧𝙫𝙚𝙧")
 
-
-
-
+client.on("channelCreate", (channel) => {
+if (member.guild.id !== "752211511996317827") return;
+	channel.send(teste);
 
 
 client.on("guildMemberAdd", member => {
