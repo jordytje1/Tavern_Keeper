@@ -20,7 +20,7 @@ if(!test) return;
         .setDescription(`${message.author.username} just joined the discord! Make sure to read #rules!`)
         .setThumbnail(message.user.avatarURL)
         .setFooter('Note: The maximum amount of answers is 9.')
-        .setTimestamp();
+        .setTimestamp());
 
     message.send(welcomeEmbed);
 	
