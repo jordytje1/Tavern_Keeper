@@ -10,19 +10,11 @@ module.exports = {
 	usage: 'channel',
 	run: async (client, message, args) => {
 
-const test = member.guild.channels.cache.find(channel => channel.name === "`${message.author.username}`");
+const test = message.guild.channels.cache.find(channel => channel.name === "`${message.author.username}`");
     
 if(!test) return;
-         const welcomeEmbed = new Discord.MessageEmbed()
-        .setColor('#7289da')
-        .setAuthor(''
-        .setTitle('Welcome!')
-        .setDescription(`${message.author.username} just joined the discord! Make sure to read #rules!`)
-        .setThumbnail(message.user.avatarURL)
-        .setFooter('Note: The maximum amount of answers is 9.')
-        .setTimestamp());
 
-    message.send(welcomeEmbed);
+    message.send("test");
 	
 		
 		
