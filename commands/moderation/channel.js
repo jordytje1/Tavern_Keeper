@@ -11,7 +11,7 @@ module.exports = {
 	run: async (client, message, args) => {
 
    
-    if (message.guild.channels.cache.some("name", "ticket-" + message.author.id)) return message.channel.send(`Zaten açık durumda bir ticketin var.`);
+    if (message.guild.channels.cache.some("name", "ticket-" + message.author.id)) return message.channel.send(`you already have a ticket!`);
 
 		
 		
