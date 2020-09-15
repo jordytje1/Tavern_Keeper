@@ -115,7 +115,7 @@ client.on("guildMemberAdd", member => {
   if (member.guild.id !== "715171185133879358") return;
 	const welcomess = new Discord.MessageEmbed()
                 .setColor(0x333333)
-                .setAuthor("👋 " + member.displayName + " `has been joined ${member.guild.name}`")
+                .setAuthor("👋 " + member.displayName + " has been joined ODD warriors")
   client.channels.cache.get(welcomes).send(welcomess);
 })
 client.on("guildMemberAdd", member => {
@@ -157,6 +157,18 @@ client.on("guildMemberRemove", member => {
                 .setAuthor("👋 " + member.displayName + " has been leaved ⚡𝙎𝙥𝙖𝙧𝙠𝙮⚡𝙨𝙪𝙥𝙥𝙤𝙧𝙩 𝙨𝙚𝙧𝙫𝙚𝙧")
   client.channels.cache.get(welcome).send(bye);
 });
+client.on("guildMemberRemove", member => {
+  if (member.guild.id !== "715171185133879358") return;
+  
+	
+	
+	
+	         const welcomesss = new Discord.MessageEmbed()
+                .setColor(0x333333)
+                .setAuthor("👋 " + member.displayName + " has been leaved ODD warriors")
+  client.channels.cache.get(welcomes).send(welcomesss);
+});
+
 
 
 client.on("guildMemberRemove", member => {
