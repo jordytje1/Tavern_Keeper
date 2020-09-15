@@ -9,8 +9,8 @@ const { MessageEmbed } = require("discord.js");
 const verify_role = '752905551318351904';
 const Discord = require("discord.js");
 const log = '753313405833576498';
-const welcomes = '715172419131670569';
-const welcome = '752211512248107177';
+const welcomes = '715172419131670569'
+const welcome = '752211512248107177'
 const embed = require('discord.js');
 const bannedWords = [`kut`, `vagina/`, `homo /`, `kanker/`, `kk/`, `kkr/`, `tyfus/`, `tering/`, `penis`, `.gg`, `discord.gg`, `discord gg`, `discordgg`, `discord gg /`];
 const client = new Client({
@@ -113,11 +113,11 @@ client.on("messageDelete", (messageDelete) => {
 
 client.on("guildMemberAdd", member => {
   if (member.guild.id !== "715171185133879358") return;
-	const welcomes = new Discord.MessageEmbed()
+	const welcomess = new Discord.MessageEmbed()
                 .setColor(0x333333)
                 .setAuthor("👋 " + member.displayName + " `has been joined ${member.guild.name}`")
-  client.channels.cache.get(welcomes).send(welcomes);
-
+  client.channels.cache.get(welcomes).send(welcomess);
+})
 client.on("guildMemberAdd", member => {
   if (member.guild.id !== "752211511996317827") return;
   
