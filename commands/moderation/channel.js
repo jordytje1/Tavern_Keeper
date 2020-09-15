@@ -57,7 +57,7 @@ module.exports = {
 			        id: role
 						}
 		   ]
-	})
+	}
   message.channel.send("Channel successfully created!");
 
   logchannel.send(createembed)
