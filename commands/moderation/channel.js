@@ -56,7 +56,6 @@ module.exports = {
 				allow: "VIEW_CHANNEL",
 			        id: role
 			},
-						     {
   message.channel.send("Channel successfully created!");
 
   logchannel.send(createembed)
