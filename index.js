@@ -110,7 +110,12 @@ client.on("messageDelete", (messageDelete) => {
   DeleteChannel.send(DeleteEmbed);
 });
 
-
+client.on("guildMemberAdd", member => {
+  if (member.guild.id !== "715171185133879358") return;
+	const welcomes = new Discord.MessageEmbed()
+                .setColor(0x333333)
+                .setAuthor("👋 " + member.displayName + " `has been joined ${member.guild.name}`")
+  client.channels.cache.get(《☘》welkom《☘》).send(welcomes);
 
 client.on("guildMemberAdd", member => {
   if (member.guild.id !== "752211511996317827") return;
