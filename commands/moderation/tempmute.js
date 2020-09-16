@@ -18,8 +18,8 @@ module.exports = {
  
         // This defines the main role and the muted role (this works from a config file, so you need to replace
         // botconfig.memberrole and botconfig.mutedrole with the names of the roles.)
-        let mainrole = message.guild.roles.cache.find(role => role.name === botconfig.memberrole);
-        let muterole = message.guild.roles.cache.find(role => role.name === botconfig.mutedrole);
+        let mainrole = message.guild.roles.cache.find(role => role.name === "『👱』『member』");
+        let muterole = message.guild.roles.cache.find(role => role.name === "Muted");
  
         // If either role is missing it will send a reply to the user trying to mute someone.
         if(!muterole) return message.reply("Couldn't find the mute role.")
