@@ -14,7 +14,7 @@ module.exports = {
     .setColor('#e64b0e')
     .setDescription(`You Need The **Support Team** Role To Add Users To Tickets`)
 
-    if(!message.member.roles.find(r => r.name == '『💛』『support』')) return message.channel.send(notallowed)
+    if(!message.member.roles.cache.find(r => r.name == '『💛』『support』')) return message.channel.send(notallowed)
 
     let user = message.mentions.members.first()
 
