@@ -26,7 +26,13 @@ let user = message.mentions.members.first()
   .setColor('#e64b0e')
   .setDescription(`This Server Hasn't Been Setup | Contact The Server Owner`)
    
-  message.channel.overwritePermissions(membersss.id, {'VIEW_CHANNEL': true, 'SEND_MESSAGES': true, 'MENTION_EVERYONE': false})
+  
+  
+  message.channel.overwritePermissions(membersss.id, 
+  {
+    SEND_MESSAGES: false,
+    ADD_REACTIONS: false
+   });
       message.channel.send(channelsend)
 
     
