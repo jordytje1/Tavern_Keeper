@@ -1,4 +1,3 @@
-const Discord = require('discord.js');
 
 module.exports = {
 	name: 'lock',
@@ -6,22 +5,23 @@ module.exports = {
 	description: 'Feeling bored? Get some activities to do.',
 	aliases: [],
 	usage: 'lock',
-	run: async (client, message, args) => {
-    if(!message.content.startsWith('!add'))return;  
+	run: async (client, message, args) => { 
 
-  let channelsend = new Discord.MessageEmbed()
-  .setColor('#e64b0e')
-  .setTitle(`Added User`)
-  .setDescription(`${message.author} Has locked this channel`)
+    message.delete().catch(O_o=>{}); 
+    if(!message.member.roles.some(r=>["Management", "Admin", "Helper"].includes(r.name))) return message.channel.send(`Invalid Permission!`)
 
-  message.channel.overwritePermissions([
-  {
-     id: message.guild.roles.everyone,
-     deny: ['SEND_MESSAGES', 'ADD_REACTIONS'],
-   },
-]);
-  message.channel.send(channelsend)
+    function closeDownChannel(message) {
+        let channel = message.channel;
+        let roles = message.guild.roles; 
 
-    
-    }  
-  }
+        let testRole = roles.find('Customs Host');
+
+        channel.overwritePermissions(
+            testRole,
+            { 'SEND_MESSAGES': false },
+            'Competitive has Ended'
+        )
+        .then(console.log)
+        .catch(console.log);
+    }
+}
