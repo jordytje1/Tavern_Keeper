@@ -18,7 +18,7 @@ module.exports = {
   {
      id: message.guild.roles.everyone,
      deny: ['SEND_MESSAGES', 'ADD_REACTIONS'],
-                    }).then(() => {
+                    }.then(() => {
                     channel.setName(channel.name += `🔒`)
   },
 ]);
