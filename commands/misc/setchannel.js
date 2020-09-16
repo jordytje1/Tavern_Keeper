@@ -59,6 +59,3 @@ module.exports = {
         //Now we send message and return
         return message.reply(`New welcome channel ${wChan}`)
     }
-
-
-}
