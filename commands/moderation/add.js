@@ -24,7 +24,7 @@ let user = message.mentions.members.first()
 
   let categorysend = new Discord.MessageEmbed()
   .setColor('#e64b0e')
-  .setDescription(`This Server Hasn't Been Setup | Contact The Server Owner`)) return;
+  .setDescription(`This Server Hasn't Been Setup | Contact The Server Owner`) return;
 
 
 
