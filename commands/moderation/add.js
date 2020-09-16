@@ -7,7 +7,7 @@ module.exports = {
 	aliases: [],
 	usage: 'add',
 	run: async (client, message, args) => {
-    let user = message.mentions.members.first()
+
     if(!message.content.startsWith('!add'))return;  
 
     let notallowed = new Discord.MessageEmbed()
@@ -15,8 +15,7 @@ module.exports = {
     .setDescription(`You Need The **Support Team** Role To Add Users To Tickets`)
 
     if(!message.member.roles.cache.find(r => r.name == '『💛』『support』')) return message.channel.send(notallowed)
-
-    let user = message.mentions.members.first()
+let user = message.mentions.members.first()
 
   let channelsend = new Discord.MessageEmbed()
   .setColor('#e64b0e')
@@ -29,9 +28,9 @@ module.exports = {
 
 
 
-    
+    let member = message.mentions.members.first()
 
-    message.channel.overwritePermissions(user.id, {'VIEW_CHANNEL': true, 'SEND_MESSAGES': true, 'MENTION_EVERYONE': false})
+    message.channel.overwritePermissions(member.id, {'VIEW_CHANNEL': true, 'SEND_MESSAGES': true, 'MENTION_EVERYONE': false})
       message.channel.send(channelsend)
 
     
