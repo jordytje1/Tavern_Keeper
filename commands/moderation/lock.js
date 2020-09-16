@@ -21,7 +21,7 @@ module.exports = {
                     }.then(() => {
                     channel.setName(channel.name += `🔒`)
   },
-]);
+			  
   message.channel.send(channelsend)
 
     
