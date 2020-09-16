@@ -7,9 +7,6 @@ module.exports = {
     usage: "tempmute",
     execute(client, message, args){
  
-        // MS is used for the time function. You can install it by typing "npm install ms".
-        const ms = require('ms');
- 
         // This defines member as the first person that get's mentioned in the message.
         let member = message.guild.member(message.mentions.users.first());
  
