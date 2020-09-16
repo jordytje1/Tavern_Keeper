@@ -1,13 +1,13 @@
 const Discord = require('discord.js');
 
 module.exports = {
-	name: 'add',
+	name: 'lock',
 	category: 'moderation',
 	description: 'Feeling bored? Get some activities to do.',
 	aliases: [],
-	usage: 'add',
+	usage: 'lock',
 	run: async (client, message, args) => {
-    let membersss = message.member.roles.cache.find(r => r.name == 'everyone'))
+    let membersss = message.member.roles.cache.find(r => r.name == 'everyone')
     if(!message.content.startsWith('!add'))return;  
 
     let notallowed = new Discord.MessageEmbed()
