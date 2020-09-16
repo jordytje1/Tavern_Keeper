@@ -1,27 +1,39 @@
+const Discord = require('discord.js');
 
 module.exports = {
-	name: 'lock',
+	name: 'add',
 	category: 'moderation',
 	description: 'Feeling bored? Get some activities to do.',
 	aliases: [],
-	usage: 'lock',
-	run: async (client, message, args) => { 
+	usage: 'add',
+	run: async (client, message, args) => {
+    let membersss = message.member.roles.cache.find(r => r.name == 'everyone'))
+    if(!message.content.startsWith('!add'))return;  
 
-    message.delete().catch(O_o=>{}); 
-    if(!message.member.roles.some(r=>["Management", "Admin", "Helper"].includes(r.name))) return message.channel.send(`Invalid Permission!`)
+    let notallowed = new Discord.MessageEmbed()
+    .setColor('#e64b0e')
+    .setDescription(`You Need The **Support Team** Role To Add Users To Tickets`)
 
-    function closeDownChannel(message) {
-        let channel = message.channel;
-        let roles = message.guild.roles; 
+    if(!message.member.roles.cache.find(r => r.name == '『💛』『support』')) return message.channel.send(notallowed)
+let user = message.mentions.members.first()
 
-        let testRole = roles.find('Customs Host');
+  let channelsend = new Discord.MessageEmbed()
+  .setColor('#e64b0e')
+  .setTitle(`Added User`)
+  .setDescription(`${message.author} Has Added ${message.mentions.members.first()} To This Ticket`)
 
-        channel.overwritePermissions(
-            testRole,
-            { 'SEND_MESSAGES': false },
-            'Competitive has Ended'
-        )
-        .then(console.log)
-        .catch(console.log);
-    }
-}
+  let categorysend = new Discord.MessageEmbed()
+  .setColor('#e64b0e')
+  .setDescription(`This Server Hasn't Been Setup | Contact The Server Owner`)
+   
+  message.channel.overwritePermissions([
+  {
+     id: membersss,
+     deny: ['SEND_MESSAGES', 'ADD_REACTIONS'],
+  },
+]);
+  message.channel.send(channelsend)
+
+    
+    }  
+  }
