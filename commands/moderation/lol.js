@@ -28,7 +28,7 @@ module.exports = {
                     await msg.react(REJECT);
          
                     try {
-                      const reactionFilter = (reaction, User) => [ACCEPT, REJECT].includes(reaction.emoji.id) && !User.bot;
+                      const reactionFilter = ((reaction, User) => [ACCEPT, REJECT].includes(reaction.emoji.name) && !User.bot);
                       const reactions = await msg.awaitReactions(reactionFilter, { max: 1, time: 10000}
                       );
                       const choise = reactions.get(ACCEPT) || reactions.get(REJECT);
