@@ -46,7 +46,7 @@ module.exports = {
     .setTitle('you have been muted')
     .addField('time:', rawTime, true)
     .addField('reason:', reason, true)
-    .addField('guild', ${member.guild.name}, true);
+    .addField('guild', (`${member.guild.name}`), true);
 
     try {
         user.send(embed);
