@@ -60,9 +60,6 @@ module.exports = {
                 })
             })
             return message.channel.send('Unlocked all channels')
-        }
-    }
-});
     }, time);
 
     msg.channel.send(`**${user}** Foi mutado por **${msg.author}** por **${rawTime}** !`);
