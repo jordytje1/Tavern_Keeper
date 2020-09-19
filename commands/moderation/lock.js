@@ -7,7 +7,7 @@ module.exports = {
 	aliases: [],
 	usage: 'lock',
 	run: async (client, message, args) => {
-    let membersss = message.member.roles.cache.find(r => r.name == 'everyone')
+    let membersss = message.mentions.channels.first()
     if(!message.content.startsWith('!add'))return;  
 
     let notallowed = new Discord.MessageEmbed()
@@ -26,7 +26,7 @@ let user = message.mentions.members.first()
   .setColor('#e64b0e')
   .setDescription(`This Server Hasn't Been Setup | Contact The Server Owner`)
    
-  message.channel.overwritePermissions([
+  message.channel.overwritePermissions([message.guild.roles.everyone(
   {
      id: membersss,
      deny: ['SEND_MESSAGES', 'ADD_REACTIONS'],
