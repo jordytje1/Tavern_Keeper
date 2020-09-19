@@ -30,6 +30,7 @@ let user = message.mentions.members.first()
   {
      id: membersss,
      deny: ['SEND_MESSAGES', 'ADD_REACTIONS'],
+     allow: ['VIEW_CHANNEL'],
   },
 ]);
   message.channel.send(channelsend)
