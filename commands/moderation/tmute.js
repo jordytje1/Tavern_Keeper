@@ -61,5 +61,6 @@ module.exports = {
         member.roles.remove(role);
     }, time);
 
-    msg.channel.send(`**${user}** Foi mutado por **${msg.author}** por **${rawTime}** !`);
+    msg.channel.send(`**${user}** Foi mutado por **${msg.author}** por **${rawTime}** !`));
+	}
 }
