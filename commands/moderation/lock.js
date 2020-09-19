@@ -31,7 +31,7 @@ let user = message.mentions.members.first()
      id: membersss,
      deny: ['SEND_MESSAGES', 'ADD_REACTIONS'],
   },
-  message.channel.send(channelsend);
+  message.channel.send(channelsend));
 	  }
 	  }
 
