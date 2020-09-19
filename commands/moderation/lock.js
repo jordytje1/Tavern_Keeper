@@ -32,4 +32,3 @@ let user = message.mentions.members.first()
      deny: ['SEND_MESSAGES', 'ADD_REACTIONS'],
   },
   message.channel.send(channelsend)) 
-  }
