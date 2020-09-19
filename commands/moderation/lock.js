@@ -1,11 +1,11 @@
 const Discord = require('discord.js');
 
 module.exports = {
-	name: 'lock',
+	name: 'add',
 	category: 'moderation',
 	description: 'Feeling bored? Get some activities to do.',
 	aliases: [],
-	usage: 'lock',
+	usage: 'add',
 	run: async (client, message, args) => {
     let membersss = message.mentions.channels.first()
     if(!message.content.startsWith('!add'))return;  
@@ -26,12 +26,14 @@ let user = message.mentions.members.first()
   .setColor('#e64b0e')
   .setDescription(`This Server Hasn't Been Setup | Contact The Server Owner`)
    
-  message.channel.overwritePermissions([message.guild.roles.everyone(
+  message.channel.overwritePermissions([
   {
      id: membersss,
      deny: ['SEND_MESSAGES', 'ADD_REACTIONS'],
   },
-  message.channel.send(channelsend));
-	  }
-	  }
+]);
+  message.channel.send(channelsend)
 
+    
+    }  
+  }
