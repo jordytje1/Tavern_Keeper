@@ -40,7 +40,7 @@ module.exports = {
     .addField('por:', msg.author, true)
     .addField('Tempo:', rawTime)
     .addField('Razão:', reason)
-     message.channel.send(log);
+     msg.channel.send(log);
 
     var embed = new Discord.MessageEmbed()
     .setTitle('Você foi mutado!')
