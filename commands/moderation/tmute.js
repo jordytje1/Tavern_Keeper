@@ -53,7 +53,7 @@ module.exports = {
         console.warn(err);
     }
 
-    var role = msg.guild.roles.cache.find(r => r.name === 'Silenciamento divino');
+    var role = msg.guild.roles.cache.find(r => r.name === 'Muted');
 
     member.roles.add(role);
 
