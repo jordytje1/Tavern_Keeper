@@ -9,10 +9,10 @@ module.exports = {
 	usage: 'tmute',
 	guildOnly: true,
 	run: async (client, msg, args) => {
-    if(!msg.member.hasPermission('KICK_MEMBERS')) return msg.reply('Você não pode usar esse comando, você não tem permição\n HUMF ');
+    if(!msg.member.hasPermission('KICK_MEMBERS')) return msg.reply('You cannot use this command!');
 
     var user = msg.mentions.users.first();
-    if(!user) return msg.reply('você tem que dizer quem eu devo usar meu silenciamento');
+    if(!user) return msg.reply('tell me who you want to be muted');
 
     var member;
 
@@ -22,30 +22,31 @@ module.exports = {
         member = null;
     }
 
-    if(!member) return msg.reply('ele não esta no servidor');
+    if(!member) return msg.reply('we cannot find that user');
     if(member.hasPermission('ADMINISTRATOR')) return msg.reply('You cannot mute that person!');
 
     var rawTime = args[1];
     var time = ms(rawTime);
-    if(!time) return msg.reply('por quanto tempo ele/ela deve ficar mutado');
+    if(!time) return msg.reply('please tell me how long the user needs to get muted');
 
     var reason = args.splice(2).join(' ');
-    if(!reason) return msg.reply('precisa de uma razão, sem  razão, sem meus poderes de silenciamento');
+    if(!reason) return msg.reply('tell me the reason');
 
-    var channel = msg.guild.channels.cache.find(c => c.name === '📝puniçoes📝');
+    var channel = msg.guild.channels.cache.find(c => c.name === 'logs');
 
     var log = new Discord.MessageEmbed()
-    .setTitle('Usuario silenciado')
-    .addField('usuario:', user, true)
-    .addField('por:', msg.author, true)
-    .addField('Tempo:', rawTime)
-    .addField('Razão:', reason)
+    .setTitle('user muted')
+    .addField('user:', user, true)
+    .addField('by:', msg.author, true)
+    .addField('time:', rawTime)
+    .addField('reason:', reason)
      msg.channel.send(log);
 
     var embed = new Discord.MessageEmbed()
-    .setTitle('Você foi mutado!')
-    .addField('Tempo:', rawTime, true)
-    .addField('Motivo:', reason, true);
+    .setTitle('you have been muted')
+    .addField('time:', rawTime, true)
+    .addField('reason:', reason, true)
+    .addField('guild', ${member.guild.name}, true);
 
     try {
         user.send(embed);
