@@ -6,7 +6,7 @@ module.exports = {
 	description: 'Feeling bored? Get some activities to do.',
 	aliases: [],
 	usage: 'add',
-	run: async (client, message, args, first) => {
+	run: async (client, message, args) => {
      let userrr = message.mentions.members.first()
     if(!message.content.startsWith('!add'))return;  
 
