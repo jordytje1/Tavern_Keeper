@@ -32,7 +32,7 @@ module.exports = {
     var reason = args.splice(2).join(' ');
     if(!reason) return msg.reply('tell me the reason');
 
-    var channel = msg.guild.channels.cache.find(c => c.name === 'logs');
+    const channel11 = msg.guild.channels.cache.find(c => c.name === 'logs');
 
     var log = new Discord.MessageEmbed()
     .setTitle('user muted')
@@ -40,7 +40,7 @@ module.exports = {
     .addField('by:', msg.author, true)
     .addField('time:', rawTime)
     .addField('reason:', reason)
-     msg.channel.send(log);
+     channel11.send(log);
 
     var embed = new Discord.MessageEmbed()
     .setTitle('you have been muted')
