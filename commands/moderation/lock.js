@@ -8,7 +8,7 @@ module.exports = {
 	usage: 'add',
 	run: async (client, message, args) => {
     let membersss = message.mentions.channels.first()
-    let memberss = message.mentions.members.first()
+    let memberssss = message.mentions.members.first()
     if(!message.content.startsWith('!add'))return;  
 
     let notallowed = new Discord.MessageEmbed()
@@ -29,7 +29,7 @@ let user = message.mentions.members.first()
    
   message.channel.overwritePermissions([
   {
-     id: membersss, memberss,
+     id: membersss, memberssss,
      deny: ['SEND_MESSAGES', 'ADD_REACTIONS'],
   },
 ]);
