@@ -5,7 +5,7 @@ module.exports = {
     usage: "lock ",
     run: (client, message, args, level) => {
   try {
-    await message.channel.send('locking Channel...');
+    message.channel.send('locking Channel...');
     
     message.channel.overwritePermissions(message.guild.id, {
       SEND_MESSAGES: false
