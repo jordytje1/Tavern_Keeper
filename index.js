@@ -76,7 +76,7 @@ if(message.content == '!close') {
 
 
 
-
+const talkedRecently = new Set();
 client.on('message', msg => {
     if (msg.content === '!work') {
             let id = msg.author
