@@ -124,6 +124,17 @@ client.on('message', msg => {
     }
 }});
 
+client.on('message', msg => {
+    if (msg.content === '!baltop') {
+        let id = msg.guild
+        if(id.money === undefined) {
+        id.money = 0
+    msg.channel.send('You Have $' + id.money);
+    } else {
+    msg.channel.send('You Have $' + id.money);
+    }
+}});
+
 
 
 
