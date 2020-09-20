@@ -82,7 +82,6 @@ client.on("message", function(message) {
       console.log(`Apply begin for authorId ${authorId}`);
       // User is not already in a registration process 
 	  
-	  if (args[0].toLowerCase() === 'embed') {
       if (!(authorId in userApplications)) {
           userApplications[authorId] = { "step" : 1}
 
