@@ -113,7 +113,7 @@ client.on("message", function(message) {
     let embed123 = new MessageEmbed()
     .setTitle('apply')
     .setThumbnail(message.author.avatarURL())
-    .addField('test')
+    .addField(authorApplication.step == 2)
     .setColor("#ff2509")
     .setFooter(`Requested by`)
     .setTimestamp();
