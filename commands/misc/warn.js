@@ -6,8 +6,7 @@ module.exports = {
     usage: "warn <user>",
     run: (client, message, args, level) => {
   try {
-    const user = message.mentions.users.first();
-    const settings = client.getSettings(message.guild.id);
+    const user = message.mentions.users.first()
 
     if (user) {
       const member = message.guild.member(user);
@@ -18,14 +17,14 @@ module.exports = {
         client.warns.get(message.guild.id)[member.id] += 1;
         message.reply(`Successfully warned ${user.tag}`);
 
-        const modLogChannel = settings.modLogChannel;
-        if (modLogChannel && message.guild.channels.find(c => c.name === settings.modLogChannel)) {
+        const modLogChannel = "logs";
+        if (modLogChannel && message.guild.channels.find(c => c.name === "logs")) {
           let embed = new Discord.RichEmbed()
           .setTitle('User Warn')
           .setColor('#eeeeee')
           .setDescription(`Name: ${user.username}\nID: ${user.id}\nModerator: ${message.author.username}`);
 
-          message.guild.channels.find(c => c.name === settings.modLogChannel).send(embed);
+          message.guild.channels.find(c => c.name === "logs").send(embed);
         }
 
         if (client.warns.get(message.guild.id)[member.id] == 3) {
