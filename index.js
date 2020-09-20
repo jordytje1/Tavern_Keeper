@@ -135,7 +135,7 @@ client.on("message", "args", function(message) {
   }
 
 
-});
+};
 
 
 
