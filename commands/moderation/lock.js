@@ -11,7 +11,7 @@ module.exports = {
     permissions: ["MANAGE_CHANNELS", "MANAGE_MESSAGES"],
     run: async (message, args) => {
     
-        if (!message.member.hasPermission('ADMINISTRATOR')) {
+        if(message.member && message.member.hasPermission("KICK_MEMBERS")) {
             if (!message.member.hasPermission("MANAGE_MESSAGES")) {
                 const embed = new MessageEmbed()
                     .setTitle("lockdown")
