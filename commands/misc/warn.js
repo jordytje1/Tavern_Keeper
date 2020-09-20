@@ -6,7 +6,7 @@ module.exports = {
     usage: "warn <user>",
     run: (client, message, args, level) => {
   try {
-    const user = message.mentions.users.first()
+    const user = message.mentions.members.first()
 
     if (user) {
       const member = message.guild.member(user);
