@@ -27,7 +27,7 @@ module.exports = {
             return message.channel.send("❌ i am lacking permission: 'MANAGE_CHANNELS' or 'MANAGE_ROLES'")
         }
 
-        if (cooldown.has(message.member.id)) {
+        if (cooldown.has(message.members.id)) {
             const init = cooldown.get(message.member.id)
             const curr = new Date()
             const diff = Math.round((curr - init) / 1000)
@@ -52,9 +52,9 @@ module.exports = {
             channel = message.mentions.channels.first()
         }
 
-        cooldown.set(message.member.id, new Date());
+        cooldown.set(message.members.id, new Date());
         setTimeout(() => {
-            cooldown.delete(message.member.id);
+            cooldown.delete(message.members.id);
         }, 1500);
 
         let locked = false
