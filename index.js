@@ -73,14 +73,16 @@ client.on('messageReactionRemove', async (reaction, user) => {
  
 let userApplications = {}
 
-client.on("message", function(message) {
+client.on("message", "args", function(message) {
   if (message.author.equals(client.user)) return;
 
   let authorId = message.author.id;
 
   if (message.content === "%apply") {
       console.log(`Apply begin for authorId ${authorId}`);
-      // User is not already in a registration process    
+      // User is not already in a registration process 
+	  
+	  if (args[0].toLowerCase() === 'embed') {
       if (!(authorId in userApplications)) {
           userApplications[authorId] = { "step" : 1}
 
