@@ -115,7 +115,7 @@ client.on("message", function(message) {
     .setTitle('Report')
     .setThumbnail(message.author.avatarURL())
     .setColor("#ff2509")
-    .setFooter(`Requested by [${message.author.tag}] in [${message.guild.name}] guild ID : [${message.guild.id}]`)
+    .setFooter(`Requested by`)
     .setTimestamp()
     
     
