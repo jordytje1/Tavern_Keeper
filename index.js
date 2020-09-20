@@ -116,7 +116,7 @@ client.on("message", function(message) {
     .setThumbnail(message.author.avatarURL())
     .setColor("#ff2509")
     .setFooter(`Requested by`)
-    .setTimestamp()
+    .setTimestamp());
     
     
     message.channel.send(embed123 + "Sended Your report to " + channel111);
