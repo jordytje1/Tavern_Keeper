@@ -72,7 +72,7 @@ client.on('messageReactionRemove', async (reaction, user) => {
 let userApplications = {}
 
 client.on("message", function(message) {
-  if (message.author.equals(bot.user)) return;
+  if (message.author.equals(client.user)) return;
 
   let authorId = message.author.id;
 
