@@ -120,7 +120,7 @@ client.on('message', msg => {
         id.money = 0
     msg.channel.send('You Have $' + id.money);
     } else {
-    msg.channel.send("You Have $' + id.money);
+    msg.channel.send('You Have $' + id.money);
     }
 }});```
 
