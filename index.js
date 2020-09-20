@@ -17,6 +17,7 @@ const client = new Client({
 	disableEveryone: true,
 });
 
+client.cooldowns = new Discord.Collection();
 client.commands = new Collection();
 client.aliases = new Collection();
 client.category = new Collection();
