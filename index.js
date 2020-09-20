@@ -69,7 +69,8 @@ client.on('messageReactionRemove', async (reaction, user) => {
 
 
 
-
+		  
+ 
 let userApplications = {}
 
 client.on("message", function(message) {
@@ -109,7 +110,14 @@ client.on("message", function(message) {
           else if (authorApplication.step == 4) {
               message.author.send("```Thanks for your registration. Type %apply to register again```");
               delete userApplications[authorId];
-client.channels.cache.get('752211513401671763').send('Hello world.');  
+    let embed123 = new MessageEmbed()
+    .setTitle('apply')
+    .setThumbnail(message.author.avatarURL())
+    .addField('test')
+    .setColor("#ff2509")
+    .setFooter(`Requested by`)
+    .setTimestamp();
+client.channels.cache.get('752211513401671763').send(embed123);  
           }
 
       }
