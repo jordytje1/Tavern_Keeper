@@ -74,7 +74,7 @@ if(message.content == '!close') {
 }
 });
 
-
+let money = 0
 
 const talkedRecently = new Set();
 client.on('message', msg => {
@@ -118,24 +118,12 @@ const mng = Math.floor(Math.random() * (70 - 5 )) + 1;
     if (msg.content === '!bal') {
         let id = msg.author
         if(id.money === undefined) {
-        id.money = mng
-    msg.channel.send('You Have $' + id.money);
-    } else {
-    msg.channel.send('You Have $' + id.money);
-    }
-}});
-
-client.on('message', msg => {
-    if (msg.content === '!baltop') {
-        let id = msg.guild
-        if(id.money === undefined) {
         id.money = 0
     msg.channel.send('You Have $' + id.money);
     } else {
     msg.channel.send('You Have $' + id.money);
     }
 }});
-
 
 
 
