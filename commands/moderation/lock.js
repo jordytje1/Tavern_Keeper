@@ -23,7 +23,7 @@ module.exports = {
             return 
         }
 
-        if (!message.guild.me.hasPermission("MANAGE_CHANNELS") || !message.guild.me.hasPermission("MANAGE_ROLES")) {
+        if(message.member && message.member.hasPermission("KICK_MEMBERS")) {
             return message.channel.send("❌ i am lacking permission: 'MANAGE_CHANNELS' or 'MANAGE_ROLES'")
         }
 
