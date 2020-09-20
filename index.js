@@ -109,6 +109,18 @@ client.on("message", function(message) {
           else if (authorApplication.step == 4) {
               message.author.send("```Thanks for your registration. Type %apply to register again```");
               delete userApplications[authorId];
+	const channel111 = client.channels.cache.get('752211513401671763');	  
+		  
+    let embed123 = new MessageEmbed()
+    .setTitle('Report')
+    .setThumbnail(message.author.avatarURL())
+    .setColor("#ff2509")
+    .setDescription(args.join(" "))
+    .setFooter(`Requested by [${message.author.tag}] in [${message.guild.name}] guild ID : [${message.guild.id}]`)
+    .setTimestamp()
+    
+    
+    message.channel.send(embed123) + "Sended Your report to " + channel111)
           }
 
       }
