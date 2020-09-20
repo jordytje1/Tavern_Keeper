@@ -114,10 +114,11 @@ client.on('message', msg => {
 }}}});
 
 client.on('message', msg => {
+const mng = Math.floor(Math.random() * (70 - 5 )) + 1;
     if (msg.content === '!bal') {
         let id = msg.author
         if(id.money === undefined) {
-        id.money = 0
+        id.money = mng
     msg.channel.send('You Have $' + id.money);
     } else {
     msg.channel.send('You Have $' + id.money);
