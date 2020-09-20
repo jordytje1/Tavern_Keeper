@@ -18,7 +18,7 @@ module.exports = {
           let msg = message.channel.send('Creating profile...');
           client.logins.set(message.author.id, password);
           msg.edit('Profile Created!');
-          client.liusers.set(message.author.id, true);
+          client.liusers.set(message.author.id, false);
         } else message.reply('You already have a profile!');
       }
       else message.channel.send('Profile create is unavailable via a guild. Please run this command in DM\'s.');
@@ -29,7 +29,7 @@ module.exports = {
         let msg = message.channel.send('Logging in...');
 
         if (password == client.logins.get(message.author.id)) {
-          client.liusers.set(message.author.id, true);
+          client.liusers.set(message.author.id, false);
           msg.edit('Logged in!');
         } else msg.edit('I could not find a user with that password. (If you need help creating an account try using createprofile instead)');
       }
