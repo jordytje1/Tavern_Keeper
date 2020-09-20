@@ -74,57 +74,6 @@ if(message.content == '!close') {
 }
 });
 
-let money = 0
-
-const talkedRecently = new Set();
-client.on('message', msg => {
-    if (msg.content === '!work') {
-            let id = msg.author
-        if (talkedRecently.has(msg.author.id)) {
-            msg.channel.send("Warn Here " + msg.author.username + "!");
-    } else {
-        if (id.money === undefined){
-
-           // the user can type the command ... your command code goes here :)
-
-        // Adds the user to the set so that they can't talk for a minute
-        talkedRecently.add(msg.author.id);
-        setTimeout(() => {
-          // Removes the user from the set after a time in seconds
-          talkedRecently.delete(msg.author.id);
-        }, 86400);
-            id.money = 0
-    const mng = Math.floor(Math.random() * (70 - 5 )) + 1;
-    msg.channel.send('Você ganhou ' + mng +' :moneybag:!');
-    id.money += mng
-        } else {
-
-           // the user can type the command ... your command code goes here :)
-
-        // Adds the user to the set so that they can't talk for a minute
-        talkedRecently.add(msg.author.id);
-        setTimeout(() => {
-          // Removes the user from the set after a time in seconds
-          talkedRecently.delete(msg.author.id);
-        }, 86400);
-            id.money = 0
-    const mng = Math.floor(Math.random() * (70 - 5 )) + 1;
-    msg.channel.send('You Gained ' + mng +' :moneybag:!');
-    id.money += mng
-}}}});
-
-client.on('message', msg => {
-const mng = Math.floor(Math.random() * (70 - 5 )) + 1;
-    if (msg.content === '!bal') {
-        let id = msg.author
-        if(id.money === undefined) {
-        id.money = 0
-    msg.channel.send('You Have $' + id.money);
-    } else {
-    msg.channel.send('You Have $' + id.money);
-    }
-}});
-
 
 
 
