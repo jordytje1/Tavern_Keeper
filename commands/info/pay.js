@@ -7,6 +7,7 @@ module.exports = {
     usage: "<mention> <amount of money>",
     description: "Give Someone Money",
     run: async(client, message, args) => {
+       let User = message.mentions.members.first()
        let member = message.guild.member(message.mentions.users.first())
        if(!member) return message.channel.send("Please Mention A User")
        if(!args[1]) return message.channel.send("Please Enter Valid Number")
