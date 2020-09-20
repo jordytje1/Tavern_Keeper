@@ -117,7 +117,12 @@ client.on("message", function(message) {
     let applystaff = new MessageEmbed()
     .setTitle('apply')
     .setThumbnail(message.author.avatarURL())
-    .addField(`${authorApplication.answer1}`)
+    .addFields(
+		{ name: 'Question 1: In-Game Name?', value: `${authorApplication.answer1}` },
+		{ name: 'Question 2: Age?', value: `${authorApplication.answer2}` },
+		{ name: 'Question 3: Timezone? NA, AU, EU, NZ, or Other? (If other, describe your timezone', value: `${authorApplication.answer3}` },
+		{ name: 'Question 4: Do you have schematica?', value: `${authorApplication.answer4}` },
+	)
     .setColor("#ff2509")
     .setFooter(`Requested`)
     .setTimestamp()
