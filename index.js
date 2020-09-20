@@ -70,7 +70,7 @@ client.on('messageReactionRemove', async (reaction, user) => {
 
 
 
-let userApplications = "752211513401671763";
+let userApplications = {}
 
 client.on("message", function(message) {
   if (message.author.equals(client.user)) return;
