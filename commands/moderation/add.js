@@ -7,7 +7,7 @@ module.exports = {
 	aliases: [],
 	usage: 'add',
 	run: async (client, message, args) => {
-    let membersss = message.mentions.member.first()
+    let membersss = message.mentions.members.first()
     if(!message.content.startsWith('!add'))return;  
 
     let notallowed = new Discord.MessageEmbed()
