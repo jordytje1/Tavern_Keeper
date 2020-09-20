@@ -11,4 +11,5 @@ module.exports = {
       SEND_MESSAGES: false
     })
       message.channel.send(`Damnn, **${message.author.username}** just locked the channel down. Don't worry, Admins will soon open the chat again so be patient.`);
-  }
+  })
+}
