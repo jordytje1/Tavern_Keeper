@@ -45,5 +45,4 @@ module.exports = {
     }
   } catch (err) {
     message.channel.send('Their was an error!\n' + err).catch();
-  }
-}
+}):
