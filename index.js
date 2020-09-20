@@ -68,6 +68,77 @@ client.on('messageReactionRemove', async (reaction, user) => {
 
 
 
+
+let userApplications = {}
+
+client.on("message", function(message) {
+  if (message.author.equals(bot.user)) return;
+
+  let authorId = message.author.id;
+
+  if (message.content === "%apply") {
+      console.log(`Apply begin for authorId ${authorId}`);
+      // User is not already in a registration process    
+      if (!(authorId in userApplications)) {
+          userApplications[authorId] = { "step" : 1}
+
+          message.author.send("```We need to ask some questions so  we can know a litte bit about yourself```");
+          message.author.send("```Application Started - Type '#Cancel' to cancel the application```");
+          message.author.send("```Question 1: In-Game Name?```");
+      }
+
+  } else {
+
+      if (message.channel.type === "dm" && authorId in userApplications) {
+          let authorApplication = userApplications[authorId];
+
+          if (authorApplication.step == 1 ) {
+              message.author.send("```Question 2: Age?```");
+              authorApplication.step ++;
+          }
+          else if (authorApplication.step == 2) {
+              message.author.send("```Question 3: Timezone? NA, AU, EU, NZ, or Other? (If other, describe your timezone)```");
+              authorApplication.step ++;
+          }
+          else if (authorApplication.step == 3) {
+              message.author.send("```Question 4: Do you have schematica?```");
+              authorApplication.step ++;
+          }
+
+          else if (authorApplication.step == 4) {
+              message.author.send("```Thanks for your registration. Type %apply to register again```");
+              delete userApplications[authorId];
+          }
+
+      }
+  }
+
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 client.on('message', async message => {
 if(message.content == '!close') {
      message.channel.delete()
