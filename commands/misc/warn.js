@@ -1,9 +1,9 @@
 const Discord = require('discord.js');
 module.exports = {
-    name: "kick",
+    name: "warn",
     category: 'moderation',
-    description: "kicks the mentioned user.",
-    usage: "kick \@username",
+    description: "warns the mentioned user.",
+    usage: "warn <user>",
     run: (client, message, args, level) => {
   try {
     const user = message.mentions.users.first();
@@ -46,4 +46,4 @@ module.exports = {
   } catch (err) {
     message.channel.send('Their was an error!\n' + err).catch();
   }
-};
+}
