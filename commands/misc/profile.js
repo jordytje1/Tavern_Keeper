@@ -10,12 +10,12 @@ module.exports = {
     if (args[0] == 'create') {
       if (!message.guild) {
         if (client.logins.set(message.author.id)) {
-          let passwordRaw = await client.awaitReply(message, 'What do you want as your password?');
-          let passwordRawConfirm = await client.awaitReply(message, 'Confirm your password');
+          let passwordRaw = client.awaitReply(message, 'What do you want as your password?');
+          let passwordRawConfirm = client.awaitReply(message, 'Confirm your password');
           if (passwordRaw !== passwordRawConfirm) return message.channel.send('Your password does not match the confirmation.');
           let password = crypto.createHash('sha256').update(passwordRawConfirm).digest('hex');
 
-          let msg = await message.channel.send('Creating profile...');
+          let msg = message.channel.send('Creating profile...');
           client.logins.set(message.author.id, password);
           msg.edit('Profile Created!');
           client.liusers.set(message.author.id, true);
@@ -24,9 +24,9 @@ module.exports = {
       else message.channel.send('Profile create is unavailable via a guild. Please run this command in DM\'s.');
     } else if (args[0] == 'login') {
       if (!message.guild) {
-        let passwordRaw = await client.awaitReply(message, 'What is your password?');
+        let passwordRaw = client.awaitReply(message, 'What is your password?');
         let password = crypto.createHash('sha256').update(passwordRaw).digest('hex');
-        let msg = await message.channel.send('Logging in...');
+        let msg = message.channel.send('Logging in...');
 
         if (password == client.logins.get(message.author.id)) {
           client.liusers.set(message.author.id, true);
@@ -38,7 +38,7 @@ module.exports = {
     }
     
     if (args[0] == 'logout') {
-      let msg = await message.channel.send('Logging out...');
+      let msg = message.channel.send('Logging out...');
       
       if (client.liusers.get(message.author.id)) {
         client.liusers.delete(message.author.id);
@@ -48,14 +48,14 @@ module.exports = {
       if (!message.guild) {
         if (args[1] == 'change') {
           if (client.logins.set(message.author.id)) {
-            let passwordRaw = await client.awaitReply(message, 'What do you want as your new password?');
-            let oldPasswordRaw = await client.awaitReply(message, 'What is your old password?');
-            let passwordRawConfirm = await client.awaitReply(message, 'Confirm your password');
+            let passwordRaw = client.awaitReply(message, 'What do you want as your new password?');
+            let oldPasswordRaw = client.awaitReply(message, 'What is your old password?');
+            let passwordRawConfirm = client.awaitReply(message, 'Confirm your password');
             if (passwordRaw !== oldPasswordRaw) return message.channel.send('Your new password does not match the old password.');
             if (passwordRaw !== passwordRawConfirm) return message.channel.send('Your new password does not match the confirmation.');
             let password = crypto.createHash('sha256').update(passwordRawConfirm).digest('hex');
 
-            let msg = await message.channel.send('Changing password..');
+            let msg = message.channel.send('Changing password..');
             client.logins.set(message.author.id, password);
             msg.edit('Password Changed!');
             client.liusers.set(message.author.id, true);
@@ -72,15 +72,15 @@ module.exports = {
             client.profiles.set(message.author.id+'hobbies', 'Not Specified');
           }
 
-          let msg = await message.channel.send('Updating nickname...');
+          let msg = message.channel.send('Updating nickname...');
           client.profiles.set(message.author.id+'nickname', args.slice(2).join(' '));
           msg.edit('Nickname updated!');
         } else if (args[1] == 'bio') {
-          let msg = await message.channel.send('Updating bio...');
+          let msg = message.channel.send('Updating bio...');
           client.profiles.set(message.author.id+'bio', args.slice(2).join(' '));
           msg.edit('Bio updated!');
         } else if (args[1] == 'hobbies') {
-          let msg = await message.channel.send('Updating hobbies...');
+          let msg = message.channel.send('Updating hobbies...');
           client.profiles.set(message.author.id+'hobbies', args.slice(2).join(' '));
           msg.edit('Hobbies updated!');
         } else message.reply('You have to use profile edit nickname/bio/hobbies instead!');
