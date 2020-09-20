@@ -120,7 +120,7 @@ client.on("message", function(message) {
     .setTimestamp()
     
     
-    message.channel.send(embed123) + "Sended Your report to " + channel111)
+    message.channel.send(embed123 + "Sended Your report to " + channel111);
           }
 
       }
