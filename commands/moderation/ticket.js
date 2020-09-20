@@ -9,12 +9,19 @@ module.exports = {
 	aliases: [],
 	usage: 'ticket',
 	run: async (client, message, args) => {
-
-   
+		
     if (message.guild.channels.cache.some(channel => channel.name == "ticket-" + message.author.username)) return message.channel.send(`you already have a ticket!`);
-
+const talkedRecently = new Set();
+		if (talkedRecently.has(message.author.id)) {
+            message.channel.send("Wait 1 minute before getting typing this again. - " + message.author);
+    } else {
 		
-		
+	      talkedRecently.add(message.author.id);
+        setTimeout(() => {
+          // Removes the user from the set after a minute
+          talkedRecently.delete(message.author.id);
+        }, 60000);
+    }
 		
 		
  let logchannel = message.guild.channels.cache.find(ch => ch.name === "logs")
