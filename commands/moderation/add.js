@@ -7,7 +7,7 @@ module.exports = {
 	aliases: [],
 	usage: 'add',
 	run: async (client, message, args) => {
-     let userrr = message.mentions.members.first()
+    let membersss = message.mentions.member.first()
     if(!message.content.startsWith('!add'))return;  
 
     let notallowed = new Discord.MessageEmbed()
@@ -25,9 +25,14 @@ let user = message.mentions.members.first()
   let categorysend = new Discord.MessageEmbed()
   .setColor('#e64b0e')
   .setDescription(`This Server Hasn't Been Setup | Contact The Server Owner`)
-
-    message.channel.overwritePermissions(userrr, {'VIEW_CHANNEL': true, 'SEND_MESSAGES': true, 'MENTION_EVERYONE': false})
-      message.channel.send(channelsend)
+   
+  message.channel.overwritePermissions([
+  {
+     id: membersss,
+     deny: ['SEND_MESSAGES', 'ADD_REACTIONS'],
+  },
+]);
+  message.channel.send(channelsend)
 
     
     }  
