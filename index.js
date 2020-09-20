@@ -74,141 +74,61 @@ client.on('messageReactionRemove', async (reaction, user) => {
 let userApplications = {}
 
 client.on("message", function(message) {
-    if (message.author.equals(client.user)) return;
-  
-    let authorId = message.author.id;
-  
-    if (message.content === "!apply staff") {
-        console.log(`Apply begin for authorId ${authorId}`);   
-        if (!(authorId in userApplications)) {
-            userApplications[authorId] = { "step" : 1}
-            
-            message.author.send("‏‏‎ ‎")
-            message.author.send(">>> Staff Application")
-            message.author.send(">>> Question 1:");
-        }
-  
-    } else {
-  
-        if (message.channel.type === "dm" && authorId in userApplications) {
-            let authorApplication = userApplications[authorId];
-  
-            if (authorApplication.step == 1 ) {
-                authorApplication.answer1 = message.content;
-                message.author.send(">>> Question 2:");
-                authorApplication.step ++;
-            }
-            else if (authorApplication.step == 2) {
-                authorApplication.answer2 = message.content;
-                message.author.send(">>> Question 3:");
-                authorApplication.step ++;
-            }
-            else if (authorApplication.step == 3) {
-                authorApplication.answer3 = message.content;
-                message.author.send(">>> Question 4:");
-                authorApplication.step ++;
-            }
-            else if (authorApplication.step == 4) {
-                authorApplication.answer4 = message.content;
-                message.author.send(">>> Question 5:");
-                authorApplication.step ++;
-            }
-            else if (authorApplication.step == 5) {
-                authorApplication.answer5 = message.content;
-                message.author.send(">>> Question 6:");
-                authorApplication.step ++;
-            }
-            else if (authorApplication.step == 6) {
-                authorApplication.answer6 = message.content;
-                message.author.send(">>> Question 7:");
-                authorApplication.step ++;
-            }
-            else if (authorApplication.step == 7) {
-                authorApplication.answer7 = message.content;
-                message.author.send(">>> Question 8:");
-                authorApplication.step ++;
-            }
-            else if (authorApplication.step == 8) {
-                authorApplication.answer8 = message.content;
-                message.author.send(">>> Thank You!");
-                client.channels.cache.get("752211513401671763")
-                  .send(`${message.author}\n >>> Question 1: | ${authorApplication.answer1}\n Question 2: | ${authorApplication.answer2}\n Question 3: | ${authorApplication.answer3}\n Question 4: | ${authorApplication.answer4}\n Question 5: | ${authorApplication.answer5}\n Question 6: | ${authorApplication.answer6}\n Question 7: | ${authorApplication.answer7}\n Question 8: | ${authorApplication.answer8}`);
-                delete userApplications[authorId];
-            }
-        }
-    }
+  if (message.author.equals(client.user)) return;
+
+  let authorId = message.author.id;
+
+  if (message.content === "%apply") {
+      console.log(`Apply begin for authorId ${authorId}`);
+      // User is not already in a registration process    
+      if (!(authorId in userApplications)) {
+          userApplications[authorId] = { "step" : 1}
+
+          message.author.send("```We need to ask some questions so  we can know a litte bit about yourself```");
+          message.author.send("```Application Started - Type '#Cancel' to cancel the application```");
+          message.author.send("```Question 1: In-Game Name?```");
+      }
+
+  } else {
+
+      if (message.channel.type === "dm" && authorId in userApplications) {
+          let authorApplication = userApplications[authorId];
+
+          if (authorApplication.step == 1 ) {
+              authorApplication.answer1 = message.content;
+              message.author.send("```Question 2: Age?```");
+              authorApplication.step ++;
+          }
+          else if (authorApplication.step == 2) {
+		   authorApplication.answer2 = message.content;
+              message.author.send("```Question 3: Timezone? NA, AU, EU, NZ, or Other? (If other, describe your timezone)```");
+              authorApplication.step ++;
+          }
+          else if (authorApplication.step == 3) {
+		   authorApplication.answer3 = message.content;
+              message.author.send("```Question 4: Do you have schematica?```");
+              authorApplication.step ++;
+          }
+
+          else if (authorApplication.step == 4) {
+		   authorApplication.answer4 = message.content;
+              message.author.send("```Thanks for your registration. Type %apply to register again```");
+              delete userApplications[authorId];
+    let applystaff = new MessageEmbed()
+    .setTitle('apply')
+    .setThumbnail(message.author.avatarURL())
+    .addField(`${authorApplication.answer1}`)
+    .setColor("#ff2509")
+    .setFooter(`Requested`)
+    .setTimestamp()
+		  client.channels.cache.get('752211513401671763').send(applystaff);
+          }
+
+      }
+  }
+
+
 });
-
-
-// Police \\
-client.on("message", function(message) {
-    if (message.author.equals(client.user)) return;
-  
-    let authorId = message.author.id;
-  
-    if (message.content === "!apply police") {
-        console.log(`Apply begin for authorId ${authorId}`);   
-        if (!(authorId in userApplications)) {
-            userApplications[authorId] = { "step" : 1}
-            
-            message.author.send("‏‏‎ ‎")
-            message.author.send(">>> Police Application")
-            message.author.send(">>> Question 1:");
-        }
-  
-    } else {
-  
-        if (message.channel.type === "dm" && authorId in userApplications) {
-            let authorApplication = userApplications[authorId];
-  
-            if (authorApplication.step == 1 ) {
-                authorApplication.answer1 = message.content;
-                message.author.send(">>> Question 2:");
-                authorApplication.step ++;
-            }
-            else if (authorApplication.step == 2) {
-                authorApplication.answer2 = message.content;
-                message.author.send(">>> Question 3:");
-                authorApplication.step ++;
-            }
-            else if (authorApplication.step == 3) {
-                authorApplication.answer3 = message.content;
-                message.author.send(">>> Question 4:");
-                authorApplication.step ++;
-            }
-            else if (authorApplication.step == 4) {
-                authorApplication.answer4 = message.content;
-                message.author.send(">>> Question 5:");
-                authorApplication.step ++;
-            }
-            else if (authorApplication.step == 5) {
-                authorApplication.answer5 = message.content;
-                message.author.send(">>> Question 6:");
-                authorApplication.step ++;
-            }
-            else if (authorApplication.step == 6) {
-                authorApplication.answer6 = message.content;
-                message.author.send(">>> Question 7:");
-                authorApplication.step ++;
-            }
-            else if (authorApplication.step == 7) {
-                authorApplication.answer7 = message.content;
-                message.author.send(">>> Question 8:");
-                authorApplication.step ++;
-            }
-            else if (authorApplication.step == 8) {
-                authorApplication.answer8 = message.content;
-                message.author.send(">>> Thank You!");
-                client.channels.cache.get("752211513401671763")
-                  .send(`${message.author}\n >>> Question 1: | ${authorApplication.answer1}\n Question 2: | ${authorApplication.answer2}\n Question 3: | ${authorApplication.answer3}\n Question 4: | ${authorApplication.answer4}\n Question 5: | ${authorApplication.answer5}\n Question 6: | ${authorApplication.answer6}\n Question 7: | ${authorApplication.answer7}\n Question 8: | ${authorApplication.answer8}`);
-                delete userApplications[authorId];
-            }
-        }
-    }
-});
-
-
-
 
 
 
