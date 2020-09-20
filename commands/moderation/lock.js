@@ -10,9 +10,9 @@ module.exports = {
     aliases: ["lock"],
     permissions: ["MANAGE_CHANNELS", "MANAGE_MESSAGES"],
     run: async (message, args) => {
-        
-        if (!message.member.hasPermission("MANAGE_CHANNELS") || !message.member.hasPermission("MANAGE_MESSAGES")) {
-            if (message.member.hasPermission("MANAGE_MESSAGES")) {
+    
+        if (!message.member.hasPermission('ADMINISTRATOR')) {
+            if (!message.member.hasPermission("MANAGE_MESSAGES")) {
                 const embed = new MessageEmbed()
                     .setTitle("lockdown")
                     .setDescription("❌ requires permission: *MANAGE_CHANNELS* and *MANAGE_MESSAGES*")
