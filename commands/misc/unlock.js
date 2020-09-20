@@ -6,12 +6,14 @@ module.exports = {
     run: (client, message, args, level) => {
   try {
     message.channel.send('Unlocking Channel...')
-   .then((msg)=> {
-  setTimeout(function(){
-    msg.edit('Unlocking Channel..');
-    .then((msg)=> {
-  setTimeout(function(){
-    msg.edit('Unlocking Channel.');
+   setTimeout(() => {
+    // Edit msg 20 seconds later
+    message.edit('Unlocking Channel..');
+  }, 2000);
+         setTimeout(() => {
+    // Edit msg 20 seconds later
+    message.edit('Unlocking Channel.');
+  }, 2000);
     
     message.channel.overwritePermissions(message.guild.id, {
       SEND_MESSAGES: null
