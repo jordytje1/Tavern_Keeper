@@ -1,11 +1,11 @@
 module.exports = {
-    name: "lock",
+    name: "unlock",
     category: 'moderation',
-    description: "lock channel.",
-    usage: "lock ",
+    description: "unlock channel.",
+    usage: "unlock ",
     run: (client, message, args, level) => {
   try {
-    await message.channel.send('Unmuting Channel...');
+    message.channel.send('Ulocking Channel...');
     
     message.channel.overwritePermissions(message.guild.id, {
       SEND_MESSAGES: null
