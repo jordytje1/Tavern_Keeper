@@ -8,7 +8,7 @@ module.exports = {
 	usage: 'remove',
 	run: async (client, message, args) => {
     let memberssss = message.mentions.members.first()
-    if(!message.content.startsWith('!add'))return;  
+    if(!message.content.startsWith('!remove'))return;  
 
     let notallowed = new Discord.MessageEmbed()
     .setColor('#e64b0e')
