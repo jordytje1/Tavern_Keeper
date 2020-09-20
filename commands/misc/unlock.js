@@ -5,7 +5,13 @@ module.exports = {
     usage: "unlock ",
     run: (client, message, args, level) => {
   try {
-    message.channel.send('Ulocking Channel...');
+    message.channel.send('Unlocking Channel...')
+   .then((msg)=> {
+  setTimeout(function(){
+    msg.edit('Unlocking Channel..');
+    .then((msg)=> {
+  setTimeout(function(){
+    msg.edit('Unlocking Channel.');
     
     message.channel.overwritePermissions(message.guild.id, {
       SEND_MESSAGES: null
