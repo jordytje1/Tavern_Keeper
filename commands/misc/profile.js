@@ -8,6 +8,7 @@ module.exports = {
 	description: 'Show The User Bio',
 	usage: '[mention]',
 	run: async (client, message, args) => {
+		let User = message.mentions.members.first()
 		let member =
 			message.mentions.members.first() ||
 			message.guild.members.cache.get(args[0]) ||
