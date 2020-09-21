@@ -1,113 +1,40 @@
-const Discord = require('discord.js');
-const crypto = require('crypto');
+const { MessageEmbed } = require('discord.js');
+
 module.exports = {
-    name: "profile",
-    category: 'moderation',
-    description: "unlock channel.",
-    usage: "profile",
-    run: (client, message, args, level) => {
-  try {
-    if (args[0] == 'create') {
-      if (!message.guild) {
-        if (client.logins.set(message.author.id)) {
-          let passwordRaw = client.awaitReply(message, 'What do you want as your password?');
-          let passwordRawConfirm = client.awaitReply(message, 'Confirm your password');
-          if (passwordRaw !== passwordRawConfirm) return message.channel.send('Your password does not match the confirmation.');
-          let password = crypto.createHash('sha256').update(passwordRawConfirm).digest('hex');
+	name: 'profile',
+	aliases: ['pf', '$'],
+	category: 'economy',
+	timeout: 3,
+	description: 'Show The User Bio',
+	usage: '[mention]',
+	run: async (client, message, args) => {
+		let member =
+			message.mentions.members.first() ||
+			message.guild.members.cache.get(args[0]) ||
+			message.author;
 
-          let msg = message.channel.send('Creating profile...');
-          client.logins.set(message.author.id, password);
-          msg.edit('Profile Created!');
-          client.liusers.set(message.author.id, false);
-        } else message.reply('You already have a profile!');
-      }
-      else message.channel.send('Profile create is unavailable via a guild. Please run this command in DM\'s.');
-    } else if (args[0] == 'login') {
-      if (!message.guild) {
-        let passwordRaw = client.awaitReply(message, 'What is your password?');
-        let password = crypto.createHash('sha256').update(passwordRaw).digest('hex');
-        let msg = message.channel.send('Logging in...');
+		if (member.bot) return message.channel.send('Its A Bot -_-');
+		let data = await User.findOne({
+			guildID: message.guild.id,
+			userID: member.id,
+		});
+		let guildData = await Guild.findOne({ guildID: message.guild.id });
+		if (!data) return client.nodb(member.user);
 
-        if (password == client.logins.get(message.author.id)) {
-          client.liusers.set(message.author.id, false);
-          msg.edit('Logged in!');
-        } else msg.edit('I could not find a user with that password. (If you need help creating an account try using createprofile instead)');
-      }
-
-      else message.channel.send('Profile login is unavailable via a guild. Please run this command in DM\'s.');
-    }
-    
-    if (args[0] == 'logout') {
-      let msg = message.channel.send('Logging out...');
-      
-      if (client.liusers.get(message.author.id)) {
-        client.liusers.delete(message.author.id);
-        msg.edit('You are logged out!');
-      } else msg.edit('You are not logged in! (Use profile login instead)');
-    } else if (args[0] == 'password') {
-      if (!message.guild) {
-        if (args[1] == 'change') {
-          if (client.logins.set(message.author.id)) {
-            let passwordRaw = client.awaitReply(message, 'What do you want as your new password?');
-            let oldPasswordRaw = client.awaitReply(message, 'What is your old password?');
-            let passwordRawConfirm = client.awaitReply(message, 'Confirm your password');
-            if (passwordRaw !== oldPasswordRaw) return message.channel.send('Your new password does not match the old password.');
-            if (passwordRaw !== passwordRawConfirm) return message.channel.send('Your new password does not match the confirmation.');
-            let password = crypto.createHash('sha256').update(passwordRawConfirm).digest('hex');
-
-            let msg = message.channel.send('Changing password..');
-            client.logins.set(message.author.id, password);
-            msg.edit('Password Changed!');
-            client.liusers.set(message.author.id, true);
-          }
-        } else message.reply('You have to use profile password change instead!');
-      }
-      else message.channel.send('Profile password is unavailable via a guild. Please run this command in DM\'s.');
-    } else if (args[0] == 'edit') {
-      if (client.liusers.get(message.author.id)) {
-        if (args[1] == 'nickname') {
-          if (!client.profiles.get(message.author.id)) {
-            client.profiles.set(message.author.id+'nickname', 'Not Specified');
-            client.profiles.set(message.author.id+'bio', 'Not Specified');
-            client.profiles.set(message.author.id+'hobbies', 'Not Specified');
-          }
-
-          let msg = message.channel.send('Updating nickname...');
-          client.profiles.set(message.author.id+'nickname', args.slice(2).join(' '));
-          msg.edit('Nickname updated!');
-        } else if (args[1] == 'bio') {
-          let msg = message.channel.send('Updating bio...');
-          client.profiles.set(message.author.id+'bio', args.slice(2).join(' '));
-          msg.edit('Bio updated!');
-        } else if (args[1] == 'hobbies') {
-          let msg = message.channel.send('Updating hobbies...');
-          client.profiles.set(message.author.id+'hobbies', args.slice(2).join(' '));
-          msg.edit('Hobbies updated!');
-        } else message.reply('You have to use profile edit nickname/bio/hobbies instead!');
-      } else message.reply('You are not logged in!');
-    } else if (args[0] == 'view') {
-      if (!client.profiles.get(message.author.id+'nickname')) {
-        client.profiles.set(message.author.id+'nickname', 'Not Specified');
-      }
-      if (!client.profiles.get(message.author.id+'bio')) {
-        client.profiles.set(message.author.id+'bio', 'Not Specified');
-      }
-      if (!client.profiles.get(message.author.id+'hobbies')) {
-        client.profiles.set(message.author.id+'hobbies', 'Not Specified');
-      }
-      
-      let profile = {nickname: client.profiles.get(message.author.id+'nickname'), 'bio': client.profiles.get(message.author.id+'bio'), hobbies: client.profiles.get(message.author.id+'hobbies')};
-      let embed = new Discord.RichEmbed()
-      .setTitle('Profile')
-      .setColor('#eeeeee')
-      .setDescription(`Nickname: ${profile.nickname}
-Bio: ${profile.bio}
-Hobbies: ${profile.hobbies}`);
-      
-      message.channel.send(embed);
-    }
-  } catch (err) {
-    message.channel.send('Their was an error!\n' + err).catch();
-  };
-  }
-  }
+		let inline = true;
+		let e = new MessageEmbed()
+			.setTitle(`${member.username} Profile:`)
+			.setDescription(`Bio:`, `${data.bio || guildData.prefix + 'bio [text]'}`)
+			.addField('Money', `${data.money || 0}`, inline)
+			.addField('Level', `${data.level || 1}`, inline)
+			.addField('XP', `${data.xp || 0}/${process.env.UPXP}`, inline)
+			.addField('Messages', `${data.messages || 0}`, inline)
+			.addField('Warn', `${data.warn || 0}/${process.env.WARN}`, inline)
+			.addField('Afk', `${data.afk || false}`, inline)
+			.addField(
+				'Status',
+				`${data.status || guildData.prefix + `setstatus [text]`}`,
+			);
+		message.channel.send({ embed: e });
+	},
+};
