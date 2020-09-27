@@ -20,7 +20,7 @@ module.exports = {
 
     if (!reason) return message.channel.send("Give me a reason.");
 
-    const warns = require("../assets/warnings.json");
+    const warns = require("../../assets/warnings.json");
 
     if (!warns[user.id]) warns[user.id] = {
         warns: 0
@@ -28,7 +28,7 @@ module.exports = {
 
     warns[user.id].warns++;
 
-    fs.writeFile("./assets/warnings.json", JSON.stringify(warns), (err) => {
+    fs.writeFile("././assets/warnings.json", JSON.stringify(warns), (err) => {
         if (err) console.log(err)
     });
 
