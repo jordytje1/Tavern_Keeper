@@ -10,7 +10,7 @@ module.exports = {
 	run: async (client, message, args) => {
     if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("Sorry, you dont have the right permissions to do this.");
 
-    var user = message.mentions.members.first() || message.guild.members.get(args[0]);
+    var user = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
 
     if (!user) return message.channel.send("This user is not in this server.");
     
