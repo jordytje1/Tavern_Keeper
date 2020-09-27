@@ -25,6 +25,6 @@
     "twemoji-parser": "^13.0.0",
     "weather-js": "^2.0.0",
     "yt-search": "^1.2.2",
-    "ytdl-core": "^1.0.0"
+    "ytdl-core": "^3.2.0"
   }
 }
