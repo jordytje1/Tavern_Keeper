@@ -32,7 +32,7 @@ module.exports = {
         if (err) console.log(err)
     });
 
-    const exampleEmbed = new discord.RichEmbed()
+    const exampleEmbed = new Discord.MessageEmbed()
 	.setColor('#4955a9')
     .setTitle(`**WARN**`)
     .addField("warned user", user)
