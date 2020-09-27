@@ -44,6 +44,7 @@ module.exports = {
 
     incidentchannel.send(exampleEmbed);
 
-    message.channel.send(`:white_check_mark: Succesfully warned user: ${user}`)
+    message.channel.send(`:white_check_mark: Succesfully warned user: ${user}`);
 };
+}
 }
