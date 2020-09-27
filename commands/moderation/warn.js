@@ -39,7 +39,7 @@ module.exports = {
     .addField("gewarned by", message.author)
     .addField("reason", reason);
 
-    let incidentchannel = message.guild.channels.get("752211513401671763");
+    let incidentchannel = message.guild.channels.cache.get("752211513401671763");
     if(!incidentchannel) return message.channel.send("Cant find logs channel.");
 
     incidentchannel.send(exampleEmbed);
