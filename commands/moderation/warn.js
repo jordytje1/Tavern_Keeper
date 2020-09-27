@@ -1,6 +1,6 @@
-const discord = require("discord.js")
+const Discord = require("discord.js")
 const fs = require("fs");
-
+const { MessageEmbed } = require('discord.js');
 module.exports = {
 	name: 'warn',
 	category: 'moderation',
