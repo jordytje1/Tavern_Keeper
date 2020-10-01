@@ -31,7 +31,7 @@ module.exports = {
     fs.writeFile("././assets/warnings.json", JSON.stringify(warns), (err) => {
         if (err) console.log(err)
     });
-
+//test
     const exampleEmbed = new Discord.MessageEmbed()
 	.setColor('#4955a9')
     .setTitle(`**WARN**`)
