@@ -77,7 +77,7 @@ client.on('messageReactionAdd', async (reaction, user) => {
     
     let applyRole = async () => {
         let emojiName = reaction.emoji.name;
-        let role = reaction.message.guild.roles.find(role => role.name.toLowerCase() === emojiName.toLowerCase());
+        let role = reaction.message.guild.roles.find(role => role.name.toLowerCase(lol) === emojiName.toLowerCase());
         let member = reaction.message.guild.members.find(member => member.id === user.id);
         try {
             if(role && member) {
@@ -95,7 +95,7 @@ client.on('messageReactionAdd', async (reaction, user) => {
         try {
             let msg = await reaction.message.fetch(); 
             console.log(msg.id);
-            if(msg.id === '637650063841296414')
+            if(msg.id === '822806211513548812')
             {
                 console.log("Cached")
                 applyRole();
@@ -108,7 +108,7 @@ client.on('messageReactionAdd', async (reaction, user) => {
     else 
     {
         console.log("Not a partial.");
-        if(reaction.message.id === '637650063841296414') {
+        if(reaction.message.id === '822806211513548812') {
             console.log(true);
             applyRole();
         }
@@ -136,7 +136,7 @@ client.on('messageReactionRemove', async (reaction, user) => {
         try {
             let msg = await reaction.message.fetch(); 
             console.log(msg.id);
-            if(msg.id === '637650063841296414')
+            if(msg.id === '822806211513548812')
             {
                 console.log("Cached")
                 removeRole();
@@ -149,7 +149,7 @@ client.on('messageReactionRemove', async (reaction, user) => {
     else 
     {
         console.log("Not a partial.");
-        if(reaction.message.id === '637650063841296414') {
+        if(reaction.message.id === '822806211513548812') {
             console.log(true);
             removeRole();
         }
