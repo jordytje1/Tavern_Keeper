@@ -5,11 +5,11 @@ module.exports = {
         webhook: "Full Webhook URL" 
     },
     roles: [
-        // { Example object for the reaction roles.
-        //     emoji: "emoji-id/or/emoji", // Ex: 123457890 or ✅
-        //     roleID: "The Role ID", //Ex: 1234567890
-        //     channelID: "The channel ID", // Ex: 1234567890
-        //     messageID: "The message id", // Ex: 1234567890
-        // }
+      
+             emoji: "✅",
+             roleID: "752218148719034395",
+            channelID: "752211512545771591",
+             messageID: "822783615389532160",
+         }
     ]
 }
