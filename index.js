@@ -8,6 +8,7 @@ const config = require("./config.json");
 const { MessageEmbed } = require("discord.js");
 const verify_role = '752905551318351904';
 const Discord = require("discord.js");
+const client = new Discord.Client();
 const log = '753313405833576498';
 const welcomes = '715172419131670569'
 const welcome = '752211512248107177'
@@ -70,7 +71,31 @@ client.on('messageReactionRemove', async (reaction, user) => {
 
 
 
+client.on('message', (msg) => {
+    // Is the sender a bot? If it is, cancel
+    if(msg.author.bot) return;
 
+    // Check if information command was called
+    if(msg.content === 'reaction-bot') {
+        msg.channel.send({
+            embed: {
+                color: 0x37dbd0,
+                author: {
+                    name: client.user.name,
+                    icon_url: client.user.avatarURL
+                },
+                title: 'Reaction bot by Moquo',
+                url: 'https://github.com/Moquo/discord-reaction-bot',
+                description: 'Reaction bot adds reactions to messages'
+            }
+        });
+        return;
+    }
+
+    // React to the message
+    if(config.rankCheck.enabled && !(msg.member.roles.some(role => config.rankCheck.roles.includes(role.name)))) return;
+    msg.react(config.react_emoji);
+});
 
 
 
