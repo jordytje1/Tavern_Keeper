@@ -73,7 +73,6 @@ client.on('messageReactionRemove', async (reaction, user) => {
 
 
 const {WebhookClient} = require('./config'), cooldown = new Set();
-}
 const Hook = async (hook, data) => {
     if(config.logging.enabled === false) return null;
     if(!hook) return null;
