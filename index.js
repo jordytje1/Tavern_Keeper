@@ -67,7 +67,6 @@ client.on('messageReactionRemove', async (reaction, user) => {
 
 
 
-const client = new Client({ partials: ['MESSAGE'] });
 
 client.on('ready', onReady);
 client.on('messageReactionAdd', addRole);
