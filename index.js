@@ -72,8 +72,6 @@ client.on('ready', onReady);
 client.on('messageReactionAdd', addRole);
 client.on('messageReactionRemove', removeRole);
 
-client.login(process.env.BOT_TOKEN);
-
 /**
  * 'ready' event handler for discord.js client
  * find the first message in the specified channel and save it for later
