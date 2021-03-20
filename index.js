@@ -110,7 +110,7 @@ client.on("message", function(message) {
 
 
 var userTickets = new Map();
-
+const discord = require('discord.js');
 
 client.on('ready', () => {
     console.log(client.user.username + " has logged in.");
