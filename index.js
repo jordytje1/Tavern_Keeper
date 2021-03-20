@@ -8,7 +8,7 @@ const config = require("./config.json");
 const { MessageEmbed } = require("discord.js");
 const verify_role = '752905551318351904';
 const Discord = require("discord.js");
-const client = new Discord.Client();
+
 const log = '753313405833576498';
 const welcomes = '715172419131670569'
 const welcome = '752211512248107177'
