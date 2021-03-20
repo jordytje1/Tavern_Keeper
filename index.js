@@ -36,7 +36,7 @@ let memberlog = "752211513401671763";
 
 
 client.on('message', async message => {
-	if (message.content.startsWith('${PREFIX}reactionroles')) {
+	if (message.content.startsWith('!reactionroles')) {
 		let msg = await message.channel.send('react for some roles')
 		await msg.react('✅').then(msg.react('❎'))
 		
@@ -46,18 +46,18 @@ client.on('messageReactionAdd', async (reaction, user) => {
 	if (reaction.message.partial) await reaction.message.fetch()
 	if (reaction.partial) await reaction.fetch()
 	if (user.bot) return
-	if (reaction.channel.message.id === '822769916288434195') {
-		if (reaction.emoji.name === '✅') await reaction.message.guild.members.cache.get(user.id).roles.add('752905551318351904')
-		if (reaction.emoji.name === '❎') await reaction.message.guild.members.cache.get(user.id).roles.add('754682919624245379')
+	if (reaction.channel.message.id === '752211512545771591') {
+		if (reaction.emoji.name === '✅') await reaction.message.guild.members.cache.get(user.id).roles.add('752218148719034395')
+		if (reaction.emoji.name === '❎') await reaction.message.guild.members.cache.get(user.id).roles.add('752218148719034395')
 	}
 })
 client.on('messageReactionRemove', async (reaction, user) => {
 	if (reaction.message.partial) await reaction.message.fetch()
 	if (reaction.partial) await reaction.fetch()
 	if (user.bot) return
-	if (reaction.channel.id === '822769916288434195') {
-		if (reaction.emoji.name === '✅') await reaction.message.guild.members.cache.get(user.id).roles.remove('752905551318351904')
-		if (reaction.emoji.name === '❎') await reaction.message.guild.members.cache.get(user.id).roles.remove('754682919624245379')
+	if (reaction.channel.id === '752211512545771591') {
+		if (reaction.emoji.name === '✅') await reaction.message.guild.members.cache.get(user.id).roles.remove('752218148719034395')
+		if (reaction.emoji.name === '❎') await reaction.message.guild.members.cache.get(user.id).roles.remove('752218148719034395')
 	}
 })
 
