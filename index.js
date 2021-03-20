@@ -73,7 +73,38 @@ client.on('messageReactionRemove', async (reaction, user) => {
 
 
 
+const { ReactionRole } = require("reaction-role");
+/*
+ * you can use this client as your normal bot client
+ * this instance extends from default discord.js client
+ * See https://discord.js.org/#/docs/main/stable/class/Client
+ * */
+const client = new ReactionRole("DISCORD_BOT_TOKEN");
 
+const option1 = client.createOption("EMOJI", "ADD_MESSAGE", "REMOVE_MESSAGE", [
+	"ROLE_TO_ADD_ID",
+]);
+const option2 = client.createOption("EMOJI", "ADD_MESSAGE", "REMOVE_MESSAGE", [
+	"ROLE_TO_ADD_ID",
+]);
+const option3 = client.createOption("EMOJI", "ADD_MESSAGE", "REMOVE_MESSAGE", [
+	"ROLE_TO_ADD_ID",
+]);
+
+const LIMIT = 3;
+const RESTRICTIONS = [];
+
+client.createMessage(
+	"MESSAGE_ID",
+	"CHANNEL_ID",
+	LIMIT,
+	RESTRICTIONS,
+	option1,
+	option2,
+	option3,
+);
+
+client.init();
 
 
 
