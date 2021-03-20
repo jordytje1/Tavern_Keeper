@@ -1,5 +1,10 @@
 {
     "YOUR_ID": "376384142599782410",
+  "channel": "lfg-roles",
+  "roles": {
+    "xbox": "Xbox",
+    "ps4": "PS4",
+    "steam": "Steam"
     "PREFIX": "!",
     "SERVER_ID": "752211511996317827",
     "CHANNEL_ID": "752211513401671763", 
@@ -7,12 +12,4 @@
         "ORANGE": "#ff6a00",
 	"GREEN": "#00ff26",
 	"PURPLE": "#d604cf"
-	{
-  "channel": "lfg-roles",
-  "roles": {
-    "xbox": "Xbox",
-    "ps4": "PS4",
-    "steam": "Steam"
   }
-}
-
