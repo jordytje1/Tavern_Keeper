@@ -33,7 +33,7 @@ let memberlog = "752211513401671763";
 
 
 
-
+const Discord = require("Discord")
 
 client.on('message', async message => {
 	if (message.content.startsWith('${PREFIX}reactionroles')) {
