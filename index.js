@@ -35,127 +35,65 @@ let memberlog = "752211513401671763";
 
 
 
+client.on('ready', () => console.log(`${client.user.tag} has logged in.`));
+
 client.on('message', async message => {
-	if (message.content.startsWith('!reactionroles')) {
-		let msg = await message.channel.send('react for some roles')
-		await msg.react('✅').then(msg.react('❎'))
-		
-	}
-})
-client.on('messageReactionAdd', async (reaction, user) => {
-	if (reaction.message.partial) await reaction.message.fetch()
-	if (reaction.partial) await reaction.fetch()
-	if (user.bot) return
-	if (reaction.message.id === '752211512545771591') {
-		if (reaction.emoji.name === '✅') await reaction.message.guild.members.cache.get(user.id).roles.add('752218148719034395')
-		if (reaction.emoji.name === '❎') await reaction.message.guild.members.cache.get(user.id).roles.add('752218148719034395')
-	}
-})
-client.on('messageReactionRemove', async (reaction, user) => {
-	if (reaction.message.partial) await reaction.message.fetch()
-	if (reaction.partial) await reaction.fetch()
-	if (user.bot) return
-	if (reaction.channel.id === '752211512545771591') {
-		if (reaction.emoji.name === '✅') await reaction.message.guild.members.cache.get(user.id).roles.remove('752218148719034395')
-		if (reaction.emoji.name === '❎') await reaction.message.guild.members.cache.get(user.id).roles.remove('752218148719034395')
-	}
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
-client.on('messageReactionAdd', async (reaction, user) => {
-    
-    let applyRole = async () => {
-        let emojiName = reaction.emoji.name;
-        let role = reaction.message.guild.roles.find(role => role.name.toLowerCase(lol) === emojiName.toLowerCase());
-        let member = reaction.message.guild.members.find(member => member.id === user.id);
-        try {
-            if(role && member) {
-                console.log("Role and member found.");
-                await member.roles.add(role);
-                console.log("Done.");
+    if(message.author.bot) return;
+    if(message.content.toLowerCase().startsWith('!createpoll')) {
+        let args = message.content.split(" ");
+        let time = args[1];
+        let question = args.slice(2).join(" ");
+        let regex = new RegExp(/^([0-9]{2}|[0-9]{1})[sSmM]$/);
+        if(regex.test(time)) {
+            if(time.toLowerCase().endsWith('s')) {
+                time = parseInt(time.substring(0, time.indexOf('s')));
+                time *= 1000;
+            } 
+            else if(time.toLowerCase().endsWith('m')) {
+                time = parseInt(time.substring(0, time.indexOf('m')));
+                time *= 60 * 1000;
             }
-        }
-        catch(err) {
-            console.log(err);
-        }
-    }
-    if(reaction.message.partial)
-    {
-        try {
-            let msg = await reaction.message.fetch(); 
-            console.log(msg.id);
-            if(msg.id === '822806211513548812')
-            {
-                console.log("Cached")
-                applyRole();
+            const embed = new MessageEmbed()
+                .setTitle(question)
+                .setDescription('React with 👍 or 👎')
+                .setTimestamp();
+            try {
+                const polls = new Map();
+                const userVotes = new Map();
+                let filter = (reaction, user) => {
+                    if(user.bot) return false;
+                    if(['👍', '👎'].includes(reaction.emoji.name)) {
+                        if(polls.get(reaction.message.id).get(user.id))
+                            return false;
+                        else {
+                            userVotes.set(user.id, reaction.emoji.name);
+                            return true;
+                        }
+                    }
+                }
+                let msg = await message.channel.send(embed);
+                await msg.react('👍');
+                await msg.react('👎');
+                polls.set(msg.id, userVotes);
+                let reactions = await msg.awaitReactions(filter, { time: time });
+                let thumbsUp = reactions.get('👍');
+                let thumbsDown = reactions.get('👎');
+                let thumbsUpResults = 0, thumbsDownResults = 0;
+                if(thumbsUp)
+                    thumbsUpResults = thumbsUp.users.cache.filter(u => !u.bot).size;
+                if(thumbsDown)
+                    thumbsDownResults = thumbsDown.users.cache.filter(u => !u.bot).size;
+                const resultsEmbed = new MessageEmbed()
+                    .setTitle('Results')
+                    .setDescription(`👍 - ${thumbsUpResults} votes\n\n👎 - ${thumbsDownResults} votes\n`);
+                await message.channel.send(resultsEmbed);
             }
-        }
-        catch(err) {
-            console.log(err);
-        }
-    }
-    else 
-    {
-        console.log("Not a partial.");
-        if(reaction.message.id === '822806211513548812') {
-            console.log(true);
-            applyRole();
+            catch(err) {
+                console.log(err);
+            }
         }
     }
 });
-
-client.on('messageReactionRemove', async (reaction, user) => {
-    let removeRole = async () => {
-        let emojiName = reaction.emoji.name;
-        let role = reaction.message.guild.roles.find(role => role.name.toLowerCase() === emojiName.toLowerCase());
-        let member = reaction.message.guild.members.find(member => member.id === user.id);
-        try {
-            if(role && member) {
-                console.log("Role and member found.");
-                await member.roles.remove(role);
-                console.log("Done.");
-            }
-        }
-        catch(err) {
-            console.log(err);
-        }
-    }
-    if(reaction.message.partial)
-    {
-        try {
-            let msg = await reaction.message.fetch(); 
-            console.log(msg.id);
-            if(msg.id === '822806211513548812')
-            {
-                console.log("Cached")
-                removeRole();
-            }
-        }
-        catch(err) {
-            console.log(err);
-        }
-    }
-    else 
-    {
-        console.log("Not a partial.");
-        if(reaction.message.id === '822806211513548812') {
-            console.log(true);
-            removeRole();
-        }
-    }
-})
-
 
 
 
