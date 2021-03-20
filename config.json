@@ -6,7 +6,7 @@
 	"RED": "#b70000",
         "ORANGE": "#ff6a00",
 	"GREEN": "#00ff26",
-	"PURPLE": "#d604cf"
+	"PURPLE": "#d604cf",
 	 "react_emoji": "😎",
         "rankCheck": {
         "enabled": true,
