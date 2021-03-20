@@ -123,12 +123,12 @@ client.on('message', message => {
      */
     if(message.author.bot) {
         if(message.embeds.length === 1 && message.embeds[0].description.startsWith('React')) {
-            message.react(':ticketreact:625925895013662721')
+            message.react(':tickets:625925895013662721')
             .then(msgReaction => console.log('Reacted.'))
             .catch(err => console.log(err));
         }
         if(message.embeds.length === 1 && message.embeds[0].title === 'Ticket Support') {
-            message.react(':checkreact:625938016510410772')
+            message.react(':tickets:625938016510410772')
             .then(reaction => console.log("Reacted with " + reaction.emoji.name))
             .catch(err => console.log(err));
         }
@@ -153,7 +153,7 @@ client.on('message', message => {
  */
 client.on('raw', payload => {
     if(payload.t === 'MESSAGE_REACTION_ADD') { // Check if the event name is MESSAGE_REACTION_ADD
-        if(payload.d.emoji.name === 'ticketreact') // If the emoji is ticketreact
+        if(payload.d.emoji.name === 'tickets') // If the emoji is ticketreact
         {
             if(payload.d.message_id === '625926893954400266') { // Here we check if the id of the message is the ID of the embed that we had the bot send using the ?sendmsg command.
                 let channel = client.channels.get(payload.d.channel_id) // Get the proper channel object.
