@@ -115,6 +115,18 @@ client.on('message', msg => {
             const user = msg.guild.members.cache.find(member => member.id === mention);
             user.createDM(true);
             user.send(args.slice(args.indexOf(" ")));
+		       }
+    } else {
+        switch(msg.content) {
+            case "!ping":
+                msg.reply("Pong!");
+                break;
+            case "!pong":
+                msg.reply("Ping!");
+                break;
+        }
+    }
+});
 
 
 
