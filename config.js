@@ -5,8 +5,7 @@ module.exports = {
         webhook: "Full Webhook URL" 
     },
     roles: [
-},
-    "token": "TOKEN",
+}
        "emoji": "✅",
         "roleID": "752218148719034395",
         "channelID": "752211512545771591",
