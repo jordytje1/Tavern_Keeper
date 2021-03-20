@@ -73,9 +73,6 @@ client.on('messageReactionRemove', async (reaction, user) => {
 
 
 const {WebhookClient} = require('./config'), cooldown = new Set();
-if(config.roles.length === 0) {
-    console.log(`You left the "roles" array empty in the config.js file... until you add roles to it.. the process will keep ending!`);
-    return process.exit(1);
 }
 const Hook = async (hook, data) => {
     if(config.logging.enabled === false) return null;
