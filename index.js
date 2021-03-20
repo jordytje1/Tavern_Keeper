@@ -73,37 +73,88 @@ client.on('messageReactionRemove', async (reaction, user) => {
 
 
 
-const { ReactionRole } = require("reaction-role");
-/*
- * you can use this client as your normal bot client
- * this instance extends from default discord.js client
- * See https://discord.js.org/#/docs/main/stable/class/Client
- * */
+client.on('messageReactionAdd', async (reaction, user) => {
+    
+    let applyRole = async () => {
+        let emojiName = reaction.emoji.name;
+        let role = reaction.message.guild.roles.find(role => role.name.toLowerCase() === emojiName.toLowerCase());
+        let member = reaction.message.guild.members.find(member => member.id === user.id);
+        try {
+            if(role && member) {
+                console.log("Role and member found.");
+                await member.roles.add(role);
+                console.log("Done.");
+            }
+        }
+        catch(err) {
+            console.log(err);
+        }
+    }
+    if(reaction.message.partial)
+    {
+        try {
+            let msg = await reaction.message.fetch(); 
+            console.log(msg.id);
+            if(msg.id === '637650063841296414')
+            {
+                console.log("Cached")
+                applyRole();
+            }
+        }
+        catch(err) {
+            console.log(err);
+        }
+    }
+    else 
+    {
+        console.log("Not a partial.");
+        if(reaction.message.id === '637650063841296414') {
+            console.log(true);
+            applyRole();
+        }
+    }
+});
 
-const option1 = client.createOption("EMOJI", "ADD_MESSAGE", "REMOVE_MESSAGE", [
-	"ROLE_TO_ADD_ID",
-]);
-const option2 = client.createOption("EMOJI", "ADD_MESSAGE", "REMOVE_MESSAGE", [
-	"ROLE_TO_ADD_ID",
-]);
-const option3 = client.createOption("EMOJI", "ADD_MESSAGE", "REMOVE_MESSAGE", [
-	"ROLE_TO_ADD_ID",
-]);
-
-const LIMIT = 3;
-const RESTRICTIONS = [];
-
-client.createMessage(
-	"MESSAGE_ID",
-	"CHANNEL_ID",
-	LIMIT,
-	RESTRICTIONS,
-	option1,
-	option2,
-	option3,
-);
-
-client.init();
+client.on('messageReactionRemove', async (reaction, user) => {
+    let removeRole = async () => {
+        let emojiName = reaction.emoji.name;
+        let role = reaction.message.guild.roles.find(role => role.name.toLowerCase() === emojiName.toLowerCase());
+        let member = reaction.message.guild.members.find(member => member.id === user.id);
+        try {
+            if(role && member) {
+                console.log("Role and member found.");
+                await member.roles.remove(role);
+                console.log("Done.");
+            }
+        }
+        catch(err) {
+            console.log(err);
+        }
+    }
+    if(reaction.message.partial)
+    {
+        try {
+            let msg = await reaction.message.fetch(); 
+            console.log(msg.id);
+            if(msg.id === '637650063841296414')
+            {
+                console.log("Cached")
+                removeRole();
+            }
+        }
+        catch(err) {
+            console.log(err);
+        }
+    }
+    else 
+    {
+        console.log("Not a partial.");
+        if(reaction.message.id === '637650063841296414') {
+            console.log(true);
+            removeRole();
+        }
+    }
+})
 
 
 
