@@ -4,7 +4,7 @@ const { Client } = require('discord.js');
 // the config file contains two fields:
 //   channel - name of the roles channel
 //   roles   - mapping between reaction and role
-const config = JSON.parse(fs.readFileSync('config.json', 'utf8'));
+const config = JSON.parse(fs.readFileSync('conflig.json', 'utf8'));
 
 // the client is created with the partial message option to capture events for uncached messages
 // if this options is not set, the bot may not be aware of the message that it should be watching
