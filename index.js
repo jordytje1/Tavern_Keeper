@@ -123,7 +123,7 @@ client.on('message', message => {
      */
     if(message.author.bot) {
         if(message.embeds.length === 1 && message.embeds[0].description.startsWith('React')) {
-            message.react(':tickets:625925895013662721')
+            message.react('tickets:625925895013662721')
             .then(msgReaction => console.log('Reacted.'))
             .catch(err => console.log(err));
         }
@@ -163,7 +163,7 @@ client.on('raw', payload => {
                 else { // Fetch the message and then get the reaction & user objects and emit the messageReactionAdd event manually.
                     channel.fetchMessage(payload.d.message_id)
                     .then(msg => {
-                        let reaction = msg.reactions.get('ticketreact:625925895013662721');
+                        let reaction = msg.reactions.get('tickets:625925895013662721');
                         let user = client.users.get(payload.d.user_id);
                         client.emit('messageReactionAdd', reaction, user);
                     })
@@ -181,7 +181,7 @@ client.on('raw', payload => {
             else {
                 channel.fetchMessage(payload.d.message_id)
                 .then(msg => {
-                    let reaction = msg.reactions.get('checkreact:625938016510410772');
+                    let reaction = msg.reactions.get('tickets:625938016510410772');
                     let user = client.users.get(payload.d.user_id);
                     client.emit('messageReactionAdd', reaction, user);
                 })
@@ -236,7 +236,7 @@ client.on('messageReactionAdd', (reaction, user) => {
             }).catch(err => console.log(err));
         }
     }
-    else if(reaction.emoji.name === 'checkreact') {
+    else if(reaction.emoji.name === 'tickets') {
         // If emoji is checkreact, they are trying to close the ticket.
         if(userTickets.has(user.id)) {
             if(reaction.message.channel.id === userTickets.get(user.id)) {
