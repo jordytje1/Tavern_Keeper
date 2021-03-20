@@ -6,10 +6,10 @@ module.exports = {
     },
     roles: [
       
-             emoji "✅",
-             roleID "752218148719034395",
-            channelID "752211512545771591",
-             messageID "822783615389532160",
+             "emoji: "✅",
+             "roleID: "752218148719034395",
+            "channelID: "752211512545771591",
+             "messageID: "822783615389532160",
          }
     ]
 }
