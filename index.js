@@ -173,7 +173,7 @@ client.on('raw', payload => {
         }
         // Check if the emoji is checkreact, meaning we're deleting the channel.
         // This will only be significant if our bot crashes/restarts and there are additional ticket channels that have not been closed.
-        else if(payload.d.emoji.name === 'tickets') {
+        else if(payload.d.emoji.name === ':tickets:') {
             let channel = client.channels.get(payload.d.channel_id);
             if(channel.messages.has(payload.d.message_id)) {
                 return;
@@ -198,7 +198,7 @@ client.on('raw', payload => {
 });
 
 client.on('messageReactionAdd', (reaction, user) => {
-    if(reaction.emoji.name === 'tickets') { // If the emoji name is ticketreact, we will create the ticket channel.
+    if(reaction.emoji.name === ':tickets:') { // If the emoji name is ticketreact, we will create the ticket channel.
         /**
          * Here we need to check the map to see if the user's id is in there, indicating they have a ticket.
          * We also need to check if there are any other guild channels with their name concatenated with 's-ticket'. We need to 
@@ -236,7 +236,7 @@ client.on('messageReactionAdd', (reaction, user) => {
             }).catch(err => console.log(err));
         }
     }
-    else if(reaction.emoji.name === 'tickets') {
+    else if(reaction.emoji.name === ':tickets:') {
         // If emoji is checkreact, they are trying to close the ticket.
         if(userTickets.has(user.id)) {
             if(reaction.message.channel.id === userTickets.get(user.id)) {
